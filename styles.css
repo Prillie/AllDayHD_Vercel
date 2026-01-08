@@ -601,13 +601,19 @@ footer::before{
 }
 @media(min-width:901px){
   .footer-content{
-    grid-template-columns:1.6fr 1fr 1fr 0.9fr;
+    grid-template-columns:2fr auto auto auto;
     gap:4px;
     align-items:start;
     justify-items:start;
     max-width:1150px;
     margin-left:auto;
     margin-right:auto;
+  }
+  .footer-brand{
+    width:auto;
+  }
+  .footer-section{
+    width:auto;
   }
 }
 .footer-brand{
@@ -687,7 +693,7 @@ footer::before{
 }
 .footer-links li a{
   font-size:1rem;
-  white-space:nowrap;
+  white-space:normal;
 }
 .footer-links a{
   color:#fff;
