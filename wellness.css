@@ -418,7 +418,10 @@ nav .nav-inner{
 }
 .filter-btn{
   background:#fff;
-  border:3px solid rgba(44,14,55,.15);
+  /* Match toolkit pill styling to avoid inner square artifacts */
+  border:0;
+  box-shadow:inset 0 0 0 3px rgba(44,14,55,.15);
+  overflow:hidden;
   border-radius:999px;
   padding:12px 28px;
   font-weight:700;
@@ -426,16 +429,24 @@ nav .nav-inner{
   cursor:pointer;
   transition:all .3s ease;
   font-size:1rem;
+  outline:none;
+}
+.filter-btn::-moz-focus-inner{
+  border:0;
+  padding:0;
+}
+.filter-btn:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(44,14,55,.15);
 }
 .filter-btn:hover{
-  border-color:var(--cerise);
+  box-shadow:inset 0 0 0 3px var(--cerise);
   background:rgba(236,5,142,.05);
   transform:translateY(-2px);
 }
 .filter-btn.active{
   background:linear-gradient(135deg,var(--cerise),var(--orange));
   color:#fff;
-  border-color:transparent;
   box-shadow:var(--shadow-md);
 }
 

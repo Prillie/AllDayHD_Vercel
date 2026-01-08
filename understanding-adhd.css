@@ -243,24 +243,34 @@
 }
 .resource-tab{
   background:#fff;
+  /* Use inset box-shadow instead of border to avoid inner square artifacts */
   border-radius:999px;
   padding:10px 22px;
-  border:2px solid rgba(44,14,55,.12);
+  border:0;
+  box-shadow:inset 0 0 0 2px rgba(44,14,55,.12);
   font-size:.95rem;
   font-weight:600;
   color:var(--purple);
   cursor:pointer;
   transition:all .25s ease;
+  outline:none;
+}
+.resource-tab::-moz-focus-inner{
+  border:0;
+  padding:0;
+}
+.resource-tab:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(44,14,55,.15);
 }
 .resource-tab:hover{
-  border-color:var(--cerise);
+  box-shadow:inset 0 0 0 2px var(--cerise);
   background:rgba(236,5,142,.05);
   transform:translateY(-1px);
 }
 .resource-tab.active{
   background:linear-gradient(135deg,var(--cerise),var(--orange));
   color:#fff;
-  border-color:transparent;
   box-shadow:var(--shadow-md);
 }
 body.resource-tabs-enabled .resource-panel{
