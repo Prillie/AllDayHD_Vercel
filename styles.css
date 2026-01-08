@@ -697,6 +697,57 @@ footer::before{
   transform:translateY(-2px);
 }
 
+/* Cookie banner (simple informational notice) */
+.cookie-banner{
+  position:fixed;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  max-width:640px;
+  width:calc(100% - 32px);
+  background:#fff;
+  color:var(--ink);
+  border-radius:999px;
+  box-shadow:var(--shadow-lg);
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:.85rem;
+  z-index:9999;
+}
+.cookie-banner p{
+  margin:0;
+  flex:1;
+}
+.cookie-banner button{
+  border-radius:999px;
+  border:none;
+  padding:8px 16px;
+  font-size:.85rem;
+  font-weight:600;
+  cursor:pointer;
+}
+.cookie-banner .cookie-accept{
+  background:linear-gradient(135deg,var(--cerise),var(--orange));
+  color:#fff;
+}
+.cookie-banner .cookie-close{
+  background:transparent;
+  color:var(--purple);
+}
+@media(max-width:600px){
+  .cookie-banner{
+    flex-direction:column;
+    align-items:flex-start;
+    border-radius:16px;
+  }
+  .cookie-banner button{
+    width:100%;
+    text-align:center;
+  }
+}
+
 /* Responsive */
 @media(max-width:768px){
   .section{padding:40px 24px}

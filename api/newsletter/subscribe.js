@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, goal, 'age-verification': ageVerification } = req.body;
+    const { name, email, goal, 'age-verification': ageVerification, 'gdpr-consent': gdprConsent } = req.body;
 
     // Validate required fields
     if (!email || !name) {
@@ -27,6 +27,12 @@ export default async function handler(req, res) {
     if (!ageVerification) {
       return res.status(400).json({ 
         error: 'Age verification is required' 
+      });
+    }
+
+    if (!gdprConsent) {
+      return res.status(400).json({
+        error: 'Consent to the Privacy Policy is required to subscribe'
       });
     }
 
@@ -66,6 +72,7 @@ export default async function handler(req, res) {
         FIRSTNAME: name.split(' ')[0] || name,
         LASTNAME: name.split(' ').slice(1).join(' ') || '',
         GOAL: goal || '',
+        GDPR_CONSENT: true,
         SIGNUP_DATE: new Date().toISOString(),
         SOURCE: 'Website Newsletter Form'
       },

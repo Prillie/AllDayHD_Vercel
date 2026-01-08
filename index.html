@@ -563,6 +563,14 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
 
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
+            <span class="checkmark"></span>
+            I agree to the <a href="privacy.html" style="color:var(--moonstone);text-decoration:underline;">Privacy Policy</a> and consent to All Day HD processing my personal data to send email updates. I understand I can unsubscribe at any time.
+          </label>
+        </div>
+        
         <button class="btn primary" type="submit" id="newsletter-submit">
           <span class="submit-text">Subscribe</span>
           <span class="submit-loading" style="display: none;">Subscribing...</span>
@@ -605,6 +613,14 @@ document.addEventListener('DOMContentLoaded', function() {
           <li><a href="#" target="_blank">Facebook</a></li>
           <li><a href="#" target="_blank">YouTube</a></li>
           <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
         </ul>
       </div>
     </div>
@@ -847,7 +863,8 @@ document.addEventListener('DOMContentLoaded', function() {
       name: formData.get('name'),
       email: formData.get('email'),
       goal: formData.get('goal') || '',
-      'age-verification': formData.get('age-verification') === 'on'
+      'age-verification': formData.get('age-verification') === 'on',
+      'gdpr-consent': formData.get('gdpr-consent') === 'on'
     };
     
     // Validate
@@ -858,6 +875,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!data['age-verification']) {
       showMessage('Please confirm your age to continue.', true);
+      return;
+    }
+
+    if (!data['gdpr-consent']) {
+      showMessage('Please confirm that you agree to the Privacy Policy so we can email you.', true);
       return;
     }
     
@@ -887,6 +909,41 @@ document.addEventListener('DOMContentLoaded', function() {
       setLoading(false);
     }
   });
+})();
+</script>
+
+<script>
+// Simple cookie / privacy notice
+(function(){
+  'use strict';
+  const STORAGE_KEY = 'alldayhd_cookie_notice';
+  if (localStorage.getItem(STORAGE_KEY) === 'accepted') return;
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.innerHTML = `
+    <p>We use essential cookies and local storage to keep the site running (for example, the focus timer). We do not use analytics or advertising cookies. See our <a href="privacy.html#cookies" style="color:var(--moonstone);text-decoration:underline;">Privacy Policy</a>.</p>
+    <button type="button" class="cookie-accept">OK</button>
+    <button type="button" class="cookie-close">Close</button>
+  `;
+
+  const acceptBtn = banner.querySelector('.cookie-accept');
+  const closeBtn = banner.querySelector('.cookie-close');
+
+  function hide() {
+    if (banner && banner.parentNode) {
+      banner.parentNode.removeChild(banner);
+    }
+  }
+
+  acceptBtn.addEventListener('click', function(){
+    localStorage.setItem(STORAGE_KEY, 'accepted');
+    hide();
+  });
+
+  closeBtn.addEventListener('click', hide);
+
+  document.body.appendChild(banner);
 })();
 </script>
 
