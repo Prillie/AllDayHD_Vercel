@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Younger Girls (Ages 8-12) | All Day HD</title>
+<meta name="description" content="A fun, bright space for girls ages 8-11 with ADHD. Learn about your amazing brain, discover cool tools, and celebrate what makes you special!">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="girls.css?v=2">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Comic+Neue:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<script>
+const announcements = [
+  "✨ Helping girls with ADHD build calm, focus, and confidence ✨",
+  "✨ Because girls with ADHD don't need fixing — they need understanding ✨",
+  "✨ Smart strategies for bright, unstoppable minds ✨",
+  "✨ Empowering girls to thrive with clarity, not chaos ✨",
+  "✨ One strategy at a time — because every mind shines differently ✨",
+  "💫 A special space for younger girls ages 8-12 with ADHD 💫"
+];
+
+let currentIndex = 0;
+
+function rotateAnnouncement() {
+  const announcementElement = document.getElementById('announcement-text');
+  if (!announcementElement) {
+    console.log('Element not found, retrying...');
+    setTimeout(rotateAnnouncement, 1000);
+    return;
+  }
+  
+  announcementElement.style.opacity = '0';
+  
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % announcements.length;
+    announcementElement.textContent = announcements[currentIndex];
+    announcementElement.style.opacity = '0.95';
+    console.log('Rotated to:', announcements[currentIndex]);
+  }, 500);
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, starting rotation...');
+  setInterval(rotateAnnouncement, 5000);
+  
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('menu-open');
+      
+      // Prevent body scroll when menu is open
+      if(nav.classList.contains('menu-open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Handle dropdown toggles on mobile
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    
+    if(link && dropdown) {
+      // This is a dropdown item
+      link.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          // Toggle active class for this specific item
+          item.classList.toggle('active');
+        }
+      });
+    } else if(link) {
+      // This is a regular link (no dropdown)
+      link.addEventListener('click', function() {
+        if(window.innerWidth <= 900) {
+          const nav = document.getElementById('main-nav');
+          nav.classList.remove('menu-open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+});
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container wrap">
+    <p id="announcement-text">✨ Building confidence, one strategy at a time ✨</p>
+  </div>
+</header>
+
+<nav aria-label="Primary navigation" id="main-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-brand">
+        <div class="nav-logo-orbit">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" class="nav-logo-center" />
+          <svg width="82" height="82" viewBox="0 0 82 82" class="nav-logo-ring"><defs><path id="textPathCircle" d="M 41,3 A 38,38 0 1,1 40.9,3" fill="none"/></defs><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="0" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="50%" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="42%">·</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="92%">·</textPath></text></svg>
+        </div>
+        <h5>All Day<span class="superscript">HD</span></h5>
+      </div>
+      
+      <ul class="nav-center">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        
+        <li class="nav-item active">
+          <span class="nav-link">For Girls <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="girls.html">Ages 8-12</a></li>
+            <li><a href="teens.html">Ages 13-18</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="parents.html" class="nav-link">For Parents</a>
+        </li>
+        
+        <li class="nav-item">
+          <span class="nav-link">Explore <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="toolkit.html">Focus Toolkit</a></li>
+            <li><a href="wellness.html">Wellness</a></li>
+            <li><a href="understanding-adhd.html">Understanding ADHD</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="video-resources.html">Videos</a></li>
+            <li><a href="image-map.html">Brain Map</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="contact-us.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="nav-timer">
+        <div class="timer-display" id="nav-timer-display">20:00</div>
+        <button class="timer-icon-btn" id="nav-timer-btn" aria-label="Open timer">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+            <path d="M8 4v4l3 2"/>
+          </svg>
+          <div class="timer-tooltip">Click to open focus timer</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Your Brain is AMAZING! 🌟</h1>
+      <p class="lead">Welcome to a special place just for girls like you! Learn about your super-cool ADHD brain, discover fun tools, and celebrate what makes YOU special.</p>
+      
+      <div class="fun-badges">
+        <span class="fun-badge" style="--delay:0">✨ Creative</span>
+        <span class="fun-badge" style="--delay:1">💫 Energetic</span>
+        <span class="fun-badge" style="--delay:2">🎨 Imaginative</span>
+        <span class="fun-badge" style="--delay:3">🚀 Curious</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="section purple-border" id="what-is-adhd">
+    <div class="section-header">
+      <h2 class="section-title">What is ADHD? 🤔</h2>
+      <p class="section-subtitle">Let's learn about your super-cool brain!</p>
+    </div>
+
+    <div class="explanation-grid">
+      <div class="explanation-card purple">
+        <span class="explanation-icon">🧠</span>
+        <h3>Your Brain is Like a Supercomputer</h3>
+        <p>Imagine having 100 browser tabs open at once! That's what your ADHD brain feels like. You notice EVERYTHING, think super fast, and have tons of ideas all at the same time. It's amazing... but sometimes it can feel overwhelming!</p>
+      </div>
+
+      <div class="explanation-card pink">
+        <span class="explanation-icon">🏎️</span>
+        <h3>A Race Car with Bicycle Brakes</h3>
+        <p>Your brain is super fast and powerful (like a race car!), but sometimes the "brakes" that help you slow down or focus don't work quite as fast. That's totally normal for ADHD brains!</p>
+      </div>
+
+      <div class="explanation-card blue">
+        <span class="explanation-icon">🦋</span>
+        <h3>The Butterfly Brain</h3>
+        <p>Your attention flutters from flower to flower like a butterfly! You notice colors, sounds, and interesting things that others might miss. This makes you creative and fun, even if sitting still feels really hard.</p>
+      </div>
+
+      <div class="explanation-card green">
+        <span class="explanation-icon">✨</span>
+        <h3>You're NOT Broken!</h3>
+        <p>ADHD is just a different way your brain works. It's like being left-handed or having curly hair — it's part of what makes YOU special! Lots of amazing people have ADHD, including artists, athletes, and inventors.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pink-border" id="superpowers">
+    <div class="section-header">
+      <h2 class="section-title">Your Superpowers! 💪</h2>
+      <p class="section-subtitle">These are things your ADHD brain does REALLY well!</p>
+    </div>
+
+    <div class="superpower-grid">
+      <div class="superpower-card card1">
+        <span class="superpower-icon">🎨</span>
+        <h3>Super Creativity</h3>
+        <p>You come up with amazing ideas that no one else thinks of! Your imagination is like a rocket ship that can go anywhere.</p>
+      </div>
+
+      <div class="superpower-card card2">
+        <span class="superpower-icon">⚡</span>
+        <h3>Tons of Energy</h3>
+        <p>You have SO much energy and enthusiasm! When you're excited about something, you can work on it for hours without getting bored.</p>
+      </div>
+
+      <div class="superpower-card card3">
+        <span class="superpower-icon">🔍</span>
+        <h3>Noticing Things</h3>
+        <p>You see details that others miss! Maybe you notice when someone seems sad, or you spot a cool bug no one else saw.</p>
+      </div>
+
+      <div class="superpower-card card4">
+        <span class="superpower-icon">❓</span>
+        <h3>Asking Great Questions</h3>
+        <p>You're super curious! You wonder about how things work and aren't afraid to ask "Why?" or "What if?"</p>
+      </div>
+
+      <div class="superpower-card card5">
+        <span class="superpower-icon">😄</span>
+        <h3>Being Fun & Funny</h3>
+        <p>You make people laugh and have fun ideas for games! Your energy makes things more exciting for everyone around you.</p>
+      </div>
+
+      <div class="superpower-card card6">
+        <span class="superpower-icon">🚀</span>
+        <h3>Hyperfocus Rocket</h3>
+        <p>When something matters to you, you can lock in and blast through challenges. That deep focus helps you learn fast and make big things happen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section blue-border" id="things-hard">
+    <div class="section-header">
+      <h2 class="section-title">Things That Feel Hard (And That's OK!) 💙</h2>
+      <p class="section-subtitle">Everyone has things that are tricky — here are some common ones for ADHD brains</p>
+    </div>
+
+    <div class="challenge-list">
+      <div class="challenge-item">
+        <h4><span class="challenge-emoji">🪑</span> Sitting Still</h4>
+        <p>Your body wants to MOVE! Sitting at a desk for a long time can feel impossible. Your legs bounce, your hands fidget, and you just want to jump up!</p>
+        <div class="challenge-tip">Try: Fidget toys, standing desk, or wiggle cushion. Ask your teacher if you can stand while working sometimes!</div>
+      </div>
+
+      <div class="challenge-item">
+        <h4><span class="challenge-emoji">⏰</span> Waiting Your Turn</h4>
+        <p>When you have something to say, it feels like it might burst out of you! Waiting to be called on is SO hard. Sometimes you interrupt without meaning to.</p>
+        <div class="challenge-tip">Try: Drawing while you wait, or squeezing a stress ball. It helps your body be patient!</div>
+      </div>
+
+      <div class="challenge-item">
+        <h4><span class="challenge-emoji">🧠</span> Remembering Stuff</h4>
+        <p>You might forget your homework, lose your jacket, or forget what you were supposed to do. Your brain is so busy with other thoughts!</p>
+        <div class="challenge-tip">Try: Checklists with pictures, putting things in the same spot every time, or using fun reminder alarms on a phone.</div>
+      </div>
+
+      <div class="challenge-item">
+        <h4><span class="challenge-emoji">😢</span> When Feelings Get BIG</h4>
+        <p>Sometimes feelings feel HUGE — like your mad is REALLY mad, or your sad is SUPER sad. It can feel like your emotions have a volume knob stuck on HIGH.</p>
+        <div class="challenge-tip">Try: Taking deep breaths, going to a quiet space, or doing a quick dance break to let the big feeling out!</div>
+      </div>
+
+      <div class="challenge-item">
+        <h4><span class="challenge-emoji">👭</span> Making Friends Who Understand</h4>
+        <p>Sometimes other kids don't understand why you interrupt, fidget, or have so much energy. Finding friends who "get you" can take time.</p>
+        <div class="challenge-tip">Try: Look for other energetic, creative kids! Join clubs or activities where being enthusiastic is celebrated.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section green-border" id="cool-tools">
+    <div class="section-header">
+      <h2 class="section-title">Cool Tools Just For You! 🛠️</h2>
+      <p class="section-subtitle">These tools help your ADHD brain work even better!</p>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon">⏱️</div>
+        <h3>Visual Timers</h3>
+        <p>These are timers you can SEE! They show you how much time is left in a colorful way, so you're not surprised when time is up.</p>
+        <div class="tool-examples">
+          <strong>Try these:</strong>
+          <ul>
+            <li>Time Timer (shows red disappearing)</li>
+            <li>Sand timers (fun to watch!)</li>
+            <li>Kitchen timer shaped like animals</li>
+            <li>Phone apps with animations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">😊</div>
+        <h3>Feelings Chart</h3>
+        <p>A chart with faces showing different feelings! Point to how you feel when words are hard to find. This helps grownups understand what you need.</p>
+        <div class="tool-examples">
+          <strong>How it helps:</strong>
+          <ul>
+            <li>Learn to name your feelings</li>
+            <li>Show others how you feel</li>
+            <li>Track patterns (sad on Mondays?)</li>
+            <li>Ask for what you need</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📋</div>
+        <h3>Morning Routine Chart</h3>
+        <p>Pictures showing each step of getting ready! No more forgetting to brush teeth or pack your backpack.</p>
+        <div class="tool-examples">
+          <strong>Your chart might show:</strong>
+          <ul>
+            <li>Wake up & get dressed</li>
+            <li>Brush teeth & wash face</li>
+            <li>Eat breakfast</li>
+            <li>Pack backpack & shoes on</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🎯</div>
+        <h3>Fidget Toys</h3>
+        <p>These are toys that help your hands stay busy so your brain can focus! Squish, twist, or spin them while you listen or work.</p>
+        <div class="tool-examples">
+          <strong>Popular fidgets:</strong>
+          <ul>
+            <li>Stress balls (squish!)</li>
+            <li>Fidget spinners or cubes</li>
+            <li>Silly putty or slime</li>
+            <li>Tangles or pop-its</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section orange-border" id="talking-about-adhd">
+    <div class="section-header">
+      <h2 class="section-title">Talking About ADHD 💬</h2>
+      <p class="section-subtitle">What to say when friends or teachers ask questions</p>
+    </div>
+
+    <div class="talking-cards">
+      <div class="talking-card">
+        <h3>How to Explain to Friends</h3>
+        <div class="speech-bubble">
+          <p><strong>"My brain works a little differently.</strong> It's like having a superpower that makes me super creative and full of energy, but sometimes it's hard for me to sit still or wait my turn. It's called ADHD and it's just part of who I am!"</p>
+        </div>
+        <div class="speech-bubble">
+          <p><strong>"You know how you can focus easily?</strong> My brain is like having 100 TV channels playing at once! It makes me really good at noticing things, but sometimes I need fidget toys or movement breaks to help me focus."</p>
+        </div>
+      </div>
+
+      <div class="talking-card">
+        <h3>What to Tell Teachers</h3>
+        <div class="speech-bubble">
+          <p><strong>"I learn better when I can move."</strong> Could I stand at my desk sometimes, or sit on a wiggle cushion? It helps my brain focus!</p>
+        </div>
+        <div class="speech-bubble">
+          <p><strong>"I sometimes forget things."</strong> Can you help me write down homework assignments or give me a checklist? It really helps me remember!</p>
+        </div>
+        <div class="speech-bubble">
+          <p><strong>"I'm trying really hard."</strong> Even when it looks like I'm not paying attention, I am! My brain just needs to fidget or move to focus better.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pink-border" id="downloads">
+    <div class="section-header">
+      <h2 class="section-title">Fun Downloads! 🎨</h2>
+      <p class="section-subtitle">Print these out and make them your own!</p>
+    </div>
+
+    <div class="downloads-grid">
+      <div class="download-card">
+        <span class="download-icon">🌈</span>
+        <h4>ADHD Coloring Pages</h4>
+        <p>Color in fun pages about your awesome brain!</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+
+      <div class="download-card">
+        <span class="download-icon">⭐</span>
+        <h4>"My Brain is Awesome" Certificate</h4>
+        <p>A special certificate just for YOU!</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+
+      <div class="download-card">
+        <span class="download-icon">✨</span>
+        <h4>Sticker Reward Chart</h4>
+        <p>Track your wins and earn stickers!</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+
+      <div class="download-card">
+        <span class="download-icon">🧘</span>
+        <h4>Calm Down Corner Kit</h4>
+        <p>Create your own calm space at home!</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+
+      <div class="download-card">
+        <span class="download-icon">🎯</span>
+        <h4>Morning Routine Chart</h4>
+        <p>Picture checklist for getting ready!</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+
+      <div class="download-card">
+        <span class="download-icon">😊</span>
+        <h4>Feelings Chart</h4>
+        <p>Learn to name your emotions!</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-fun">
+    <h2>You Are AMAZING! 🎉</h2>
+    <p>Remember: Your ADHD brain is special, creative, and full of possibilities!</p>
+    <div class="cta-button-row">
+      <a href="toolkit.html" class="btn">Get Focus Tools</a>
+      <a href="wellness.html" class="btn btn-ghost">Wellness & Feelings</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" />
+          <h4>All Day HD</h4>
+        </div>
+        <p>Empowering teen girls with ADHD and their families through evidence-based strategies, supportive community, and practical tools for daily life.</p>
+        <p class="brand-line">All Day HD = All Day Hi‑Def — a strengths‑based lens on ADHD.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="girls.html">Girls Ages 8-12</a></li>
+          <li><a href="teens.html">Girls Ages 13-18</a></li>
+          <li><a href="parents.html">For Parents</a></li>
+          <li><a href="toolkit.html">Focus Toolkit</a></li>
+          <li><a href="wellness.html">Wellness</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 All Day HD — Girls with Focus. Educational content only — not medical advice.</p>
+      <div class="social-icons">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Timer Modal -->
+<div class="timer-modal" id="timer-modal">
+  <div class="timer-modal-content">
+    <div class="timer-modal-header">
+      <h3>Focus Timer</h3>
+      <button class="timer-modal-close" id="timer-modal-close">×</button>
+    </div>
+    <div class="timer-large-display">
+      <div class="timer-time" id="timer-modal-time">20:00</div>
+      <div class="timer-label" id="timer-modal-label">Click start to begin</div>
+    </div>
+    <div class="timer-modal-controls">
+      <button class="timer-modal-btn primary" id="timer-modal-start">Start</button>
+      <button class="timer-modal-btn secondary" id="timer-modal-reset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Timer Modal & Functionality
+(function() {
+  'use strict';
+  
+  const navDisplay = document.getElementById('nav-timer-display');
+  const modalDisplay = document.getElementById('timer-modal-time');
+  const modalLabel = document.getElementById('timer-modal-label');
+  const navBtn = document.getElementById('nav-timer-btn');
+  const modal = document.getElementById('timer-modal');
+  const modalClose = document.getElementById('timer-modal-close');
+  const modalStart = document.getElementById('timer-modal-start');
+  const modalReset = document.getElementById('timer-modal-reset');
+  
+  if (!navDisplay || !navBtn || !modal) return;
+  
+  let minutes = 20;
+  let seconds = 0;
+  let interval = null;
+  let running = false;
+  
+  // Load state from sessionStorage
+  function loadState() {
+    const saved = sessionStorage.getItem('navTimer');
+    if (saved) {
+      const state = JSON.parse(saved);
+      minutes = state.minutes || 20;
+      seconds = state.seconds || 0;
+      running = state.running || false;
+      updateDisplays();
+      if (running) startTimer();
+    }
+  }
+  
+  // Save state to sessionStorage
+  function saveState() {
+    sessionStorage.setItem('navTimer', JSON.stringify({
+      minutes: minutes,
+      seconds: seconds,
+      running: running
+    }));
+  }
+  
+  function updateDisplays() {
+    const timeStr = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    navDisplay.textContent = timeStr;
+    if (modalDisplay) modalDisplay.textContent = timeStr;
+    
+    if (running) {
+      modalLabel.textContent = 'Focus session active';
+      if (modalStart) modalStart.textContent = 'Pause';
+    } else {
+      modalLabel.textContent = 'Timer paused';
+      if (modalStart) modalStart.textContent = 'Start';
+    }
+    
+    saveState();
+  }
+  
+  function startTimer() {
+    if (interval) clearInterval(interval);
+    
+    interval = setInterval(function() {
+      if (seconds > 0) {
+        seconds--;
+      } else if (minutes > 0) {
+        minutes--;
+        seconds = 59;
+      } else {
+        clearInterval(interval);
+        interval = null;
+        running = false;
+        navDisplay.textContent = '20:00';
+        modalDisplay.textContent = '20:00';
+        modalLabel.textContent = 'Time\'s up! Take a break.';
+        alert('Time\'s up! Take your break.');
+        minutes = 20;
+        seconds = 0;
+        saveState();
+        closeModal();
+      }
+      updateDisplays();
+    }, 1000);
+    
+    running = true;
+    updateDisplays();
+  }
+  
+  function stopTimer() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+    running = false;
+    updateDisplays();
+  }
+  
+  function resetTimer() {
+    stopTimer();
+    minutes = 20;
+    seconds = 0;
+    updateDisplays();
+  }
+  
+  function openModal() {
+    modal.classList.add('active');
+    updateDisplays();
+  }
+  
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+  
+  // Event listeners
+  navDisplay.addEventListener('click', openModal);
+  navBtn.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  modalStart.addEventListener('click', function() {
+    if (running) {
+      stopTimer();
+    } else {
+      startTimer();
+    }
+  });
+  modalReset.addEventListener('click', resetTimer);
+  
+  // Close modal on background click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  
+  // Save state when page is about to unload
+  window.addEventListener('beforeunload', function() {
+    saveState();
+  });
+  
+  // Save state when page becomes hidden (tab switch, minimize, etc.)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      saveState();
+    } else if (running) {
+      // If timer was running and page becomes visible again, ensure it's still running
+      loadState();
+    }
+  });
+  
+  // Initialize
+  loadState();
+})();
+</script>
+
+
+</body>
+</html>

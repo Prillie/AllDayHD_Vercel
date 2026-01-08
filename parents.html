@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Parents & Caregivers | All Day HD</title>
+<meta name="description" content="Evidence-based guidance for parents raising girls with ADHD. Communication scripts, school advocacy, and strategies that actually work.">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="parents.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+const announcements = [
+  "✨ Helping girls with ADHD build calm, focus, and confidence ✨",
+  "✨ Because girls with ADHD don't need fixing — they need understanding ✨",
+  "✨ Smart strategies for bright, unstoppable minds ✨",
+  "✨ Empowering girls to thrive with clarity, not chaos ✨",
+  "✨ One strategy at a time — because every mind shines differently ✨",
+  "💫 Evidence-based guidance for parents and caregivers 💫"
+];
+
+let currentIndex = 0;
+
+function rotateAnnouncement() {
+  const announcementElement = document.getElementById('announcement-text');
+  if (!announcementElement) {
+    console.log('Element not found, retrying...');
+    setTimeout(rotateAnnouncement, 1000);
+    return;
+  }
+  
+  announcementElement.style.opacity = '0';
+  
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % announcements.length;
+    announcementElement.textContent = announcements[currentIndex];
+    announcementElement.style.opacity = '0.95';
+    console.log('Rotated to:', announcements[currentIndex]);
+  }, 500);
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, starting rotation...');
+  setInterval(rotateAnnouncement, 5000);
+  
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('menu-open');
+      
+      // Prevent body scroll when menu is open
+      if(nav.classList.contains('menu-open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Handle dropdown toggles on mobile
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    
+    if(link && dropdown) {
+      // This is a dropdown item
+      link.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          // Toggle active class for this specific item
+          item.classList.toggle('active');
+        }
+      });
+    } else if(link) {
+      // This is a regular link (no dropdown)
+      link.addEventListener('click', function() {
+        if(window.innerWidth <= 900) {
+          const nav = document.getElementById('main-nav');
+          nav.classList.remove('menu-open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+});
+</script>
+
+</head>
+<body>
+
+<header>
+  <div class="container wrap">
+    <p id="announcement-text" >✨ Building confidence, one strategy at a time ✨</p>
+  </div>
+</header>
+
+<nav aria-label="Primary navigation" id="main-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-brand">
+        <div class="nav-logo-orbit">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" class="nav-logo-center" />
+          <svg width="82" height="82" viewBox="0 0 82 82" class="nav-logo-ring"><defs><path id="textPathCircle" d="M 41,3 A 38,38 0 1,1 40.9,3" fill="none"/></defs><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="0" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="50%" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="42%">·</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="92%">·</textPath></text></svg>
+        </div>
+        <h5>All Day<span class="superscript">HD</span></h5>
+      </div>
+      
+      <ul class="nav-center">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <span class="nav-link">For Girls <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="girls.html">Ages 8-12</a></li>
+            <li><a href="teens.html">Ages 13-18</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item active">
+          <a href="parents.html" class="nav-link">For Parents</a>
+        </li>
+        
+        <li class="nav-item">
+          <span class="nav-link">Explore <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="toolkit.html">Focus Toolkit</a></li>
+            <li><a href="wellness.html">Wellness</a></li>
+            <li><a href="understanding-adhd.html">Understanding ADHD</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="video-resources.html">Videos</a></li>
+            <li><a href="image-map.html">Brain Map</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="contact-us.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="nav-timer">
+        <div class="timer-display" id="nav-timer-display">20:00</div>
+        <button class="timer-icon-btn" id="nav-timer-btn" aria-label="Open timer">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+            <path d="M8 4v4l3 2"/>
+          </svg>
+          <div class="timer-tooltip">Click to open focus timer</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>You're Not Failing</h1>
+      <p class="lead">Parenting a girl with ADHD is challenging — not because you're doing it wrong, but because her brain works differently and needs different support. Here's your roadmap.</p>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <div class="age-selector">
+    <h3>Choose Your Daughter's Age Group</h3>
+    <div class="age-tabs">
+      <button class="age-tab active" onclick="switchAge(event, 'younger')">Ages 8-12</button>
+      <button class="age-tab" onclick="switchAge(event, 'teen')">Ages 13-18</button>
+      <button class="age-tab" onclick="switchAge(event, 'all')">All Ages</button>
+    </div>
+  </div>
+
+  <!-- YOUNGER GIRLS CONTENT (8-11) -->
+
+  <div id="younger" class="age-content active">
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Understanding Her Brain (Ages 8-12)</h2>
+    <p class="section-subtitle">How ADHD presents in younger girls — and why it's often missed</p>
+  </div>
+
+  <div class="understanding-grid">
+    <div class="understanding-card">
+      <h3>Quiet Inattention</h3>
+      <p>Unlike boys who might be disruptive, she's often the "daydreamer" staring out the window. Teachers may describe her as "sweet but spacey" or "not working to potential."</p>
+      <ul>
+        <li>Appears to be listening but isn't processing</li>
+        <li>Loses track during multi-step instructions</li>
+        <li>Drifts off during "boring" tasks</li>
+        <li>Forgets what she was doing mid-task</li>
+      </ul>
+    </div>
+
+    <div class="understanding-card">
+      <h3>Internal Hyperactivity</h3>
+      <p>Her body might fidget constantly — leg bouncing, finger tapping, hair twirling — but it's not the overt running around that gets boys noticed.</p>
+      <ul>
+        <li>Can't sit still but isn't disruptive</li>
+        <li>Always touching/fidgeting with something</li>
+        <li>Talks a LOT when comfortable</li>
+        <li>Mental restlessness even when body is still</li>
+      </ul>
+    </div>
+
+    <div class="understanding-card">
+      <h3>Emotional Intensity</h3>
+      <p>Small disappointments feel catastrophic. She might cry easily, have meltdowns over transitions, or struggle when things don't go as expected.</p>
+      <ul>
+        <li>Big feelings that seem disproportionate</li>
+        <li>Difficulty calming down once upset</li>
+        <li>Sensitive to criticism or correction</li>
+        <li>Fears disappointing adults</li>
+      </ul>
+    </div>
+
+    <div class="understanding-card">
+      <h3>Social Challenges</h3>
+      <p>She might interrupt without meaning to, miss social cues, or struggle with give-and-take in friendships. Other kids may find her "too much" or "immature."</p>
+      <ul>
+        <li>Blurts out thoughts impulsively</li>
+        <li>Dominates conversations when excited</li>
+        <li>Doesn't pick up on subtle social signals</li>
+        <li>Plays better with younger or older kids</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Communication Scripts That Work</h2>
+    <p class="section-subtitle">What to say in challenging moments</p>
+  </div>
+
+  <div class="scripts-container">
+    <div class="script-category">
+      <h3><span class="script-icon">📚</span> Homework Time</h3>
+      
+      <div class="script-box">
+        <div class="script-situation">When she can't start</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "Just do it! It's not that hard!"<br>
+          <strong>Try:</strong> "I see this feels overwhelming. Let's break it into tiny steps. What's the very first thing you need to do? Just that one thing."
+        </div>
+        <div class="script-why">Reduces overwhelm by making the task feel manageable. Task initiation is an executive function challenge, not defiance.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">When she's distracted</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "Pay attention! I just told you this!"<br>
+          <strong>Try:</strong> "Let's do a quick movement break. Ten jumping jacks, then we'll try again with the timer."
+        </div>
+        <div class="script-why">Her brain needs movement to refocus. Shaming doesn't improve attention — sensory input does.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">When work is sloppy</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "This is messy! Do it over!"<br>
+          <strong>Try:</strong> "You worked hard on this! Let's check together — are there 2-3 spots you could improve?"
+        </div>
+        <div class="script-why">Celebrates effort first, then guides improvement. Perfectionism paralyzes ADHD brains.</div>
+      </div>
+    </div>
+
+    <div class="script-category">
+      <h3><span class="script-icon">😢</span> During Meltdowns</h3>
+      
+      <div class="script-box">
+        <div class="script-situation">Big emotional reaction</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "You're overreacting! It's not a big deal!"<br>
+          <strong>Try:</strong> "This feels really big right now. I'm here. Let's breathe together." [Model slow breathing]
+        </div>
+        <div class="script-why">Validates her experience while co-regulating. You can't logic away an emotional storm.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">Transition struggles</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "We're leaving NOW! Stop stalling!"<br>
+          <strong>Try:</strong> "Five minute warning! Let's set the timer so your brain knows it's almost time to switch."
+        </div>
+        <div class="script-why">ADHD brains struggle with transitions. Visual/auditory warnings help her prepare mentally.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">After she's calmed down</div>
+        <div class="script-text">
+          <strong>Say:</strong> "That was tough. What helped you feel better? Let's remember that for next time."
+        </div>
+        <div class="script-why">Builds her emotional toolkit. Meta-cognition helps her develop self-regulation skills.</div>
+      </div>
+    </div>
+
+    <div class="script-category">
+      <h3><span class="script-icon">🌅</span> Morning Chaos</h3>
+      
+      <div class="script-box">
+        <div class="script-situation">Can't remember routine</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "How many times do I have to remind you?!"<br>
+          <strong>Try:</strong> "Check your picture chart. What's next?" [Point to visual schedule]
+        </div>
+        <div class="script-why">External structure compensates for weak working memory. She's not ignoring you — she genuinely forgot.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">Moving too slowly</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "Hurry up! We're going to be late!"<br>
+          <strong>Try:</strong> "Race the timer! Can you beat 5 minutes to get dressed?" [Set visible timer]
+        </div>
+        <div class="script-why">Gamification activates her dopamine system. Urgency + novelty = motivation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Building Routines That Stick</h2>
+    <p class="section-subtitle">Consistency over perfection</p>
+  </div>
+
+  <div class="routine-grid">
+    <div class="routine-card">
+      <h4><span class="routine-emoji">☀️</span> Morning Routine</h4>
+      <ol class="routine-steps">
+        <li>Wake up with preferred alarm (music, light, vibration)</li>
+        <li>Use picture checklist on wall: Get dressed → Bathroom → Breakfast</li>
+        <li>Play favorite song during breakfast (built-in timer)</li>
+        <li>Pack backpack using "launch pad" station</li>
+        <li>Shoes on, out the door — celebrate smooth exit!</li>
+      </ol>
+    </div>
+
+    <div class="routine-card">
+      <h4><span class="routine-emoji">📚</span> After-School Routine</h4>
+      <ol class="routine-steps">
+        <li>Snack + 20 min free time (decompress from school)</li>
+        <li>Movement break: jump on trampoline, dance, walk dog</li>
+        <li>Homework at consistent time/place with body doubling</li>
+        <li>Use 20-5 rule: 20 min work, 5 min break</li>
+        <li>End with "today's win" — name one thing she accomplished</li>
+      </ol>
+    </div>
+
+    <div class="routine-card">
+      <h4><span class="routine-emoji">🌙</span> Bedtime Routine</h4>
+      <ol class="routine-steps">
+        <li>Start 1 hour before sleep — set alarm as reminder</li>
+        <li>Dim lights, screen-free time (blue light affects sleep)</li>
+        <li>Warm bath or shower (sensory regulation)</li>
+        <li>Lay out tomorrow's clothes and pack backpack</li>
+        <li>Read together or audiobook with dim light</li>
+      </ol>
+    </div>
+
+    <div class="routine-card">
+      <h4><span class="routine-emoji">🎯</span> Reward System</h4>
+      <ol class="routine-steps">
+        <li>Use sticker chart for specific behaviors (not vague "be good")</li>
+        <li>Immediate reinforcement works best (daily/weekly, not monthly)</li>
+        <li>Let her help choose rewards (ownership increases motivation)</li>
+        <li>Praise effort and progress, not just outcomes</li>
+        <li>Catch her being good — 5:1 positive to negative ratio</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="advocacy-section">
+  <div class="section-header">
+    <h2 class="section-title">School Advocacy</h2>
+    <p class="section-subtitle">Getting the support she needs</p>
+  </div>
+
+  <div class="advocacy-grid">
+    <div class="advocacy-card">
+      <h4>504 Plan Accommodations</h4>
+      <p>A 504 Plan provides accommodations without needing special education services. Common accommodations for younger girls:</p>
+      <ul class="advocacy-list">
+        <li>Preferential seating (front, away from distractions)</li>
+        <li>Movement breaks or fidget tools</li>
+        <li>Extended time on tests</li>
+        <li>Written instructions + verbal (multi-modal)</li>
+        <li>Check-ins for assignment completion</li>
+        <li>Reduced homework load or modified assignments</li>
+      </ul>
+      <div class="download-box">
+        <strong>Download: 504 Accommodation Request Template</strong>
+        <a href="#" class="download-btn">Get Template</a>
+      </div>
+    </div>
+
+    <div class="advocacy-card">
+      <h4>Teacher Communication</h4>
+      <p>How to approach your daughter's teacher effectively:</p>
+      <ul class="advocacy-list">
+        <li>Start with gratitude: "Thank you for working with her"</li>
+        <li>Educate gently: "ADHD affects her executive function..."</li>
+        <li>Be specific: "She needs written instructions" not "more help"</li>
+        <li>Offer partnership: "What can we do at home to support?"</li>
+        <li>Follow up in writing (email trail for documentation)</li>
+        <li>Monthly check-ins to adjust what's working</li>
+      </ul>
+      <div class="download-box">
+        <strong>Download: Teacher Introduction Letter Template</strong>
+        <a href="#" class="download-btn">Get Template</a>
+      </div>
+    </div>
+
+    <div class="advocacy-card">
+      <h4>When to Request Evaluation</h4>
+      <p>Request a formal evaluation if she's struggling academically or socially despite interventions. You have the right to request evaluation at any time.</p>
+      <ul class="advocacy-list">
+        <li>Write a formal request letter to school (don't just ask verbally)</li>
+        <li>School has 60 days to respond and evaluate</li>
+        <li>Evaluation includes cognitive testing, observations, teacher/parent input</li>
+        <li>Results determine if she qualifies for 504 or IEP</li>
+        <li>You can disagree with findings and request independent evaluation</li>
+      </ul>
+      <div class="download-box">
+        <strong>Download: Evaluation Request Letter Template</strong>
+        <a href="#" class="download-btn">Get Template</a>
+      </div>
+    </div>
+
+    <div class="advocacy-card">
+      <h4>Homework Modifications</h4>
+      <p>Homework should reinforce learning, not create family warfare. Reasonable modifications include:</p>
+      <ul class="advocacy-list">
+        <li>Reduce quantity (10 problems instead of 30)</li>
+        <li>Allow typing instead of handwriting</li>
+        <li>Break long assignments into chunks over multiple nights</li>
+        <li>Accept alternate formats (video, poster, oral presentation)</li>
+        <li>Provide assignment checklists and due date reminders</li>
+        <li>Allow parent scribe for written work (tests ideas vs writing stamina)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  </div>
+
+  <!-- TEEN GIRLS CONTENT (13-18) -->
+
+  <div id="teen" class="age-content">
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Understanding Her Brain (Ages 13-18)</h2>
+    <p class="section-subtitle">How ADHD compounds during adolescence</p>
+  </div>
+
+  <div class="understanding-grid">
+    <div class="understanding-card">
+      <h3>Masking & Burnout</h3>
+      <p>By adolescence, many girls have learned to hide ADHD symptoms. They work twice as hard to appear "normal," leading to exhaustion, anxiety, and eventual burnout.</p>
+      <ul>
+        <li>Maintains good grades through superhuman effort</li>
+        <li>Appears fine at school, falls apart at home</li>
+        <li>Chronic anxiety from constant self-monitoring</li>
+        <li>Can't sustain the act forever — crash in late teens</li>
+      </ul>
+    </div>
+
+    <div class="understanding-card">
+      <h3>Hormones Amplify Everything</h3>
+      <p>Puberty hormones interact with ADHD, making symptoms worse. Menstrual cycle affects dopamine levels, causing symptom fluctuations.</p>
+      <ul>
+        <li>PMS intensifies emotional dysregulation</li>
+        <li>Medication may feel less effective certain weeks</li>
+        <li>Executive function crashes during specific cycle phases</li>
+        <li>Track patterns to predict difficult days</li>
+      </ul>
+    </div>
+
+    <div class="understanding-card">
+      <h3>Rejection Sensitivity Dysphoria</h3>
+      <p>RSD is extreme emotional pain from perceived rejection or criticism. It's a neurological response, not "being dramatic." Teens with ADHD are especially vulnerable.</p>
+      <ul>
+        <li>A neutral text feels like abandonment</li>
+        <li>Small criticism triggers intense shame</li>
+        <li>May avoid situations where failure is possible</li>
+        <li>People-pleasing to prevent rejection</li>
+      </ul>
+    </div>
+
+    <div class="understanding-card">
+      <h3>Independence vs. Executive Function</h3>
+      <p>She needs independence like any teen, but her executive function skills lag 3-5 years behind peers. This creates friction and frustration for everyone.</p>
+      <ul>
+        <li>Wants freedom but can't manage responsibilities</li>
+        <li>Forgets commitments despite good intentions</li>
+        <li>Time blindness makes curfews impossible</li>
+        <li>Needs scaffolding she resents</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Communication Scripts That Work</h2>
+    <p class="section-subtitle">What to say when emotions are high</p>
+  </div>
+
+  <div class="scripts-container">
+    <div class="script-category">
+      <h3><span class="script-icon">💬</span> When She's Overwhelmed</h3>
+      
+      <div class="script-box">
+        <div class="script-situation">Academic pressure</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "You just need to manage your time better!"<br>
+          <strong>Try:</strong> "This looks overwhelming. Can we break it down together? What if we mapped out this week with time blocks?"
+        </div>
+        <div class="script-why">Acknowledges the challenge while offering partnership. Time management is an executive function skill that needs explicit teaching.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">Social stress</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "They're your friends, just talk to them!"<br>
+          <strong>Try:</strong> "That sounds really hard. I know your brain makes rejection feel extra painful. Do you want to talk through what you might say, or just vent?"
+        </div>
+        <div class="script-why">Names RSD without dismissing her pain. Offers support without forcing solutions.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">Forgotten commitments</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "I reminded you three times! Why don't you listen?!"<br>
+          <strong>Try:</strong> "I know you didn't forget on purpose. What system can we set up so you don't have to rely on memory? Phone alarms? Shared calendar?"
+        </div>
+        <div class="script-why">Separates intent from impact. Focuses on solutions, not blame. Working memory challenges are neurological.</div>
+      </div>
+    </div>
+
+    <div class="script-category">
+      <h3><span class="script-icon">🚗</span> Independence Negotiations</h3>
+      
+      <div class="script-box">
+        <div class="script-situation">Wanting more freedom</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "You can't even remember to charge your phone!"<br>
+          <strong>Try:</strong> "I want to give you more freedom. Let's create a trial period. Show me you can [specific task] consistently for two weeks, then we'll expand privileges."
+        </div>
+        <div class="script-why">Sets clear expectations with measurable goals. Treats her like a partner in earning trust.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">Pushback on structure</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "This is my house, my rules!"<br>
+          <strong>Try:</strong> "I know check-ins feel annoying. They're not because I don't trust you — they're because time blindness is real. Can we find a middle ground that feels less micromanage-y to you?"
+        </div>
+        <div class="script-why">Explains the why. Invites collaboration. Respects her desire for autonomy while maintaining necessary support.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">Driving discussions</div>
+        <div class="script-text">
+          <strong>Try:</strong> "Driving requires sustained attention and quick reactions. Let's make sure your ADHD management is solid first. What supports do you need to feel confident you can do this safely?"
+        </div>
+        <div class="script-why">Frames it as safety and preparation, not punishment. Involves her in the solution.</div>
+      </div>
+    </div>
+
+    <div class="script-category">
+      <h3><span class="script-icon">🎓</span> School & Future Planning</h3>
+      
+      <div class="script-box">
+        <div class="script-situation">Falling grades</div>
+        <div class="script-text">
+          <strong>Instead of:</strong> "You're smart, you're just lazy!"<br>
+          <strong>Try:</strong> "I see you're struggling. This isn't about effort. Is it the workload? Organization? Something else? Let's figure out what support you need."
+        </div>
+        <div class="script-why">Never attribute to laziness what's explained by executive function challenges. Opens dialogue instead of defense.</div>
+      </div>
+
+      <div class="script-box">
+        <div class="script-situation">College concerns</div>
+        <div class="script-text">
+          <strong>Try:</strong> "College is absolutely possible with ADHD. Let's think about what environment would set you up for success — smaller classes? Nearby? Strong disability services? This is about fit, not limits."
+        </div>
+        <div class="script-why">Maintains hope while being realistic. Focuses on strategic planning.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="advocacy-section">
+  <div class="section-header">
+    <h2 class="section-title">School Advocacy for Teens</h2>
+    <p class="section-subtitle">High school accommodations and college preparation</p>
+  </div>
+
+  <div class="advocacy-grid">
+    <div class="advocacy-card">
+      <h4>High School 504/IEP Accommodations</h4>
+      <ul class="advocacy-list">
+        <li>Extended time on tests and assignments</li>
+        <li>Quiet testing environment</li>
+        <li>Note-taking support or access to teacher notes</li>
+        <li>Permission to type instead of handwrite</li>
+        <li>Assignment breakdown and interim deadlines</li>
+        <li>Access to recordings of lectures</li>
+        <li>Reduced homework load without grade penalty</li>
+        <li>Permission to audio-record lectures</li>
+      </ul>
+    </div>
+
+    <div class="advocacy-card">
+      <h4>Preparing for College</h4>
+      <ul class="advocacy-list">
+        <li>Register with college disability services early</li>
+        <li>Documentation needs to be current (within 3-5 years)</li>
+        <li>Practice self-advocacy in high school</li>
+        <li>Visit disability services office during campus tours</li>
+        <li>Consider smaller schools with strong support</li>
+        <li>Extended time on SAT/ACT requires documentation</li>
+      </ul>
+    </div>
+
+    <div class="advocacy-card">
+      <h4>Teaching Self-Advocacy</h4>
+      <p>She needs to learn to speak up for herself before college:</p>
+      <ul class="advocacy-list">
+        <li>Practice explaining ADHD to teachers: "I have ADHD which affects..."</li>
+        <li>Role-play requesting accommodations</li>
+        <li>Let her lead IEP/504 meetings (with support)</li>
+        <li>Teach her to email teachers herself</li>
+        <li>Practice asking for help before crisis hits</li>
+      </ul>
+    </div>
+
+    <div class="advocacy-card">
+      <h4>When School Pushes Back</h4>
+      <p>If school denies accommodations or support:</p>
+      <ul class="advocacy-list">
+        <li>Request denial in writing (they often reconsider)</li>
+        <li>Cite IDEA or Section 504 of Rehabilitation Act</li>
+        <li>Bring advocate or education lawyer to meetings</li>
+        <li>File complaint with Office for Civil Rights if needed</li>
+        <li>Document everything in writing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  </div>
+
+  <!-- ALL AGES CONTENT -->
+
+  <div id="all" class="age-content">
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Big Topics: All Ages</h2>
+    <p class="section-subtitle">Decisions and challenges that apply across childhood and adolescence</p>
+  </div>
+
+  <div class="understanding-grid">
+    <div class="understanding-card">
+      <h3>Medication Decisions</h3>
+      <p>There's no one-size-fits-all answer. Medication is a personal decision based on symptom severity, daily functioning, and individual response.</p>
+      <ul>
+        <li>Start with behavioral strategies — they help regardless</li>
+        <li>Stimulants (Adderall, Ritalin) work for ~70-80% of people</li>
+        <li>Non-stimulants (Strattera, Intuniv) are alternatives</li>
+        <li>Finding right med/dose takes trial and error</li>
+        <li>Medication + therapy + strategies = best outcomes</li>
+      </ul>
+    </div>
+
+    <div class="understanding-card">
+      <h3>Therapy & Coaching</h3>
+      <p>Different professionals serve different needs. Many girls benefit from a combination.</p>
+      <ul>
+        <li><strong>ADHD Coach:</strong> Practical strategies, accountability, executive function skills</li>
+        <li><strong>Therapist (CBT/DBT):</strong> Emotional regulation, anxiety, self-esteem</li>
+        <li><strong>Educational Therapist:</strong> Study skills, organization, academic support</li>
+        <li><strong>Psychiatrist:</strong> Medication management, diagnostic clarity</li>
+      </ul>
+    </div>
+
+    <div class="understanding-card">
+      <h3>Sibling Dynamics</h3>
+      <p>ADHD affects the whole family. Siblings may feel neglected, resentful, or confused about different rules.</p>
+      <ul>
+        <li>Explain ADHD to siblings in age-appropriate ways</li>
+        <li>Acknowledge "fair" doesn't mean "same"</li>
+        <li>Give siblings one-on-one attention regularly</li>
+        <li>Don't make siblings responsible for ADHD sister</li>
+        <li>Watch for resentment and address it early</li>
+      </ul>
+    </div>
+
+    <div class="understanding-card">
+      <h3>Screen Time & Technology</h3>
+      <p>ADHD brains are especially vulnerable to screen addiction. Dopamine-seeking makes it hard to disengage.</p>
+      <ul>
+        <li>Set clear limits with built-in screen time controls</li>
+        <li>No screens 1 hour before bed (blue light affects sleep)</li>
+        <li>Use tech as tool (timers, reminders) not just entertainment</li>
+        <li>Watch for signs of addiction (anger when removed, sneaking)</li>
+        <li>Model healthy tech boundaries yourself</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">When to Seek Additional Help</h2>
+    <p class="section-subtitle">Red flags that indicate professional support is needed</p>
+  </div>
+
+  <div class="redflags-grid">
+    <div class="redflag-card">
+      <h4>⚠️ Mental Health Red Flags</h4>
+      <ul>
+        <li>Persistent sadness or hopelessness (2+ weeks)</li>
+        <li>Loss of interest in activities she used to enjoy</li>
+        <li>Talk of self-harm or "not wanting to be here"</li>
+        <li>Withdrawal from friends and family</li>
+        <li>Dramatic changes in eating or sleeping</li>
+        <li>Intense anxiety that interferes with daily life</li>
+      </ul>
+    </div>
+
+    <div class="redflag-card">
+      <h4>⚠️ Academic Red Flags</h4>
+      <ul>
+        <li>Failing multiple classes despite effort</li>
+        <li>School refusal or frequent "sick" days</li>
+        <li>Teacher reports of daily struggles</li>
+        <li>Homework battles lasting hours every night</li>
+        <li>Can't complete work even with your help</li>
+        <li>Learning seems much harder than for peers</li>
+      </ul>
+    </div>
+
+    <div class="redflag-card">
+      <h4>⚠️ Social Red Flags</h4>
+      <ul>
+        <li>No friends or frequently losing friendships</li>
+        <li>Excluded from peer groups consistently</li>
+        <li>Bullied or teased regularly</li>
+        <li>Complete social isolation by choice</li>
+        <li>Conflict with every peer interaction</li>
+        <li>Inappropriate social behavior for age</li>
+      </ul>
+    </div>
+
+    <div class="redflag-card">
+      <h4>⚠️ Behavioral Red Flags</h4>
+      <ul>
+        <li>Extreme defiance or oppositional behavior</li>
+        <li>Aggression toward self, others, or property</li>
+        <li>Risky behavior (substance use, sexual activity)</li>
+        <li>Running away or sneaking out regularly</li>
+        <li>Legal troubles or repeated rule violations</li>
+        <li>Complete inability to regulate emotions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="crisis-box">
+    <h4>🆘 Crisis Resources</h4>
+    <p>If your daughter is in crisis or you're worried about immediate safety:</p>
+    <div class="crisis-number">988</div>
+    <p><strong>Suicide & Crisis Lifeline</strong><br>
+    Call or text 988 for 24/7 support<br>
+    Chat available at 988lifeline.org</p>
+    <p><strong>Crisis Text Line:</strong> Text HOME to 741741<br>
+    <strong>Trevor Project</strong> (LGBTQ youth): 1-866-488-7386</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Self-Care for Parents</h2>
+    <p class="section-subtitle">You can't pour from an empty cup</p>
+  </div>
+
+  <div class="selfcare-grid">
+    <div class="selfcare-card">
+      <div class="selfcare-icon">🧘</div>
+      <h4>Manage Your Own Stress</h4>
+      <p>Parenting an ADHD child is chronically stressful. Your nervous system needs regulation before you can co-regulate hers. Take breaks without guilt.</p>
+    </div>
+
+    <div class="selfcare-card">
+      <div class="selfcare-icon">👥</div>
+      <h4>Find Your People</h4>
+      <p>Connect with other parents who understand. Support groups (in-person or online) provide validation, practical tips, and the relief of not being alone.</p>
+    </div>
+
+    <div class="selfcare-card">
+      <div class="selfcare-icon">📖</div>
+      <h4>Educate Yourself</h4>
+      <p>Understanding ADHD reduces frustration and helps you separate behavior from intent. Knowledge is power — and it helps you advocate effectively.</p>
+    </div>
+
+    <div class="selfcare-card">
+      <div class="selfcare-icon">💬</div>
+      <h4>Therapy for You</h4>
+      <p>Parenting ADHD can trigger your own anxiety, depression, or past trauma. Taking care of your mental health makes you a better parent.</p>
+    </div>
+
+    <div class="selfcare-card">
+      <div class="selfcare-icon">⚖️</div>
+      <h4>Release Perfectionism</h4>
+      <p>You will lose your patience. You will say the wrong thing. That's being human, not failing. Repair, apologize, and move forward. Progress, not perfection.</p>
+    </div>
+
+    <div class="selfcare-card">
+      <div class="selfcare-icon">🎯</div>
+      <h4>Celebrate Small Wins</h4>
+      <p>ADHD progress is non-linear. On hard days, celebrate that you both survived. Good enough parenting is actually great parenting.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Recommended Resources</h2>
+    <p class="section-subtitle">Books, podcasts, and organizations we trust</p>
+  </div>
+
+  <div class="resources-grid">
+    <div class="resource-card">
+      <h4>📚 Books for Parents</h4>
+      <a href="#" class="resource-link">"Taking Charge of ADHD" by Russell Barkley</a>
+      <a href="#" class="resource-link">"Smart but Scattered" by Peg Dawson</a>
+      <a href="#" class="resource-link">"The Explosive Child" by Ross Greene</a>
+      <a href="#" class="resource-link">"How to Talk So Kids Will Listen" by Faber & Mazlish</a>
+      <a href="#" class="resource-link">"Understanding Girls with ADHD" by Nadeau, Littman & Quinn</a>
+    </div>
+
+    <div class="resource-card">
+      <h4>🎧 Podcasts</h4>
+      <a href="#" class="resource-link">ADHD Experts Podcast (ADDitude Magazine)</a>
+      <a href="#" class="resource-link">Parenting ADHD Podcast</a>
+      <a href="#" class="resource-link">The Calm, Cool, and Connected Podcast</a>
+      <a href="#" class="resource-link">ADHD reWired with Eric Tivers</a>
+    </div>
+
+    <div class="resource-card">
+      <h4>🌐 Organizations</h4>
+      <a href="#" class="resource-link">CHADD (Children and Adults with ADHD)</a>
+      <a href="#" class="resource-link">ADDitude Magazine</a>
+      <a href="#" class="resource-link">Understood.org</a>
+      <a href="#" class="resource-link">Smart Kids with Learning Disabilities</a>
+      <a href="#" class="resource-link">National Resource Center on ADHD</a>
+    </div>
+
+    <div class="resource-card">
+      <h4>💻 Online Communities</h4>
+      <a href="#" class="resource-link">CHADD Support Groups</a>
+      <a href="#" class="resource-link">Facebook: ADHD Parents Together</a>
+      <a href="#" class="resource-link">Reddit: r/ADHD_Parenting</a>
+      <a href="#" class="resource-link">ADDitude Forums</a>
+    </div>
+
+    <div class="resource-card">
+      <h4>📱 Apps & Tools</h4>
+      <a href="#" class="resource-link">Tiimo (Visual Planning App)</a>
+      <a href="#" class="resource-link">Time Timer (Visual Timer)</a>
+      <a href="#" class="resource-link">Habitica (Gamified To-Do List)</a>
+      <a href="#" class="resource-link">Forest (Focus App)</a>
+      <a href="#" class="resource-link">ChoreMonster (Reward System)</a>
+    </div>
+
+    <div class="resource-card">
+      <h4>🎓 Educational Resources</h4>
+      <a href="#" class="resource-link">Wrightslaw (Special Education Law)</a>
+      <a href="#" class="resource-link">IEP/504 Templates & Guides</a>
+      <a href="#" class="resource-link">How to Write an Accommodation Letter</a>
+      <a href="#" class="resource-link">School Advocacy Workshop</a>
+    </div>
+  </div>
+</section>
+
+  </div>
+
+  <div class="cta-banner">
+    <h2>Join Our Parent Community</h2>
+    <p>Get weekly strategies, printable resources, and support from parents who understand the journey.</p>
+    <div class="cta-button-row">
+      <a href="toolkit.html" class="btn">Explore Focus Tools</a>
+      <a href="wellness.html" class="btn btn-ghost">Wellness Resources</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" />
+          <h4>All Day HD</h4>
+        </div>
+        <p>Empowering teen girls with ADHD and their families through evidence-based strategies, supportive community, and practical tools for daily life.</p>
+        <p class="brand-line">All Day HD = All Day Hi‑Def — a strengths‑based lens on ADHD.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="girls.html">Girls Ages 8-12</a></li>
+          <li><a href="teens.html">Girls Ages 13-18</a></li>
+          <li><a href="parents.html">For Parents</a></li>
+          <li><a href="toolkit.html">Focus Toolkit</a></li>
+          <li><a href="wellness.html">Wellness</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 All Day HD — Girls with Focus. Educational content only — not medical advice.</p>
+        <div class="social-icons">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+function switchAge(evt, ageGroup) {
+  // Hide all age content
+  const ageContent = document.getElementsByClassName('age-content');
+  for (let i = 0; i < ageContent.length; i++) {
+    ageContent[i].classList.remove('active');
+  }
+  
+  // Remove active class from all buttons
+  const ageTabs = document.getElementsByClassName('age-tab');
+  for (let i = 0; i < ageTabs.length; i++) {
+    ageTabs[i].classList.remove('active');
+  }
+  
+  // Show current age content and mark button as active
+  document.getElementById(ageGroup).classList.add('active');
+  evt.currentTarget.classList.add('active');
+  
+  // Scroll to top of content
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+<!-- Timer Modal -->
+<div class="timer-modal" id="timer-modal">
+  <div class="timer-modal-content">
+    <div class="timer-modal-header">
+      <h3>Focus Timer</h3>
+      <button class="timer-modal-close" id="timer-modal-close">×</button>
+    </div>
+    <div class="timer-large-display">
+      <div class="timer-time" id="timer-modal-time">20:00</div>
+      <div class="timer-label" id="timer-modal-label">Click start to begin</div>
+    </div>
+    <div class="timer-modal-controls">
+      <button class="timer-modal-btn primary" id="timer-modal-start">Start</button>
+      <button class="timer-modal-btn secondary" id="timer-modal-reset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Timer Modal & Functionality
+(function() {
+  'use strict';
+  
+  const navDisplay = document.getElementById('nav-timer-display');
+  const modalDisplay = document.getElementById('timer-modal-time');
+  const modalLabel = document.getElementById('timer-modal-label');
+  const navBtn = document.getElementById('nav-timer-btn');
+  const modal = document.getElementById('timer-modal');
+  const modalClose = document.getElementById('timer-modal-close');
+  const modalStart = document.getElementById('timer-modal-start');
+  const modalReset = document.getElementById('timer-modal-reset');
+  
+  if (!navDisplay || !navBtn || !modal) return;
+  
+  let minutes = 20;
+  let seconds = 0;
+  let interval = null;
+  let running = false;
+  
+  // Load state from sessionStorage
+  function loadState() {
+    const saved = sessionStorage.getItem('navTimer');
+    if (saved) {
+      const state = JSON.parse(saved);
+      minutes = state.minutes || 20;
+      seconds = state.seconds || 0;
+      running = state.running || false;
+      updateDisplays();
+      if (running) startTimer();
+    }
+  }
+  
+  // Save state to sessionStorage
+  function saveState() {
+    sessionStorage.setItem('navTimer', JSON.stringify({
+      minutes: minutes,
+      seconds: seconds,
+      running: running
+    }));
+  }
+  
+  function updateDisplays() {
+    const timeStr = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    navDisplay.textContent = timeStr;
+    if (modalDisplay) modalDisplay.textContent = timeStr;
+    
+    if (running) {
+      modalLabel.textContent = 'Focus session active';
+      if (modalStart) modalStart.textContent = 'Pause';
+    } else {
+      modalLabel.textContent = 'Timer paused';
+      if (modalStart) modalStart.textContent = 'Start';
+    }
+    
+    saveState();
+  }
+  
+  function startTimer() {
+    if (interval) clearInterval(interval);
+    
+    interval = setInterval(function() {
+      if (seconds > 0) {
+        seconds--;
+      } else if (minutes > 0) {
+        minutes--;
+        seconds = 59;
+      } else {
+        clearInterval(interval);
+        interval = null;
+        running = false;
+        navDisplay.textContent = '20:00';
+        modalDisplay.textContent = '20:00';
+        modalLabel.textContent = 'Time\'s up! Take a break.';
+        alert('Time\'s up! Take your break.');
+        minutes = 20;
+        seconds = 0;
+        saveState();
+        closeModal();
+      }
+      updateDisplays();
+    }, 1000);
+    
+    running = true;
+    updateDisplays();
+  }
+  
+  function stopTimer() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+    running = false;
+    updateDisplays();
+  }
+  
+  function resetTimer() {
+    stopTimer();
+    minutes = 20;
+    seconds = 0;
+    updateDisplays();
+  }
+  
+  function openModal() {
+    modal.classList.add('active');
+    updateDisplays();
+  }
+  
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+  
+  // Event listeners
+  navDisplay.addEventListener('click', openModal);
+  navBtn.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  modalStart.addEventListener('click', function() {
+    if (running) {
+      stopTimer();
+    } else {
+      startTimer();
+    }
+  });
+  modalReset.addEventListener('click', resetTimer);
+  
+  // Close modal on background click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  
+  // Save state when page is about to unload
+  window.addEventListener('beforeunload', function() {
+    saveState();
+  });
+  
+  // Save state when page becomes hidden (tab switch, minimize, etc.)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      saveState();
+    } else if (running) {
+      // If timer was running and page becomes visible again, ensure it's still running
+      loadState();
+    }
+  });
+  
+  // Initialize
+  loadState();
+})();
+</script>
+
+</body>
+</html>

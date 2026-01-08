@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Video Resources | All Day HD — Girls in Focus</title>
+<meta name="description" content="Educational videos about ADHD in girls, strategies, and support resources.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="video-resources.css?v=2">
+
+<script>
+const announcements = [
+  "✨ Helping girls with ADHD build calm, focus, and confidence ✨",
+  "✨ Because girls with ADHD don't need fixing — they need understanding ✨",
+  "✨ Smart strategies for bright, unstoppable minds ✨",
+  "✨ Empowering girls to thrive with clarity, not chaos ✨",
+  "✨ One strategy at a time — because every mind shines differently ✨",
+  "💫 Empowering all girls with ADHD through practical strategies, supportive community, and science-backed tools 💫"
+];
+
+let currentIndex = 0;
+
+function rotateAnnouncement() {
+  const announcementElement = document.getElementById('announcement-text');
+  if (!announcementElement) {
+    console.log('Element not found, retrying...');
+    setTimeout(rotateAnnouncement, 1000);
+    return;
+  }
+  
+  announcementElement.style.opacity = '0';
+  
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % announcements.length;
+    announcementElement.textContent = announcements[currentIndex];
+    announcementElement.style.opacity = '0.95';
+    console.log('Rotated to:', announcements[currentIndex]);
+  }, 500);
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, starting rotation...');
+  setInterval(rotateAnnouncement, 5000);
+  
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('menu-open');
+      
+      // Prevent body scroll when menu is open
+      if(nav.classList.contains('menu-open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Handle dropdown toggles on mobile
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    
+    if(link && dropdown) {
+      // This is a dropdown item
+      link.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          // Toggle active class for this specific item
+          item.classList.toggle('active');
+        }
+      });
+    } else if(link) {
+      // This is a regular link (no dropdown)
+      link.addEventListener('click', function() {
+        if(window.innerWidth <= 900) {
+          const nav = document.getElementById('main-nav');
+          nav.classList.remove('menu-open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+  
+  // Ensure dropdowns work with ul/ol structure
+  document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+    if(!dropdown.querySelector('li')) {
+      // Convert existing dropdown structure if needed
+      const links = dropdown.querySelectorAll('a');
+      links.forEach(function(link) {
+        const li = document.createElement('li');
+        li.appendChild(link.cloneNode(true));
+        link.parentNode.replaceChild(li, link);
+      });
+    }
+  });
+});
+</script>
+</head>
+
+</head>
+<body>
+
+<header>
+  <div class="container wrap">
+    <p id="announcement-text" >✨ Building confidence, one strategy at a time ✨</p>
+  </div>
+</header>
+
+<nav aria-label="Primary navigation" id="main-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-brand">
+        <div class="nav-logo-orbit">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" class="nav-logo-center" />
+          <svg width="82" height="82" viewBox="0 0 82 82" class="nav-logo-ring"><defs><path id="textPathCircle" d="M 41,3 A 38,38 0 1,1 40.9,3" fill="none"/></defs><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="0" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="50%" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="42%">·</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="92%">·</textPath></text></svg>
+        </div>
+        <h5>All Day<span class="superscript">HD</span></h5>
+      </div>
+      
+      <ul class="nav-center">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <span class="nav-link">For Girls <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="girls.html">Ages 8-12</a></li>
+            <li><a href="teens.html">Ages 13-18</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="parents.html" class="nav-link">For Parents</a>
+        </li>
+        
+        <li class="nav-item active">
+          <span class="nav-link">Explore <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="toolkit.html">Focus Toolkit</a></li>
+            <li><a href="wellness.html">Wellness</a></li>
+            <li><a href="understanding-adhd.html">Understanding ADHD</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="video-resources.html">Videos</a></li>
+            <li><a href="image-map.html">Brain Map</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="contact-us.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="nav-timer">
+        <div class="timer-display" id="nav-timer-display">20:00</div>
+        <button class="timer-icon-btn" id="nav-timer-btn" aria-label="Open timer">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+            <path d="M8 4v4l3 2"/>
+          </svg>
+          <div class="timer-tooltip">Click to open focus timer</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Understanding ADHD Through Video</h1>
+      <p class="lead">Visual learning resources about ADHD in girls and practical strategies</p>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Video Resources</h2>
+      <p class="section-subtitle">Visual learning resources about ADHD in girls and practical strategies</p>
+    </div>
+
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dmeE3qTJRUw?rel=0" title="Understanding ADHD in Girls" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>Understanding ADHD in Girls</h3>
+        <p>Learn about how ADHD presents differently in girls, why it's often missed, and what makes the female ADHD experience unique. This video explores masking, internalized symptoms, and why girls with ADHD are frequently underdiagnosed.</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/tbvRVrDw8C0?rel=0" title="ADHD: 21 Signs in Women & Girls" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>ADHD: 21 Signs in Women & Girls</h3>
+        <p>An in-depth look at the signs of ADHD in women and girls, highlighting the unique challenges they face. This video helps identify symptoms that are often overlooked or misattributed in females.</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/VC4UwtlzM0A?rel=0" title="Symptoms of ADHD in Girls" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>Symptoms of ADHD in Girls</h3>
+        <p>This video helps in recognizing the symptoms of inattentive ADHD, which are more common among girls and often overlooked. Learn about the unique presentation of ADHD in girls and why it's frequently missed.</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/26TolTb1VHY?rel=0" title="The Emotional Lives of Girls with ADHD" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>Supporting Your Daughter with ADHD</h3>
+        <p>For parents: Learn about the emotional lives of girls with ADHD and how to support your daughter. This video covers understanding her unique needs, emotional regulation, and building a supportive environment.</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/nNLOASbT6Ms?rel=0" title="6 ADHD Strategies That Actually Help" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>Focus Strategies That Work</h3>
+        <p>Practical techniques for improving focus and attention, including the Pomodoro Technique, body doubling, environmental design, and other evidence-based methods specifically helpful for ADHD brains.</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/uyezrndFAEo?rel=0" title="Emotional Dysregulation in ADHD: Managing Big Emotions" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>Emotional Regulation for ADHD</h3>
+        <p>Understanding emotional intensity in ADHD and learning strategies to manage big feelings, rejection sensitive dysphoria (RSD), and overwhelm. Includes grounding techniques and self-compassion practices.</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/Bco_kwkNVLs?rel=0" title="A Parent's Guide to Executive Function Fixes for Teens with ADHD" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>Executive Functions Explained</h3>
+        <p>An easy-to-understand explanation of executive functions and how ADHD affects them. Learn about working memory, task initiation, planning, and organization challenges, plus practical workarounds and fixes.</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/oPm2ulWVxCM?rel=0" title="Defining ADHD for Teens" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>Study Tips for ADHD Teens</h3>
+        <p>Study strategies designed specifically for ADHD brains. Learn about active learning techniques, breaking down assignments, using timers effectively, and creating study environments that support focus.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;padding:32px;background:linear-gradient(135deg,rgba(236,5,142,.05),rgba(255,144,0,.05));border-radius:var(--radius-lg);border-left:4px solid var(--cerise);">
+      <h3 style="color:var(--purple);margin-bottom:16px;">More Video Resources</h3>
+      <p style="color:#5d4d57;line-height:1.8;margin-bottom:20px;">Subscribe to our YouTube channel for weekly videos on ADHD strategies, success stories, and expert interviews. We regularly add new content to help girls with ADHD and their families.</p>
+      <p><a href="contact-us.html" style="color:var(--cerise);font-weight:600;text-decoration:none;">Visit our contact page to find our YouTube channel →</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" />
+          <h4>All Day HD</h4>
+        </div>
+        <p>Empowering teen girls with ADHD and their families through evidence-based strategies, supportive community, and practical tools for daily life.</p>
+        <p class="brand-line">All Day HD = All Day Hi‑Def — a strengths‑based lens on ADHD.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="girls.html">Girls Ages 8-12</a></li>
+          <li><a href="teens.html">Girls Ages 13-18</a></li>
+          <li><a href="parents.html">For Parents</a></li>
+          <li><a href="toolkit.html">Focus Toolkit</a></li>
+          <li><a href="wellness.html">Wellness</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 All Day HD — Girls in Focus. Educational content only — not medical advice.</p>
+        <div class="social-icons">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Timer Modal -->
+<div class="timer-modal" id="timer-modal">
+  <div class="timer-modal-content">
+    <div class="timer-modal-header">
+      <h3>Focus Timer</h3>
+      <button class="timer-modal-close" id="timer-modal-close">×</button>
+    </div>
+    <div class="timer-large-display">
+      <div class="timer-time" id="timer-modal-time">20:00</div>
+      <div class="timer-label" id="timer-modal-label">Click start to begin</div>
+    </div>
+    <div class="timer-modal-controls">
+      <button class="timer-modal-btn primary" id="timer-modal-start">Start</button>
+      <button class="timer-modal-btn secondary" id="timer-modal-reset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Timer Modal & Functionality
+(function() {
+  'use strict';
+  
+  const navDisplay = document.getElementById('nav-timer-display');
+  const modalDisplay = document.getElementById('timer-modal-time');
+  const modalLabel = document.getElementById('timer-modal-label');
+  const navBtn = document.getElementById('nav-timer-btn');
+  const modal = document.getElementById('timer-modal');
+  const modalClose = document.getElementById('timer-modal-close');
+  const modalStart = document.getElementById('timer-modal-start');
+  const modalReset = document.getElementById('timer-modal-reset');
+  
+  if (!navDisplay || !navBtn || !modal) return;
+  
+  let minutes = 20;
+  let seconds = 0;
+  let interval = null;
+  let running = false;
+  
+  // Load state from sessionStorage
+  function loadState() {
+    const saved = sessionStorage.getItem('navTimer');
+    if (saved) {
+      const state = JSON.parse(saved);
+      minutes = state.minutes || 20;
+      seconds = state.seconds || 0;
+      running = state.running || false;
+      updateDisplays();
+      if (running) startTimer();
+    }
+  }
+  
+  // Save state to sessionStorage
+  function saveState() {
+    sessionStorage.setItem('navTimer', JSON.stringify({
+      minutes: minutes,
+      seconds: seconds,
+      running: running
+    }));
+  }
+  
+  function updateDisplays() {
+    const timeStr = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    navDisplay.textContent = timeStr;
+    if (modalDisplay) modalDisplay.textContent = timeStr;
+    
+    if (running) {
+      modalLabel.textContent = 'Focus session active';
+      if (modalStart) modalStart.textContent = 'Pause';
+    } else {
+      modalLabel.textContent = 'Timer paused';
+      if (modalStart) modalStart.textContent = 'Start';
+    }
+    
+    saveState();
+  }
+  
+  function startTimer() {
+    if (interval) clearInterval(interval);
+    
+    interval = setInterval(function() {
+      if (seconds > 0) {
+        seconds--;
+      } else if (minutes > 0) {
+        minutes--;
+        seconds = 59;
+      } else {
+        clearInterval(interval);
+        interval = null;
+        running = false;
+        navDisplay.textContent = '20:00';
+        modalDisplay.textContent = '20:00';
+        modalLabel.textContent = 'Time\'s up! Take a break.';
+        alert('Time\'s up! Take your break.');
+        minutes = 20;
+        seconds = 0;
+        saveState();
+        closeModal();
+      }
+      updateDisplays();
+    }, 1000);
+    
+    running = true;
+    updateDisplays();
+  }
+  
+  function stopTimer() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+    running = false;
+    updateDisplays();
+  }
+  
+  function resetTimer() {
+    stopTimer();
+    minutes = 20;
+    seconds = 0;
+    updateDisplays();
+  }
+  
+  function openModal() {
+    modal.classList.add('active');
+    updateDisplays();
+  }
+  
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+  
+  // Event listeners
+  navDisplay.addEventListener('click', openModal);
+  navBtn.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  modalStart.addEventListener('click', function() {
+    if (running) {
+      stopTimer();
+    } else {
+      startTimer();
+    }
+  });
+  modalReset.addEventListener('click', resetTimer);
+  
+  // Close modal on background click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  
+  // Save state when page is about to unload
+  window.addEventListener('beforeunload', function() {
+    saveState();
+  });
+  
+  // Save state when page becomes hidden (tab switch, minimize, etc.)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      saveState();
+    } else if (running) {
+      // If timer was running and page becomes visible again, ensure it's still running
+      loadState();
+    }
+  });
+  
+  // Initialize
+  loadState();
+})();
+</script>
+
+</body>
+</html>

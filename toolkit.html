@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Focus Toolkit | All Day HD</title>
+<meta name="description" content="Practical focus strategies and tools for girls with ADHD. Time boxing, body doubling, planners, and techniques that actually work.">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="toolkit.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+const announcements = [
+  "✨ Helping girls with ADHD build calm, focus, and confidence ✨",
+  "✨ Because girls with ADHD don't need fixing — they need understanding ✨",
+  "✨ Smart strategies for bright, unstoppable minds ✨",
+  "✨ Empowering girls to thrive with clarity, not chaos ✨",
+  "✨ One strategy at a time — because every mind shines differently ✨",
+  "💫 Practical tools and strategies that work with your ADHD brain 💫"
+];
+
+let currentIndex = 0;
+
+function rotateAnnouncement() {
+  const announcementElement = document.getElementById('announcement-text');
+  if (!announcementElement) {
+    console.log('Element not found, retrying...');
+    setTimeout(rotateAnnouncement, 1000);
+    return;
+  }
+  
+  announcementElement.style.opacity = '0';
+  
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % announcements.length;
+    announcementElement.textContent = announcements[currentIndex];
+    announcementElement.style.opacity = '0.95';
+    console.log('Rotated to:', announcements[currentIndex]);
+  }, 500);
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, starting rotation...');
+  setInterval(rotateAnnouncement, 5000);
+  
+  // Initialize the filter to show all cards by default
+  const allButton = document.querySelector('[data-filter="all"]');
+  filterAge('all', allButton);
+  
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('menu-open');
+      
+      // Prevent body scroll when menu is open
+      if(nav.classList.contains('menu-open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Handle dropdown toggles on mobile
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    
+    if(link && dropdown) {
+      // This is a dropdown item
+      link.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          // Toggle active class for this specific item
+          item.classList.toggle('active');
+        }
+      });
+    } else if(link) {
+      // This is a regular link (no dropdown)
+      link.addEventListener('click', function() {
+        if(window.innerWidth <= 900) {
+          const nav = document.getElementById('main-nav');
+          nav.classList.remove('menu-open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+});
+</script>
+
+</head>
+<body>
+
+<header>
+  <div class="container wrap">
+    <p id="announcement-text" >✨ Building confidence, one strategy at a time ✨</p>
+  </div>
+</header>
+
+<nav aria-label="Primary navigation" id="main-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-brand">
+        <div class="nav-logo-orbit">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" class="nav-logo-center" />
+          <svg width="82" height="82" viewBox="0 0 82 82" class="nav-logo-ring"><defs><path id="textPathCircle" d="M 41,3 A 38,38 0 1,1 40.9,3" fill="none"/></defs><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="0" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="50%" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="42%">·</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="92%">·</textPath></text></svg>
+        </div>
+        <h5>All Day<span class="superscript">HD</span></h5>
+      </div>
+      
+      <ul class="nav-center">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <span class="nav-link">For Girls <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="girls.html">Ages 8-12</a></li>
+            <li><a href="teens.html">Ages 13-18</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="parents.html" class="nav-link">For Parents</a>
+        </li>
+        
+        <li class="nav-item active">
+          <span class="nav-link">Explore <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="toolkit.html">Focus Toolkit</a></li>
+            <li><a href="wellness.html">Wellness</a></li>
+            <li><a href="understanding-adhd.html">Understanding ADHD</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="video-resources.html">Videos</a></li>
+            <li><a href="image-map.html">Brain Map</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="contact-us.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="nav-timer">
+        <div class="timer-display" id="nav-timer-display">20:00</div>
+        <button class="timer-icon-btn" id="nav-timer-btn" aria-label="Open timer">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+            <path d="M8 4v4l3 2"/>
+          </svg>
+          <div class="timer-tooltip">Click to open focus timer</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Focus Tools That Actually Work</h1>
+      <p class="lead">Science-backed strategies designed specifically for ADHD brains. No willpower required — just better systems.</p>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <div class="age-filter">
+    <h3>Show Tools For:</h3>
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All Ages</button>
+      <button class="filter-btn" data-filter="younger">Ages 8-12</button>
+      <button class="filter-btn" data-filter="teen">Ages 13-18</button>
+    </div>
+  </div>
+
+  </section>
+
+  <section class="section highlight">
+    <div class="section-header">
+      <h2 class="section-title">Focus Tools That Work</h2>
+      <p class="section-subtitle">Tools tailored for your age and ADHD brain</p>
+    </div>
+
+<div class="tools-grid">
+  <!-- Girls 8-12 Specific Tools (shown first when girls filter is active) -->
+  <div class="tool-card" data-age="younger">
+    <div class="tool-header">
+      <div class="tool-icon">★</div>
+      <h3>Use a Visual Checklist</h3>
+    </div>
+    <p>Instead of words, use pictures, stickers, or checkmarks to track what you need to do. Make it colorful and fun!</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Write down 3-5 things you need to do today</li>
+        <li>Draw a picture or use a sticker next to each one</li>
+        <li>Put a BIG checkmark when you finish (make it satisfying!)</li>
+        <li>At the end of the day, see all your wins</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> Visual checklists help you remember, and checking things off gives your brain a dopamine boost that helps you keep going!</p>
+    <span class="age-tag">Ages 8-12</span>
+  </div>
+
+  <div class="tool-card" data-age="younger">
+    <div class="tool-header">
+      <div class="tool-icon">★</div>
+      <h3>Ask for a Buddy</h3>
+    </div>
+    <p>Sometimes doing something with a friend or grown-up makes it way more fun and less hard.</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Pick something you need to do (like cleaning your room)</li>
+        <li>Ask someone to be your buddy</li>
+        <li>Do it together — you chat and work at the same time</li>
+        <li>Set a timer so it doesn't feel endless</li>
+        <li>Celebrate together when done!</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> Having someone nearby makes boring tasks feel less lonely. You're not alone — you're a team!</p>
+    <span class="age-tag">Ages 8-12</span>
+  </div>
+
+  <div class="tool-card" data-age="younger">
+    <div class="tool-header">
+      <div class="tool-icon">★</div>
+      <h3>Make It a Game</h3>
+    </div>
+    <p>Turn boring tasks into fun challenges. Race against a timer, earn points, or pretend you're a character doing the task!</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Pick a boring task (homework, cleaning, etc.)</li>
+        <li>Set a timer and try to beat your best time</li>
+        <li>Give yourself points for each step completed</li>
+        <li>Pretend you're a superhero or character doing the task</li>
+        <li>Celebrate when you "win" the game!</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> Games make boring things exciting! Your brain loves challenges and rewards, so give it what it wants.</p>
+    <span class="age-tag">Ages 8-12</span>
+  </div>
+
+  <div class="tool-card" data-age="younger">
+    <div class="tool-header">
+      <div class="tool-icon">★</div>
+      <h3>Use Your Senses</h3>
+    </div>
+    <p>Make tasks more interesting by adding colors, textures, smells, or sounds. Use what you love to help you focus!</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Use colorful pens, markers, or stickers</li>
+        <li>Play music you like (or nature sounds)</li>
+        <li>Light a candle or use a nice-smelling lotion</li>
+        <li>Wear comfy clothes or use a favorite blanket</li>
+        <li>Make your workspace feel cozy and special</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> When something feels good to your senses, your brain pays more attention. Make boring things feel amazing!</p>
+    <span class="age-tag">Ages 8-12</span>
+  </div>
+
+  <!-- Teens 13-18 Specific Tools (shown first when teens filter is active) -->
+  <div class="tool-card" data-age="teen">
+    <div class="tool-header">
+      <div class="tool-icon">◇</div>
+      <h3>Two-Bin Planning</h3>
+    </div>
+    <p>Keep "Do Now" tasks visible and "Do Later" tasks parked separately. This reduces overwhelm and decision fatigue.</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Create two lists: "Today" and "Later"</li>
+        <li>Be ruthless about what goes where</li>
+        <li>Only look at "Today" list during work time</li>
+        <li>Resist the urge to add everything to "Today"</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> ADHD brains get paralyzed by too many options. By limiting visible choices, you reduce executive function load and make starting easier.</p>
+    <span class="age-tag">Ages 13-18</span>
+  </div>
+
+  <div class="tool-card" data-age="teen">
+    <div class="tool-header">
+      <div class="tool-icon">◇</div>
+      <h3>Break It Into Micro-Tasks</h3>
+    </div>
+    <p>Instead of "finish my essay," break it into tiny steps: "open document, write title, write first sentence..."</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Look at the big task — it feels overwhelming, right?</li>
+        <li>Write down the TINIEST possible first step</li>
+        <li>Do that one tiny step (even 30 seconds counts!)</li>
+        <li>Once you start, you might keep going</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> Starting is the hardest part. Once you begin, momentum takes over. The tiniest step beats no step.</p>
+    <span class="age-tag">Ages 13-18</span>
+  </div>
+
+  <div class="tool-card" data-age="teen">
+    <div class="tool-header">
+      <div class="tool-icon">◇</div>
+      <h3>Use Movement Breaks Strategically</h3>
+    </div>
+    <p>Your ADHD brain needs to move to stay focused. Use movement as a tool, not just "getting distracted."</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>After 20-30 minutes of work, take a 5-minute movement break</li>
+        <li>Jump, dance, stretch, walk — just move</li>
+        <li>Come back and try to focus again</li>
+        <li>Repeat throughout your study sessions</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> ADHD brains build up restless energy. A quick movement break releases it so you can refocus. It's not slacking — it's science!</p>
+    <span class="age-tag">Ages 13-18</span>
+  </div>
+
+  <div class="tool-card" data-age="teen">
+    <div class="tool-header">
+      <div class="tool-icon">◇</div>
+      <h3>Environmental Design</h3>
+    </div>
+    <p>Set up your physical space to make the right choices automatic. Don't rely on willpower — design behavior into your environment.</p>
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Identify recurring friction points (where you get stuck)</li>
+        <li>Make good choices EASY (put things where you need them)</li>
+        <li>Make bad choices HARD (hide distractions, remove barriers)</li>
+        <li>Create visual cues (stickers, post-its, timers)</li>
+      </ol>
+    </div>
+    <p><strong>Why it works:</strong> Willpower is limited. Your environment shapes behavior 24/7. Design it for your brain's needs.</p>
+    <span class="age-tag">Ages 13-18</span>
+  </div>
+
+  <div class="tool-card" data-age="teen">
+    <div class="tool-header">
+      <div class="tool-icon">◇</div>
+      <h3>Energy Management</h3>
+    </div>
+    <p>Track when you're sharp vs drained. Do demanding tasks during peak hours. Protect your energy like the resource it is.</p>
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Notice your natural rhythms for 3 days</li>
+        <li>Identify peak hours (usually morning or late evening)</li>
+        <li>Schedule hard tasks during peak, easy tasks during low</li>
+        <li>Plan energy-recovery breaks after social/demanding activities</li>
+      </ol>
+    </div>
+    <p><strong>Why it works:</strong> ADHD brains have inconsistent energy. Fighting it wastes mental resources. Working WITH it maximizes output.</p>
+    <span class="age-tag">Ages 13-18</span>
+  </div>
+
+  <div class="tool-card" data-age="teen">
+    <div class="tool-header">
+      <div class="tool-icon">◇</div>
+      <h3>Rejection Sensitivity Management</h3>
+    </div>
+    <p>When criticism or social situations feel overwhelming, use these strategies to protect your emotional energy.</p>
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Recognize the physical signs (racing heart, sweaty palms)</li>
+        <li>Take 5 deep breaths before responding</li>
+        <li>Ask yourself: "Is this about me or their bad day?"</li>
+        <li>Use "I feel" statements instead of defensive reactions</li>
+        <li>Have a trusted person to text when you need perspective</li>
+      </ol>
+    </div>
+    <p><strong>Why it works:</strong> RSD is real and intense. These tools help you pause and respond thoughtfully instead of reacting emotionally.</p>
+    <span class="age-tag">Ages 13-18</span>
+  </div>
+
+  <div class="tool-card" data-age="teen">
+    <div class="tool-header">
+      <div class="tool-icon">◇</div>
+      <h3>Social Masking Awareness</h3>
+    </div>
+    <p>Notice when you're pretending to be "normal" and exhausting yourself. Learn to unmask safely and conserve energy.</p>
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Track your energy levels after social situations</li>
+        <li>Identify which people/settings require the most masking</li>
+        <li>Plan recovery time after demanding social events</li>
+        <li>Find safe spaces where you can be authentically yourself</li>
+        <li>Practice saying "I need a break" without guilt</li>
+      </ol>
+    </div>
+    <p><strong>Why it works:</strong> Masking is exhausting and unsustainable. Awareness helps you make conscious choices about when and how to engage.</p>
+    <span class="age-tag">Ages 13-18</span>
+  </div>
+
+  <!-- All Ages Tools (shown last when age-specific filter is active, first when "All Ages" is selected) -->
+  <div class="tool-card" data-age="all">
+    <div class="tool-header">
+      <div class="tool-icon">◉</div>
+      <h3>Time Boxing</h3>
+    </div>
+    <p>Break work into focused blocks (20-30 minutes) with breaks between. This works WITH your brain's natural attention cycles instead of fighting them.</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Set a visible timer for 20-30 minutes</li>
+        <li>Work on ONE task only (no multitasking)</li>
+        <li>When timer rings, take a 5-minute movement break</li>
+        <li>Repeat cycle 2-3 times, then take longer break (15-20 min)</li>
+        <li>Celebrate completion of each block</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> ADHD brains struggle with sustained attention. Short bursts prevent burnout and maintain quality. The timer creates external structure your working memory can't provide.</p>
+    <span class="age-tag">All Ages</span>
+  </div>
+
+  <div class="tool-card" data-age="all">
+    <div class="tool-header">
+      <div class="tool-icon">◉</div>
+      <h3>Body Doubling</h3>
+    </div>
+    <p>Work alongside someone else (in person or virtually). Their presence activates your brain's social engagement system and creates gentle accountability.</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Find a study buddy, parent, or use virtual co-working apps</li>
+        <li>Set up parallel workspace (same room or video call)</li>
+        <li>Share what you're working on briefly</li>
+        <li>Work silently together — no chatting during focus time</li>
+        <li>Check in at end to share progress</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> Parallel presence provides external regulation. Your brain subconsciously mirrors their focus. It's not about them watching you — it's about shared energy.</p>
+    <span class="age-tag">All Ages</span>
+  </div>
+
+  <div class="tool-card" data-age="all">
+    <div class="tool-header">
+      <div class="tool-icon">◉</div>
+    <h3>Micro-Mindfulness</h3>
+    </div>
+    <p>Take 60-90 seconds for breathing or stretching before switching tasks. This helps your brain transition and reduces "task-switching tax."</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Pause between tasks (don't immediately jump to next thing)</li>
+        <li>Take 5 deep breaths: in for 4, hold for 4, out for 6</li>
+        <li>OR: Do 10 jumping jacks, stretch, or walk around</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> Task transitions are hard for ADHD brains. A micro-pause lets your brain reset and reduces cognitive drag from switching activities.</p>
+    <span class="age-tag">All Ages</span>
+  </div>
+
+  <div class="tool-card" data-age="all">
+    <div class="tool-header">
+      <div class="tool-icon">◉</div>
+      <h3>Celebrate Small Wins</h3>
+    </div>
+    <p>End each session by naming ONE thing you accomplished. This builds positive momentum and trains your brain to recognize progress.</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>When you finish a work session, pause</li>
+        <li>Name out loud: "I completed X" (even if X was small)</li>
+        <li>Actually feel the satisfaction for 30 seconds</li>
+        <li>Write it down so you can see progress accumulate</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> ADHD brains don't automatically register progress. External acknowledgment builds the reinforcement loop that motivates continued effort.</p>
+    <span class="age-tag">All Ages</span>
+  </div>
+
+  <div class="tool-card" data-age="all">
+    <div class="tool-header">
+      <div class="tool-icon">◉</div>
+      <h3>External Memory Systems</h3>
+    </div>
+    <p>Don't rely on your brain to remember everything. Use tools, apps, and systems to store information externally.</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li>Use phone reminders for everything (not just appointments)</li>
+        <li>Keep a running list of things to remember</li>
+        <li>Put important items in obvious places</li>
+        <li>Use sticky notes, whiteboards, or digital notes</li>
+        <li>Set up automatic systems (auto-pay, calendar invites)</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> ADHD brains have working memory challenges. External systems are more reliable than trying to remember everything.</p>
+    <span class="age-tag">All Ages</span>
+  </div>
+
+  <div class="tool-card" data-age="all">
+    <div class="tool-header">
+      <div class="tool-icon">◉</div>
+      <h3>Getting Started When Overwhelmed</h3>
+    </div>
+    <p>When everything feels too big and you don't know where to start, use this simple 3-step process to break through the paralysis.</p>
+    
+    <div class="tool-steps">
+      <h4>How to Do It:</h4>
+      <ol>
+        <li><strong>Name the feeling:</strong> Say out loud "I feel overwhelmed" or "I don't know where to start"</li>
+        <li><strong>Pick ONE tiny thing:</strong> Look around and choose the smallest possible action (open a book, write one word, put on shoes)</li>
+        <li><strong>Set a 2-minute timer:</strong> Do that one tiny thing for just 2 minutes, then stop</li>
+        <li><strong>Celebrate:</strong> You started! That's the hardest part done</li>
+      </ol>
+    </div>
+    
+    <p><strong>Why it works:</strong> Overwhelm happens when your brain sees everything at once. By naming the feeling and picking ONE tiny thing, you give your brain a clear path forward. Starting is always harder than continuing.</p>
+    <span class="age-tag">All Ages</span>
+  </div>
+
+</div>
+
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Quick Wins</h2>
+      <p class="section-subtitle">Simple strategies you can try right now</p>
+    </div>
+
+    <div class="quickwins-grid">
+      <div class="quickwin-card">
+        <div class="quickwin-icon">🧹</div>
+        <h4>Declutter First</h4>
+        <p>Reduce visual noise. A clean workspace = a more focused brain. Start with just your desk.</p>
+      </div>
+
+      <div class="quickwin-card">
+        <div class="quickwin-icon">🎵</div>
+        <h4>Use Background Noise</h4>
+        <p>White noise, brown noise, or instrumental music can mask distractions and create focus.</p>
+      </div>
+
+      <div class="quickwin-card">
+        <div class="quickwin-icon">💧</div>
+        <h4>Stay Hydrated</h4>
+        <p>Dehydration worsens ADHD symptoms. Keep water within arm's reach and sip throughout the day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section highlight">
+    <div class="section-header">
+      <h2 class="section-title">Try Something Right Now</h2>
+      <p class="section-subtitle">Quick wins you can implement today</p>
+    </div>
+
+    <div class="quick-try-grid">
+      <div class="quick-try-card">
+        <div class="quick-try-icon">⏱️</div>
+        <h3>Set a Timer</h3>
+        <p>Pick one task. Set timer for 20 minutes. Work on it. Stop when timer rings. That's it — you just did time boxing!</p>
+        <a href="#timer-demo" class="btn small primary">Try Timer Below →</a>
+      </div>
+
+      <div class="quick-try-card">
+        <div class="quick-try-icon">🧠</div>
+        <h3>Write It Down</h3>
+        <p>Open a notepad or notes app. Write everything swirling in your head for 2 minutes. Don't organize — just dump it out. This is a brain dump.</p>
+      </div>
+
+      <div class="quick-try-card">
+        <div class="quick-try-icon">💨</div>
+        <h3>Take 5 Breaths</h3>
+        <p>Inhale for 4 counts, hold for 4, exhale for 6. Repeat 5 times. You just did micro-mindfulness!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Free Downloads & Printables</h2>
+      <p class="section-subtitle">Visual tools and planners designed for ADHD brains</p>
+    </div>
+
+    <div class="downloads-grid">
+      <div class="download-card">
+        <div class="download-icon">📋</div>
+        <h4>Weekly Task Planner</h4>
+        <p>Simple 2-bin system: "Do Now" and "Do Later." No overwhelm, just clarity.</p>
+        <a href="#" class="download-btn">Download PDF →</a>
+      </div>
+
+      <div class="download-card">
+        <div class="download-icon">⏱️</div>
+        <h4>Time Boxing Template</h4>
+        <p>Visual timer blocks for 20-min focus + 5-min breaks. Print and fill in your day.</p>
+        <a href="#" class="download-btn">Download PDF →</a>
+      </div>
+
+      <div class="download-card">
+        <div class="download-icon">🎯</div>
+        <h4>Weekly Goal Tracker</h4>
+        <p>Celebrate small wins daily. Visual progress builds dopamine and motivation.</p>
+        <a href="#" class="download-btn">Download PDF →</a>
+      </div>
+
+      <div class="download-card">
+        <div class="download-icon">🧠</div>
+        <h4>Brain Dump Worksheet</h4>
+        <p>Clear mental clutter in 5 minutes. Dump thoughts, clear RAM, gain clarity.</p>
+        <a href="#" class="download-btn">Download PDF →</a>
+      </div>
+
+      <div class="download-card">
+        <div class="download-icon">😌</div>
+        <h4>Emotion Check-In Guide</h4>
+        <p>Name feelings, rate intensity, choose regulation strategy. Build emotional awareness.</p>
+        <a href="#" class="download-btn">Download PDF →</a>
+      </div>
+
+      <div class="download-card">
+        <div class="download-icon">🔄</div>
+        <h4>ADHD-Friendly Habit Tracker</h4>
+        <p>Circle completed habits (not X failures). Build momentum with visual wins.</p>
+        <a href="#" class="download-btn">Download PDF →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Apps That Actually Help</h2>
+      <p class="section-subtitle">Tech tools specifically designed for ADHD brains</p>
+    </div>
+
+    <div class="apps-grid">
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">⏰</div>
+          <div>
+            <h4>Forest</h4>
+            <p class="app-rating">★★★★★ Focus Timer</p>
+          </div>
+        </div>
+        <p>Grow virtual trees while you focus. Set work blocks, build your forest, see progress visually.</p>
+        <div class="app-tags">
+          <span class="app-tag">Timers</span>
+          <span class="app-tag">Visual</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">📝</div>
+          <div>
+            <h4>Todoist</h4>
+            <p class="app-rating">★★★★★ Task Management</p>
+          </div>
+        </div>
+        <p>AI-powered task breakdowns. Natural language input, recurring tasks, labels, filters. ADHD-friendly design.</p>
+        <div class="app-tags">
+          <span class="app-tag">Tasks</span>
+          <span class="app-tag">AI-Powered</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🧘</div>
+          <div>
+            <h4>Headspace</h4>
+            <p class="app-rating">★★★★☆ Meditation</p>
+          </div>
+        </div>
+        <p>Short guided meditations (1-3 min) for ADHD brains. "Singles" for quick resets during overwhelm.</p>
+        <div class="app-tags">
+          <span class="app-tag">Mindfulness</span>
+          <span class="app-tag">Short Sessions</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🎵</div>
+          <div>
+            <h4>Endel</h4>
+            <p class="app-rating">★★★★★ Focus Soundscapes</p>
+          </div>
+        </div>
+        <p>AI-generated adaptive soundscapes. "Focus" mode changes music based on time of day and your energy.</p>
+        <div class="app-tags">
+          <span class="app-tag">Music</span>
+          <span class="app-tag">AI</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🤝</div>
+          <div>
+            <h4>Focusmate</h4>
+            <p class="app-rating">★★★★☆ Body Doubling</p>
+          </div>
+        </div>
+        <p>25-min video sessions with strangers who are also trying to focus. Gentle accountability without pressure.</p>
+        <div class="app-tags">
+          <span class="app-tag">Accountability</span>
+          <span class="app-tag">Virtual</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">📱</div>
+          <div>
+            <h4>Habitica</h4>
+            <p class="app-rating">★★★★☆ Gamification</p>
+          </div>
+        </div>
+        <p>Turn life into an RPG. Complete habits = level up your character. Rewards, quests, and social groups.</p>
+        <div class="app-tags">
+          <span class="app-tag">Habits</span>
+          <span class="app-tag">Gaming</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🍎</div>
+          <div>
+            <h4>Streaks</h4>
+            <p class="app-rating">★★★★★ Habit Tracker</p>
+          </div>
+        </div>
+        <p>Beautiful, simple visual streaks. See your momentum build. Perfect for "don't break the chain" motivation.</p>
+        <div class="app-tags">
+          <span class="app-tag">Habits</span>
+          <span class="app-tag">Visual</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🎨</div>
+          <div>
+            <h4>Notion</h4>
+            <p class="app-rating">★★★★☆ All-in-One</p>
+          </div>
+        </div>
+        <p>Ultra-customizable workspace for notes, tasks, databases, planners. Build systems that work for YOUR brain.</p>
+        <div class="app-tags">
+          <span class="app-tag">Organization</span>
+          <span class="app-tag">Customizable</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timer-demo">
+    <h3>Try a Quick Timer Right Now</h3>
+    <div class="timer-display" id="timer-display">20:00</div>
+    <p>Set this for one task. Work until it rings. Then break for 5 minutes.</p>
+    <div class="timer-controls">
+      <button class="timer-btn" data-timer="20">20 min Focus</button>
+      <button class="timer-btn" data-timer="10">10 min Quick</button>
+      <button class="timer-btn" data-timer="5">5 min Break</button>
+      <button class="timer-btn secondary" id="reset-btn">Reset</button>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Get Weekly ADHD Strategy Tips</h2>
+      <p>Join our newsletter for focus hacks, self-care reminders, and validation delivered to your inbox every Tuesday.</p>
+      <form style="max-width:500px;margin:32px auto 0;display:flex;gap:12px;flex-wrap:wrap;">
+        <input type="email" placeholder="Enter your email" style="flex:1;min-width:200px;padding:16px 20px;border:none;border-radius:999px;font-size:1rem;" required />
+        <button type="submit" class="btn" style="padding:16px 32px;white-space:nowrap;">Sign Up Free</button>
+      </form>
+      <div style="max-width:500px;margin:16px auto 0;">
+        <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;font-size:0.85rem;line-height:1.4;color:#7d6d77;">
+          <input type="checkbox" required style="margin:0;transform:scale(1.2);margin-top:2px;" />
+          I confirm that I am 13 years of age or older, or I am a parent/guardian providing consent for my child under 13
+        </label>
+      </div>
+      <p style="font-size:.85rem;margin-top:16px;opacity:.85;">We respect your inbox. No spam, unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="alldayhd_logo.png" alt="All Day HD Logo" />
+            <h4>All Day HD</h4>
+          </div>
+          <p>Empowering teen girls with ADHD and their families through evidence-based strategies, supportive community, and practical tools for daily life.</p>
+          <p class="brand-line">All Day HD = All Day Hi‑Def — a strengths‑based lens on ADHD.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="girls.html">Girls Ages 8-12</a></li>
+            <li><a href="teens.html">Girls Ages 13-18</a></li>
+            <li><a href="parents.html">For Parents</a></li>
+            <li><a href="toolkit.html">Focus Toolkit</a></li>
+            <li><a href="wellness.html">Wellness</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <ul class="footer-links">
+            <li><a href="#" target="_blank">Instagram</a></li>
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">YouTube</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 All Day HD — Girls with Focus. Educational content only — not medical advice.</p>
+        <div class="social-icons">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+// Re-define functions here to ensure they're available
+// Timer functionality
+let timerInterval = null;
+let timerTime = 0;
+
+function startTimer(minutes) {
+  console.log('startTimer called with:', minutes);
+  timerTime = minutes * 60;
+  const display = document.getElementById('timer-display');
+  
+  if (!display) {
+    console.error('Timer display not found');
+    return;
+  }
+  
+  if (timerInterval) clearInterval(timerInterval);
+  
+  timerInterval = setInterval(() => {
+    timerTime--;
+    const mins = Math.floor(timerTime / 60);
+    const secs = timerTime % 60;
+    display.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+    
+    if (timerTime <= 0) {
+      clearInterval(timerInterval);
+      display.textContent = 'Done!';
+      alert("Time's up! Take your break.");
+    }
+  }, 1000);
+  
+  console.log('Timer started');
+}
+
+function resetTimer() {
+  console.log('resetTimer called');
+  clearInterval(timerInterval);
+  const display = document.getElementById('timer-display');
+  if (display) display.textContent = '20:00';
+  timerTime = 0;
+}
+
+// Age filter functionality
+function filterAge(age, btnElement) {
+  console.log('filterAge called with:', age, btnElement);
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  if (btnElement) btnElement.classList.add('active');
+  
+  const cards = document.querySelectorAll('[data-age]');
+  console.log('Found', cards.length, 'cards to filter');
+  
+  // Convert NodeList to Array for sorting
+  const cardsArray = Array.from(cards);
+  
+  // Sort cards based on age priority
+  cardsArray.sort((a, b) => {
+    const aAges = a.dataset.age.split(' ');
+    const bAges = b.dataset.age.split(' ');
+    
+    if (age === 'all') {
+      // For "all" filter: show all-ages first, then age-specific
+      const aIsAll = aAges.includes('all');
+      const bIsAll = bAges.includes('all');
+      if (aIsAll && !bIsAll) return -1;
+      if (!aIsAll && bIsAll) return 1;
+      return 0;
+    } else {
+      // For age-specific filters: show age-specific first, then all-ages
+      const aIsTargetAge = aAges.includes(age);
+      const bIsTargetAge = bAges.includes(age);
+      const aIsAll = aAges.includes('all');
+      const bIsAll = bAges.includes('all');
+      
+      if (aIsTargetAge && !bIsTargetAge) return -1;
+      if (!aIsTargetAge && bIsTargetAge) return 1;
+      if (aIsAll && !bIsAll) return 1;
+      if (!aIsAll && bIsAll) return -1;
+      return 0;
+    }
+  });
+  
+  // Show/hide cards and reorder them
+  let visibleCount = 0;
+  cardsArray.forEach((card, index) => {
+    const cardAges = card.dataset.age.split(' ');
+    const shouldShow = age === 'all' || cardAges.includes(age);
+    
+    console.log('Card:', card.querySelector('h3')?.textContent, 'ages:', cardAges, 'shouldShow:', shouldShow);
+    
+    if (shouldShow) {
+      card.style.display = 'block';
+      // For flexbox ordering, lower values appear first
+      card.style.order = index;
+      visibleCount++;
+      console.log('Showing card:', card.querySelector('h3')?.textContent, 'order:', index);
+    } else {
+      card.style.display = 'none';
+      console.log('Hiding card:', card.querySelector('h3')?.textContent);
+    }
+  });
+  
+  console.log('Total visible cards:', visibleCount);
+}
+
+// Make sure functions are available
+window.startTimer = startTimer;
+window.resetTimer = resetTimer;
+window.filterAge = filterAge;
+
+console.log('Functions loaded');
+
+// Test that functions work
+setTimeout(() => {
+  console.log('Testing functions...');
+  console.log('startTimer:', typeof window.startTimer);
+  console.log('resetTimer:', typeof window.resetTimer);
+  console.log('filterAge:', typeof window.filterAge);
+}, 100);
+
+console.log('Timer functions defined. startTimer type:', typeof startTimer);
+
+// Attach event listeners
+(function() {
+  function attachListeners() {
+    console.log('Attaching listeners...');
+    const timerButtons = document.querySelectorAll('[data-timer]');
+    console.log('Found', timerButtons.length, 'timer buttons');
+    
+    timerButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        console.log('Button clicked');
+        const minutes = parseInt(this.getAttribute('data-timer'));
+        console.log('Starting timer for', minutes, 'minutes');
+        startTimer(minutes);
+      });
+    });
+    
+    const resetBtn = document.getElementById('reset-btn');
+    if (resetBtn) {
+      console.log('Reset button found');
+      resetBtn.addEventListener('click', function() {
+        console.log('Reset clicked');
+        resetTimer();
+      });
+    }
+    
+    // Add filter button listeners
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    console.log('Found', filterButtons.length, 'filter buttons');
+    
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        console.log('Filter clicked:', filter);
+        filterAge(filter, this);
+      });
+    });
+    
+    console.log('Event listeners attached');
+  }
+  
+  // Try immediately
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachListeners);
+  } else {
+    attachListeners();
+  }
+})();
+</script>
+
+<!-- Timer Modal -->
+<div class="timer-modal" id="timer-modal">
+  <div class="timer-modal-content">
+    <div class="timer-modal-header">
+      <h3>Focus Timer</h3>
+      <button class="timer-modal-close" id="timer-modal-close">×</button>
+    </div>
+    <div class="timer-large-display">
+      <div class="timer-time" id="timer-modal-time">20:00</div>
+      <div class="timer-label" id="timer-modal-label">Click start to begin</div>
+    </div>
+    <div class="timer-modal-controls">
+      <button class="timer-modal-btn primary" id="timer-modal-start">Start</button>
+      <button class="timer-modal-btn secondary" id="timer-modal-reset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Timer Modal & Functionality
+(function() {
+  'use strict';
+  
+  const navDisplay = document.getElementById('nav-timer-display');
+  const modalDisplay = document.getElementById('timer-modal-time');
+  const modalLabel = document.getElementById('timer-modal-label');
+  const navBtn = document.getElementById('nav-timer-btn');
+  const modal = document.getElementById('timer-modal');
+  const modalClose = document.getElementById('timer-modal-close');
+  const modalStart = document.getElementById('timer-modal-start');
+  const modalReset = document.getElementById('timer-modal-reset');
+  
+  if (!navDisplay || !navBtn || !modal) return;
+  
+  let minutes = 20;
+  let seconds = 0;
+  let interval = null;
+  let running = false;
+  
+  // Load state from sessionStorage
+  function loadState() {
+    const saved = sessionStorage.getItem('navTimer');
+    if (saved) {
+      const state = JSON.parse(saved);
+      minutes = state.minutes || 20;
+      seconds = state.seconds || 0;
+      running = state.running || false;
+      updateDisplays();
+      if (running) startTimer();
+    }
+  }
+  
+  // Save state to sessionStorage
+  function saveState() {
+    sessionStorage.setItem('navTimer', JSON.stringify({
+      minutes: minutes,
+      seconds: seconds,
+      running: running
+    }));
+  }
+  
+  function updateDisplays() {
+    const timeStr = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    navDisplay.textContent = timeStr;
+    if (modalDisplay) modalDisplay.textContent = timeStr;
+    
+    if (running) {
+      modalLabel.textContent = 'Focus session active';
+      if (modalStart) modalStart.textContent = 'Pause';
+    } else {
+      modalLabel.textContent = 'Timer paused';
+      if (modalStart) modalStart.textContent = 'Start';
+    }
+    
+    saveState();
+  }
+  
+  function startTimer() {
+    if (interval) clearInterval(interval);
+    
+    interval = setInterval(function() {
+      if (seconds > 0) {
+        seconds--;
+      } else if (minutes > 0) {
+        minutes--;
+        seconds = 59;
+      } else {
+        clearInterval(interval);
+        interval = null;
+        running = false;
+        navDisplay.textContent = '20:00';
+        modalDisplay.textContent = '20:00';
+        modalLabel.textContent = 'Time\'s up! Take a break.';
+        alert('Time\'s up! Take your break.');
+        minutes = 20;
+        seconds = 0;
+        saveState();
+        closeModal();
+      }
+      updateDisplays();
+    }, 1000);
+    
+    running = true;
+    updateDisplays();
+  }
+  
+  function stopTimer() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+    running = false;
+    updateDisplays();
+  }
+  
+  function resetTimer() {
+    stopTimer();
+    minutes = 20;
+    seconds = 0;
+    updateDisplays();
+  }
+  
+  function openModal() {
+    modal.classList.add('active');
+    updateDisplays();
+  }
+  
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+  
+  // Event listeners
+  navDisplay.addEventListener('click', openModal);
+  navBtn.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  modalStart.addEventListener('click', function() {
+    if (running) {
+      stopTimer();
+    } else {
+      startTimer();
+    }
+  });
+  modalReset.addEventListener('click', resetTimer);
+  
+  // Close modal on background click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  
+  // Save state when page is about to unload
+  window.addEventListener('beforeunload', function() {
+    saveState();
+  });
+  
+  // Save state when page becomes hidden (tab switch, minimize, etc.)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      saveState();
+    } else if (running) {
+      // If timer was running and page becomes visible again, ensure it's still running
+      loadState();
+    }
+  });
+  
+  // Initialize
+  loadState();
+})();
+</script>
+
+</body>
+</html>

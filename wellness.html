@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wellness & Emotions | All Day HD</title>
+<meta name="description" content="Emotional regulation, self-care, and wellness strategies for girls with ADHD. Managing big feelings, anxiety, and building resilience.">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="wellness.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+const announcements = [
+  "✨ Helping girls with ADHD build calm, focus, and confidence ✨",
+  "✨ Because girls with ADHD don't need fixing — they need understanding ✨",
+  "✨ Smart strategies for bright, unstoppable minds ✨",
+  "✨ Empowering girls to thrive with clarity, not chaos ✨",
+  "✨ One strategy at a time — because every mind shines differently ✨",
+  "💫 Emotional wellness and self-care for ADHD brains 💫"
+];
+
+let currentIndex = 0;
+
+function rotateAnnouncement() {
+  const announcementElement = document.getElementById('announcement-text');
+  if (!announcementElement) {
+    console.log('Element not found, retrying...');
+    setTimeout(rotateAnnouncement, 1000);
+    return;
+  }
+  
+  announcementElement.style.opacity = '0';
+  
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % announcements.length;
+    announcementElement.textContent = announcements[currentIndex];
+    announcementElement.style.opacity = '0.95';
+    console.log('Rotated to:', announcements[currentIndex]);
+  }, 500);
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, starting rotation...');
+  setInterval(rotateAnnouncement, 5000);
+  
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('menu-open');
+      
+      // Prevent body scroll when menu is open
+      if(nav.classList.contains('menu-open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Handle dropdown toggles on mobile
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    
+    if(link && dropdown) {
+      // This is a dropdown item
+      link.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          // Toggle active class for this specific item
+          item.classList.toggle('active');
+        }
+      });
+    } else if(link) {
+      // This is a regular link (no dropdown)
+      link.addEventListener('click', function() {
+        if(window.innerWidth <= 900) {
+          const nav = document.getElementById('main-nav');
+          nav.classList.remove('menu-open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+});
+</script>
+
+</head>
+<body>
+
+<header>
+  <div class="container wrap">
+    <p id="announcement-text" >✨ Building confidence, one strategy at a time ✨</p>
+  </div>
+</header>
+
+<nav aria-label="Primary navigation" id="main-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-brand">
+        <div class="nav-logo-orbit">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" class="nav-logo-center" />
+          <svg width="82" height="82" viewBox="0 0 82 82" class="nav-logo-ring"><defs><path id="textPathCircle" d="M 41,3 A 38,38 0 1,1 40.9,3" fill="none"/></defs><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="0" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="50%" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="42%">·</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="92%">·</textPath></text></svg>
+        </div>
+        <h5>All Day<span class="superscript">HD</span></h5>
+      </div>
+      
+      <ul class="nav-center">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <span class="nav-link">For Girls <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="girls.html">Ages 8-12</a></li>
+            <li><a href="teens.html">Ages 13-18</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="parents.html" class="nav-link">For Parents</a>
+        </li>
+        
+        <li class="nav-item active">
+          <span class="nav-link">Explore <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="toolkit.html">Focus Toolkit</a></li>
+            <li><a href="wellness.html">Wellness</a></li>
+            <li><a href="understanding-adhd.html">Understanding ADHD</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="video-resources.html">Videos</a></li>
+            <li><a href="image-map.html">Brain Map</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="contact-us.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="nav-timer">
+        <div class="timer-display" id="nav-timer-display">20:00</div>
+        <button class="timer-icon-btn" id="nav-timer-btn" aria-label="Open timer">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+            <path d="M8 4v4l3 2"/>
+          </svg>
+          <div class="timer-tooltip">Click to open focus timer</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Your Feelings Are Valid</h1>
+      <p class="lead">ADHD comes with emotional intensity. Learn to regulate, not suppress. Build resilience, not perfection.</p>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <div class="age-filter">
+    <h3>Show Content For:</h3>
+    <div class="filter-tabs">
+      <button class="filter-btn active" onclick="filterAge('all', this)">All Ages</button>
+      <button class="filter-btn" onclick="filterAge('younger', this)">Ages 8-11</button>
+      <button class="filter-btn" onclick="filterAge('teen', this)">Ages 12-18</button>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Emotional Regulation Strategies</h2>
+      <p class="section-subtitle">Tools to manage big feelings when they hit</p>
+    </div>
+
+<div class="emotion-grid">
+  <div class="emotion-card" data-age="all">
+    <div class="emotion-header">
+      <div class="emotion-icon">🌪️</div>
+      <h3>When You're Overwhelmed</h3>
+    </div>
+    <p>Everything feels like too much. Your brain is spinning with thoughts, worries, tasks. You can't think clearly or figure out where to start.</p>
+    <ul>
+      <li>Take 3 deep breaths before doing anything else</li>
+      <li>Change your environment (go outside, different room)</li>
+      <li>Do a sensory reset (cold water on face, ice cube in hand)</li>
+      <li>Externalize it: write or draw the chaos out</li>
+    </ul>
+    <div class="technique-box">
+      <h4>Try This: Brain Dump</h4>
+      <p>Grab paper and write EVERYTHING swirling in your head for 2 minutes. Don't organize or judge — just dump it out. This clears mental RAM so you can think again.</p>
+    </div>
+  </div>
+
+  <div class="emotion-card" data-age="all">
+    <div class="emotion-header">
+      <div class="emotion-icon">😤</div>
+      <h3>When You're Angry/Frustrated</h3>
+    </div>
+    <p>Anger in ADHD can go from 0 to 100 instantly. Frustration tolerance is low, especially when tired, hungry, or overstimulated.</p>
+    <ul>
+      <li>Name it: "I'm feeling really angry right now"</li>
+      <li>Move your body: punch pillows, jump, run, dance hard</li>
+      <li>Give yourself space before responding</li>
+      <li>Check HALT: Hungry? Angry? Lonely? Tired?</li>
+    </ul>
+    <div class="technique-box">
+      <h4>Try This: The Pause Button</h4>
+      <p>Imagine a pause button. Press it (actually mime pressing a button). Take 10 seconds. This tiny pause can prevent saying something you'll regret.</p>
+    </div>
+  </div>
+
+  <div class="emotion-card" data-age="all">
+    <div class="emotion-header">
+      <div class="emotion-icon">😢</div>
+      <h3>When You're Sad/Anxious</h3>
+    </div>
+    <p>ADHD often comes with anxiety and low-grade depression. Rejection sensitivity makes emotional pain feel unbearable.</p>
+    <ul>
+      <li>Don't fight it — let yourself feel for a set time (5-10 min)</li>
+      <li>Reach out to someone safe (text, call, sit near them)</li>
+      <li>Do something comforting (wrap in blanket, listen to music)</li>
+      <li>Remind yourself: feelings are temporary, not facts</li>
+    </ul>
+    <div class="technique-box">
+      <h4>Try This: Cognitive Reframing</h4>
+      <p>Write down the negative thought, then write a more balanced perspective. Your emotions are valid but not always accurate. This technique helps separate feelings from facts.</p>
+    </div>
+  </div>
+
+  <div class="emotion-card" data-age="younger">
+    <div class="emotion-header">
+      <div class="emotion-icon">😰</div>
+      <h3>When You're Scared</h3>
+    </div>
+    <p>Sometimes new situations, big changes, or unexpected things can make your heart race and your tummy hurt.</p>
+    <ul>
+      <li>Find a grownup you trust and tell them</li>
+      <li>Do the 5-4-3-2-1 game: Name 5 things you see, 4 you hear, 3 you touch, 2 you smell, 1 you taste</li>
+      <li>Hold onto something soft or textured</li>
+      <li>Remember: it's okay to be scared — brave people get scared too!</li>
+    </ul>
+    <div class="technique-box">
+      <h4>Try This: The Worry Box</h4>
+      <p>Draw or write your worries on paper and put them in a special "worry box." You can talk about them later, but they won't bother you right now.</p>
+    </div>
+  </div>
+
+  <div class="emotion-card" data-age="teen">
+    <div class="emotion-header">
+      <div class="emotion-icon">😓</div>
+      <h3>When You Feel Stuck</h3>
+    </div>
+    <p>You know what you need to do, but can't start. Everything feels harder than it should be. This is ADHD paralysis, and it's not laziness.</p>
+    <ul>
+      <li>Start with the TINIEST possible first step (even "open the document")</li>
+      <li>Change your position or location</li>
+      <li>Turn on upbeat music for momentum</li>
+      <li>Ask someone to body double (work near you without talking)</li>
+    </ul>
+    <div class="technique-box">
+      <h4>Try This: The 2-Minute Rule</h4>
+      <p>Promise yourself you'll only do 2 minutes of the task. Often, you'll keep going after 2 minutes because starting is harder than continuing.</p>
+    </div>
+  </div>
+
+  <div class="emotion-card" data-age="teen">
+    <div class="emotion-header">
+      <div class="emotion-icon">😣</div>
+      <h3>When You Feel Judged</h3>
+    </div>
+    <p>Rejection sensitivity is real. You notice subtle disapproval, even when others don't. This hurts deeply and makes you want to withdraw.</p>
+    <ul>
+      <li>Remember: their reaction is about them, not your worth</li>
+      <li>Reality check: ask someone trusted if you're reading it right</li>
+      <li>Give yourself permission to feel hurt without adding shame</li>
+      <li>Do something that reminds you of your strengths</li>
+    </ul>
+    <div class="technique-box">
+      <h4>Try This: The Evidence Log</h4>
+      <p>When you feel judged, write down actual evidence: what did they actually say/do? Often RSD distorts reality. The evidence might be less harsh than your brain tells you.</p>
+    </div>
+  </div>
+  </div>
+
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Grounding Exercises for Any Moment</h2>
+      <p class="section-subtitle">When emotions get too big, bring yourself back to your body</p>
+    </div>
+
+    <div class="grounding-box">
+      <h3>The 5-4-3-2-1 Method</h3>
+      <p>Use this when you feel overwhelmed, anxious, or disconnected. Look around and name:</p>
+      <div class="grounding-steps">
+        <div class="grounding-step">
+          <div class="step-number">5</div>
+          <h4>Things You See</h4>
+          <p>Look around and name 5 different things you can see right now</p>
+        </div>
+        <div class="grounding-step">
+          <div class="step-number">4</div>
+          <h4>Things You Feel</h4>
+          <p>Notice 4 things you can feel (chair, clothes, air, hair on your skin)</p>
+        </div>
+        <div class="grounding-step">
+          <div class="step-number">3</div>
+          <h4>Things You Hear</h4>
+          <p>Listen and identify 3 sounds (breathing, distant sounds, music)</p>
+        </div>
+        <div class="grounding-step">
+          <div class="step-number">2</div>
+          <h4>Things You Smell</h4>
+          <p>Take a sniff and name 2 scents (soap, air, perfume, food)</p>
+        </div>
+        <div class="grounding-step">
+          <div class="step-number">1</div>
+          <h4>One Thing You Taste</h4>
+          <p>Notice what you can taste (mouth, lip balm, water, nothing is okay!)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Self-Care Your Way</h2>
+      <p class="section-subtitle">Activities that calm your ADHD brain without draining your energy</p>
+    </div>
+
+    <div class="selfcare-grid">
+      <div class="selfcare-card">
+        <div class="selfcare-icon">🎨</div>
+        <h4>Creative Expression</h4>
+        <p>Letting your brain make something without rules or expectations</p>
+        <ul class="selfcare-list">
+          <li>Doodle or zentangle</li>
+          <li>Color in a coloring book (even adult ones!)</li>
+          <li>Listen to music and move freely</li>
+          <li>Write stream-of-consciousness in a journal</li>
+        </ul>
+      </div>
+
+      <div class="selfcare-card">
+        <div class="selfcare-icon">🌳</div>
+        <h4>Nature Connection</h4>
+        <p>Time outdoors reduces ADHD symptoms and improves mood</p>
+        <ul class="selfcare-list">
+          <li>Walk barefoot on grass (grounding)</li>
+          <li>Sit under a tree and breathe</li>
+          <li>Watch clouds or birds without thinking</li>
+          <li>Bring plants into your room</li>
+        </ul>
+      </div>
+
+      <div class="selfcare-card">
+        <div class="selfcare-icon">💃</div>
+        <h4>Movement & Body</h4>
+        <p>Physical activity releases dopamine your ADHD brain craves</p>
+        <ul class="selfcare-list">
+          <li>Dance to one song with abandon</li>
+          <li>Stretch or gentle yoga</li>
+          <li>Jump on a trampoline or bounce on balls</li>
+          <li>Take a sensory shower (different temps, textures)</li>
+        </ul>
+      </div>
+
+      <div class="selfcare-card">
+        <div class="selfcare-icon">🎧</div>
+        <h4>Rest & Reset</h4>
+        <p>Your brain needs actual downtime, not just distraction</p>
+        <ul class="selfcare-list">
+          <li>Cocoon in blankets for 20 minutes</li>
+          <li>Do absolutely nothing (it's productive!)</li>
+          <li>Listen to brown noise or nature sounds</li>
+          <li>Take a warm bath with Epsom salts</li>
+        </ul>
+      </div>
+
+      <div class="selfcare-card">
+        <div class="selfcare-icon">🤗</div>
+        <h4>Social Connection</h4>
+        <p>ADHD can feel isolating. Safe connection is healing</p>
+        <ul class="selfcare-list">
+          <li>Text a friend you trust</li>
+          <li>Spend time with pets or stuffed animals</li>
+          <li>Join ADHD community spaces online</li>
+          <li>Hug someone (with consent) for 20+ seconds</li>
+        </ul>
+      </div>
+
+      <div class="selfcare-card">
+        <div class="selfcare-icon">✨</div>
+        <h4>Sensory Reset</h4>
+        <p>When you're overstimulated, sensory care helps you regulate</p>
+        <ul class="selfcare-list">
+          <li>Weighted blanket or lap pad</li>
+          <li>Calming music or white noise</li>
+          <li>Dim lights and cozy corners</li>
+          <li>Fidget tools or stress balls</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Social & Relationships</h2>
+      <p class="section-subtitle">Navigating friendships and communication with ADHD</p>
+    </div>
+
+    <div class="social-grid">
+      <div class="social-card">
+        <h3>Managing Rejection Sensitivity</h3>
+        <p>RSD makes social interactions feel like high stakes. When you feel hurt or rejected, pause before reacting.</p>
+        <div class="strategy-box">
+          <strong>Try This: The 3-Column Check</strong>
+          <p>Write what you HEARD/Saw | What your brain SAID it meant | What someone else might hear it as</p>
+        </div>
+        <p>Often, you'll see your brain amplified the intensity. Reality is usually more neutral than RSD tells you.</p>
+      </div>
+
+      <div class="social-card">
+        <h3>Communication Challenges</h3>
+        <p>ADHD affects how you process conversations: zoning out, interrupting, saying wrong things, oversharing.</p>
+        <div class="strategy-box">
+          <strong>Try This: Conversation Prep</strong>
+          <p>Before group settings, ask a trusted person if you can use a subtle signal when you need to self-monitor. They give you a look when you're dominating or spacing out.</p>
+        </div>
+      </div>
+
+      <div class="social-card">
+        <h3>Friendship Maintenance</h3>
+        <p>Object permanence affects friendships too. You genuinely forget people exist when they're not present. This isn't personal.</p>
+        <div class="strategy-box">
+          <strong>Try This: Friendship Systems</strong>
+          <p>Set reminders to text friends weekly. Schedule regular hangouts. Be honest: "I care about you but my brain sucks at keeping in touch. Help me?" Most friends appreciate the honesty.</p>
+        </div>
+      </div>
+
+      <div class="social-card">
+        <h3>Social Energy Boundaries</h3>
+        <p>Social situations drain ADHD brains more than typical brains. You need more recovery time.</p>
+        <div class="strategy-box">
+          <strong>Try This: Social Budgeting</strong>
+          <p>Track what activities energize vs drain you. Schedule quiet time after social events. Give yourself permission to leave when you're done, even if others want to stay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mental-health">
+    <div class="section-header">
+      <h2 class="section-title">Mental Health Support</h2>
+      <p class="section-subtitle">When you need more than self-care</p>
+    </div>
+
+    <div class="warning-box">
+      <h4><span class="warning-icon">⚠️</span> You Don't Have to Do This Alone</h4>
+      <p>If you're struggling with depression, anxiety, self-harm, or thoughts of suicide, please reach out for professional help. Your feelings are valid, and support exists.</p>
+    </div>
+
+    <div class="crisis-numbers">
+      <h3>If You Need Immediate Help:</h3>
+      <div class="crisis-number">988</div>
+      <p><strong>Crisis Text Line:</strong> Text HOME to 741741</p>
+      <p><strong>Crisis Lifeline:</strong> Call or text 988 anytime</p>
+      <p><strong>Trevor Project (LGBTQ+):</strong> 1-866-488-7386</p>
+    </div>
+
+    <div class="therapy-grid">
+      <div class="therapy-card">
+        <h4>ADHD Coaching</h4>
+        <p>Professional help with practical skills: time management, organization, emotional regulation, academic strategies.</p>
+        <div class="best-for"><strong>Best for:</strong> Executive function challenges, getting systems in place</div>
+      </div>
+
+      <div class="therapy-card">
+        <h4>Therapy / Counseling</h4>
+        <p>Talk therapy helps with anxiety, depression, RSD, and processing the emotional impact of ADHD.</p>
+        <div class="best-for"><strong>Best for:</strong> Emotional regulation, trauma, relationship challenges, mood support</div>
+      </div>
+
+      <div class="therapy-card">
+        <h4>Psychiatric Support</h4>
+        <p>Medical evaluation for medication if needed. ADHD meds are tools, not solutions, but they can help significantly.</p>
+        <div class="best-for"><strong>Best for:</strong> Medication management, other mental health conditions alongside ADHD</div>
+      </div>
+
+      <div class="therapy-card">
+        <h4>Group Support</h4>
+        <p>Connecting with others who "get it" reduces shame and isolation. Online or in-person ADHD groups.</p>
+        <div class="best-for"><strong>Best for:</strong> Feeling less alone, peer learning, community</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Get Weekly Wellness & Self-Care Tips</h2>
+      <p>Join our newsletter for emotional regulation strategies, grounding techniques, and reminders to prioritize your wellbeing.</p>
+      <form style="max-width:500px;margin:32px auto 0;display:flex;gap:12px;flex-wrap:wrap;">
+        <input type="email" placeholder="Enter your email" style="flex:1;min-width:200px;padding:16px 20px;border:none;border-radius:999px;font-size:1rem;" required />
+        <button type="submit" class="btn" style="padding:16px 32px;white-space:nowrap;">Sign Up Free</button>
+      </form>
+      <div style="max-width:500px;margin:16px auto 0;">
+        <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;font-size:0.85rem;line-height:1.4;color:#7d6d77;">
+          <input type="checkbox" required style="margin:0;transform:scale(1.2);margin-top:2px;" />
+          I confirm that I am 13 years of age or older, or I am a parent/guardian providing consent for my child under 13
+        </label>
+      </div>
+      <p style="font-size:.85rem;margin-top:16px;opacity:.85;">We respect your inbox. No spam, unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  </main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" />
+          <h4>All Day HD</h4>
+        </div>
+        <p>Empowering teen girls with ADHD and their families through evidence-based strategies, supportive community, and practical tools for daily life.</p>
+        <p class="brand-line">All Day HD = All Day Hi‑Def — a strengths‑based lens on ADHD.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="girls.html">Girls Ages 8-12</a></li>
+          <li><a href="teens.html">Girls Ages 13-18</a></li>
+          <li><a href="parents.html">For Parents</a></li>
+          <li><a href="toolkit.html">Focus Toolkit</a></li>
+          <li><a href="wellness.html">Wellness</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 All Day HD — Girls with Focus. Educational content only — not medical advice.</p>
+      <div class="social-icons">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+      </div>
+    </div>
+  </div>
+  </footer>
+
+<script>
+// Age filter functionality
+function filterAge(age, btnElement) {
+  console.log('filterAge called with:', age, btnElement);
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  if (btnElement) btnElement.classList.add('active');
+  
+  const cards = document.querySelectorAll('[data-age]');
+  console.log('Found', cards.length, 'cards to filter');
+  cards.forEach(card => {
+    if (age === 'all' || card.dataset.age === age || card.dataset.age === 'all') {
+      card.style.display = 'block';
+      console.log('Showing card:', card.querySelector('h3')?.textContent);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Make sure function is available
+window.filterAge = filterAge;
+
+console.log('Filter function loaded');
+</script>
+
+<!-- Timer Modal -->
+<div class="timer-modal" id="timer-modal">
+  <div class="timer-modal-content">
+    <div class="timer-modal-header">
+      <h3>Focus Timer</h3>
+      <button class="timer-modal-close" id="timer-modal-close">×</button>
+    </div>
+    <div class="timer-large-display">
+      <div class="timer-time" id="timer-modal-time">20:00</div>
+      <div class="timer-label" id="timer-modal-label">Click start to begin</div>
+    </div>
+    <div class="timer-modal-controls">
+      <button class="timer-modal-btn primary" id="timer-modal-start">Start</button>
+      <button class="timer-modal-btn secondary" id="timer-modal-reset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Timer Modal & Functionality
+(function() {
+  'use strict';
+  
+  const navDisplay = document.getElementById('nav-timer-display');
+  const modalDisplay = document.getElementById('timer-modal-time');
+  const modalLabel = document.getElementById('timer-modal-label');
+  const navBtn = document.getElementById('nav-timer-btn');
+  const modal = document.getElementById('timer-modal');
+  const modalClose = document.getElementById('timer-modal-close');
+  const modalStart = document.getElementById('timer-modal-start');
+  const modalReset = document.getElementById('timer-modal-reset');
+  
+  if (!navDisplay || !navBtn || !modal) return;
+  
+  let minutes = 20;
+  let seconds = 0;
+  let interval = null;
+  let running = false;
+  
+  // Load state from sessionStorage
+  function loadState() {
+    const saved = sessionStorage.getItem('navTimer');
+    if (saved) {
+      const state = JSON.parse(saved);
+      minutes = state.minutes || 20;
+      seconds = state.seconds || 0;
+      running = state.running || false;
+      updateDisplays();
+      if (running) startTimer();
+    }
+  }
+  
+  // Save state to sessionStorage
+  function saveState() {
+    sessionStorage.setItem('navTimer', JSON.stringify({
+      minutes: minutes,
+      seconds: seconds,
+      running: running
+    }));
+  }
+  
+  function updateDisplays() {
+    const timeStr = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    navDisplay.textContent = timeStr;
+    if (modalDisplay) modalDisplay.textContent = timeStr;
+    
+    if (running) {
+      modalLabel.textContent = 'Focus session active';
+      if (modalStart) modalStart.textContent = 'Pause';
+    } else {
+      modalLabel.textContent = 'Timer paused';
+      if (modalStart) modalStart.textContent = 'Start';
+    }
+    
+    saveState();
+  }
+  
+  function startTimer() {
+    if (interval) clearInterval(interval);
+    
+    interval = setInterval(function() {
+      if (seconds > 0) {
+        seconds--;
+      } else if (minutes > 0) {
+        minutes--;
+        seconds = 59;
+      } else {
+        clearInterval(interval);
+        interval = null;
+        running = false;
+        navDisplay.textContent = '20:00';
+        modalDisplay.textContent = '20:00';
+        modalLabel.textContent = 'Time\'s up! Take a break.';
+        alert('Time\'s up! Take your break.');
+        minutes = 20;
+        seconds = 0;
+        saveState();
+        closeModal();
+      }
+      updateDisplays();
+    }, 1000);
+    
+    running = true;
+    updateDisplays();
+  }
+  
+  function stopTimer() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+    running = false;
+    updateDisplays();
+  }
+  
+  function resetTimer() {
+    stopTimer();
+    minutes = 20;
+    seconds = 0;
+    updateDisplays();
+  }
+  
+  function openModal() {
+    modal.classList.add('active');
+    updateDisplays();
+  }
+  
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+  
+  // Event listeners
+  navDisplay.addEventListener('click', openModal);
+  navBtn.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  modalStart.addEventListener('click', function() {
+    if (running) {
+      stopTimer();
+    } else {
+      startTimer();
+    }
+  });
+  modalReset.addEventListener('click', resetTimer);
+  
+  // Close modal on background click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  
+  // Save state when page is about to unload
+  window.addEventListener('beforeunload', function() {
+    saveState();
+  });
+  
+  // Save state when page becomes hidden (tab switch, minimize, etc.)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      saveState();
+    } else if (running) {
+      // If timer was running and page becomes visible again, ensure it's still running
+      loadState();
+    }
+  });
+  
+  // Initialize
+  loadState();
+})();
+</script>
+
+</body>
+</html>

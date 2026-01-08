@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ADHD Brain Map | All Day HD — Girls in Focus</title>
+<meta name="description" content="Empowering teen girls with ADHD through evidence-based strategies, supportive community, and practical tools. For girls and their parents.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="image-map.css">
+
+<script>
+const announcements = [
+  "✨ Helping girls with ADHD build calm, focus, and confidence ✨",
+  "✨ Because girls with ADHD don't need fixing — they need understanding ✨",
+  "✨ Smart strategies for bright, unstoppable minds ✨",
+  "✨ Empowering girls to thrive with clarity, not chaos ✨",
+  "✨ One strategy at a time — because every mind shines differently ✨",
+  "💫 Empowering all girls with ADHD through practical strategies, supportive community, and science-backed tools 💫"
+];
+
+let currentIndex = 0;
+
+function rotateAnnouncement() {
+  const announcementElement = document.getElementById('announcement-text');
+  if (!announcementElement) {
+    console.log('Element not found, retrying...');
+    setTimeout(rotateAnnouncement, 1000);
+    return;
+  }
+  
+  announcementElement.style.opacity = '0';
+  
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % announcements.length;
+    announcementElement.textContent = announcements[currentIndex];
+    announcementElement.style.opacity = '0.95';
+    console.log('Rotated to:', announcements[currentIndex]);
+  }, 500);
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, starting rotation...');
+  setInterval(rotateAnnouncement, 5000);
+  
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('menu-open');
+      
+      // Prevent body scroll when menu is open
+      if(nav.classList.contains('menu-open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Handle dropdown toggles on mobile
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    
+    if(link && dropdown) {
+      // This is a dropdown item
+      link.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          // Toggle active class for this specific item
+          item.classList.toggle('active');
+        }
+      });
+    } else if(link) {
+      // This is a regular link (no dropdown)
+      link.addEventListener('click', function() {
+        if(window.innerWidth <= 900) {
+          const nav = document.getElementById('main-nav');
+          nav.classList.remove('menu-open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+  
+  // Ensure dropdowns work with ul/ol structure
+  document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+    if(!dropdown.querySelector('li')) {
+      // Convert existing dropdown structure if needed
+      const links = dropdown.querySelectorAll('a');
+      links.forEach(function(link) {
+        const li = document.createElement('li');
+        li.appendChild(link.cloneNode(true));
+        link.parentNode.replaceChild(li, link);
+      });
+    }
+  });
+});
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container wrap">
+    <p id="announcement-text" >✨ Building confidence, one strategy at a time ✨</p>
+  </div>
+</header>
+
+<nav aria-label="Primary navigation" id="main-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-brand">
+        <div class="nav-logo-orbit">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" class="nav-logo-center" />
+          <svg width="82" height="82" viewBox="0 0 82 82" class="nav-logo-ring"><defs><path id="textPathCircle" d="M 41,3 A 38,38 0 1,1 40.9,3" fill="none"/></defs><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="0" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="50%" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="42%">·</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="92%">·</textPath></text></svg>
+        </div>
+        <h5>All Day<span class="superscript">HD</span></h5>
+      </div>
+      
+      <ul class="nav-center">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <span class="nav-link">For Girls <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="girls.html">Ages 8-12</a></li>
+            <li><a href="teens.html">Ages 13-18</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="parents.html" class="nav-link">For Parents</a>
+        </li>
+        
+        <li class="nav-item active">
+          <span class="nav-link">Explore <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="toolkit.html">Focus Toolkit</a></li>
+            <li><a href="wellness.html">Wellness</a></li>
+            <li><a href="understanding-adhd.html">Understanding ADHD</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="video-resources.html">Videos</a></li>
+            <li><a href="image-map.html">Brain Map</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="contact-us.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="nav-timer">
+        <div class="timer-display" id="nav-timer-display">20:00</div>
+        <button class="timer-icon-btn" id="nav-timer-btn" aria-label="Open timer">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+            <path d="M8 4v4l3 2"/>
+          </svg>
+          <div class="timer-tooltip">Click to open focus timer</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Interactive Brain Regions</h2>
+      <p class="section-subtitle">Understanding how ADHD affects different parts of your brain</p>
+    </div>
+
+    <div class="image-map-container" id="brain-map" style="scroll-margin-top:100px;">
+      <div style="position:relative;display:inline-block;max-width:600px;width:100%;margin:0 auto;">
+        <img src="brain_image-map.png" alt="ADHD Brain Map" usemap="#brainmap" id="brain-image" style="width:100%;height:auto;display:block;border-radius:var(--radius);position:relative;z-index:1;cursor:pointer;">
+        
+        <!-- Visual overlay indicators for clickable areas - positioned by JavaScript -->
+        <div class="hotspot-overlay hotspot-1" style="position:absolute;border:3px solid var(--cerise);border-radius:12px;background:rgba(236,5,142,.2);pointer-events:none;box-shadow:0 0 20px rgba(236,5,142,.5);animation:pulse 2s ease-in-out infinite;cursor:pointer;display:none;">
+          <div class="hotspot-label" style="position:absolute;top:-35px;left:0;background:var(--cerise);color:#fff;padding:6px 14px;border-radius:8px;font-size:.9rem;font-weight:700;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:10;display:flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Prefrontal Cortex</div>
+        </div>
+        <div class="hotspot-overlay hotspot-2" style="position:absolute;border:3px solid var(--orange);border-radius:12px;background:rgba(255,144,0,.2);pointer-events:none;box-shadow:0 0 20px rgba(255,144,0,.5);animation:pulse 2s ease-in-out infinite;animation-delay:0.5s;cursor:pointer;display:none;">
+          <div class="hotspot-label" style="position:absolute;top:-35px;right:0;background:var(--orange);color:#fff;padding:6px 14px;border-radius:8px;font-size:.9rem;font-weight:700;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:10;display:flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M7 2v2h1v14c0 2.21 1.79 4 4 4s4-1.79 4-4V4h1V2H7zm4 18c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z"/></svg> Basal Ganglia</div>
+        </div>
+        <div class="hotspot-overlay hotspot-3" style="position:absolute;border:3px solid var(--moonstone);border-radius:12px;background:rgba(57,162,174,.2);pointer-events:none;box-shadow:0 0 20px rgba(57,162,174,.5);animation:pulse 2s ease-in-out infinite;animation-delay:1s;cursor:pointer;display:none;">
+          <div class="hotspot-label" style="position:absolute;bottom:-35px;left:50%;transform:translateX(-50%);background:var(--moonstone);color:#fff;padding:6px 14px;border-radius:8px;font-size:.9rem;font-weight:700;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:10;display:flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Amygdala</div>
+        </div>
+        <div class="hotspot-overlay hotspot-4" style="position:absolute;border:3px solid var(--purple);border-radius:12px;background:rgba(44,14,55,.2);pointer-events:none;box-shadow:0 0 20px rgba(44,14,55,.5);animation:pulse 2s ease-in-out infinite;animation-delay:1.5s;cursor:pointer;display:none;">
+          <div class="hotspot-label" style="position:absolute;bottom:-35px;left:50%;transform:translateX(-50%);background:var(--purple);color:#fff;padding:6px 14px;border-radius:8px;font-size:.9rem;font-weight:700;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:10;display:flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg> Neural Networks</div>
+        </div>
+      </div>
+      
+      <!-- Map element must be outside positioned container for proper functionality -->
+      <map name="brainmap" id="brainmap">
+        <area shape="rect" coords="520,120,670,220" href="#prefrontal-cortex" alt="Prefrontal Cortex - Executive Functions" title="Prefrontal Cortex: Controls planning, organization, and impulse control">
+        <area shape="rect" coords="500,430,680,550" href="#basal-ganglia" alt="Basal Ganglia - Focus and Movement" title="Basal Ganglia: Regulates attention and motor control">
+        <area shape="rect" coords="280,230,430,310" href="#neural-networks" alt="Neural Networks - Brain Connectivity" title="Neural Networks: Communication pathways between brain regions">
+        <area shape="rect" coords="300,650,450,730" href="#amygdala" alt="Amygdala - Emotional Regulation" title="Amygdala: Processes emotions and stress responses">
+      </map>
+
+      <div class="map-info">
+        <h3>How to Use This Map</h3>
+        <p>Click on the highlighted areas of the brain image above to learn more about how ADHD affects different brain regions. Each colored overlay indicates a clickable hotspot that links to relevant resources and information about that specific brain function.</p>
+        <div class="tip-box">
+          <strong><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> Tip:</strong>
+          <p>The pulsing colored boxes show exactly where to click!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Expanded Brain Region Sections -->
+    <section class="section" id="prefrontal-cortex" style="scroll-margin-top:100px;position:relative;">
+      <div class="section-icon" style="position:absolute;top:24px;left:24px;width:64px;height:64px;border-radius:50%;background:var(--cerise);display:grid;place-items:center;box-shadow:var(--shadow-md);z-index:1;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      </div>
+      <div class="section-header">
+        <h2 class="section-title">Prefrontal Cortex</h2>
+        <p class="section-subtitle">The Executive Control Center of Your Brain</p>
+      </div>
+      
+      <div style="max-width:800px;margin:0 auto;">
+        <h3 style="color:var(--cerise);margin-top:32px;margin-bottom:16px;">What It Does</h3>
+        <p>The prefrontal cortex is like the CEO of your brain. It's responsible for executive functions, which are the high-level thinking skills that help you manage your life:</p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li><strong>Planning & Organization:</strong> Breaking down big tasks into smaller steps, creating schedules, and organizing your space</li>
+          <li><strong>Decision Making:</strong> Weighing options and choosing the best course of action</li>
+          <li><strong>Impulse Control:</strong> Thinking before acting, resisting distractions, and staying on task</li>
+          <li><strong>Working Memory:</strong> Holding information in your mind while you work with it</li>
+          <li><strong>Time Management:</strong> Understanding how long tasks take and managing deadlines</li>
+          <li><strong>Emotional Regulation:</strong> Managing your feelings and reactions appropriately</li>
+        </ul>
+
+        <h3 style="color:var(--cerise);margin-top:32px;margin-bottom:16px;">ADHD Impact</h3>
+        <p>In ADHD brains, the prefrontal cortex develops more slowly—about 2-3 years behind typical development. This means:</p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li>Executive functions may not fully mature until your early 20s (instead of late teens)</li>
+          <li>You might struggle more with planning, organization, and time management than your peers</li>
+          <li>Impulse control can be challenging, leading to interrupting, blurting out answers, or acting without thinking</li>
+          <li>Working memory limitations can make it hard to follow multi-step instructions or remember what you were doing</li>
+        </ul>
+
+        <h3 style="color:var(--cerise);margin-top:32px;margin-bottom:16px;">What This Means for You</h3>
+        <p><strong>The good news:</strong> Your prefrontal cortex is still developing! With the right strategies and support, you can strengthen these skills. Many successful people with ADHD have learned to work with their brain's unique wiring.</p>
+        <p style="margin-top:24px;"><strong>Practical strategies:</strong></p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li>Use visual planners and checklists to support planning</li>
+          <li>Break tasks into smaller, manageable chunks</li>
+          <li>Set timers and alarms to help with time awareness</li>
+          <li>Create routines to reduce decision fatigue</li>
+          <li>Use body doubling (working alongside someone) for accountability</li>
+        </ul>
+        <div style="text-align:center;margin-top:40px;">
+          <a href="#brain-map" style="display:inline-block;padding:12px 24px;background:var(--cerise);color:#fff;text-decoration:none;border-radius:var(--radius);font-weight:600;transition:all 0.3s ease;" onmouseover="this.style.background='var(--orange)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--cerise)';this.style.transform='translateY(0)'">↑ Back to Brain Map</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="basal-ganglia" style="scroll-margin-top:100px;position:relative;">
+      <div class="section-icon" style="position:absolute;top:24px;left:24px;width:64px;height:64px;border-radius:50%;background:var(--orange);display:grid;place-items:center;box-shadow:var(--shadow-md);z-index:1;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M7 2v2h1v14c0 2.21 1.79 4 4 4s4-1.79 4-4V4h1V2H7zm4 18c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z"/></svg>
+      </div>
+      <div class="section-header">
+        <h2 class="section-title">Basal Ganglia</h2>
+        <p class="section-subtitle">The Focus and Motivation Hub</p>
+      </div>
+      
+      <div style="max-width:800px;margin:0 auto;">
+        <h3 style="color:var(--orange);margin-top:32px;margin-bottom:16px;">What It Does</h3>
+        <p>The basal ganglia are deep brain structures that play crucial roles in:</p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li><strong>Attention Regulation:</strong> Filtering out distractions and maintaining focus on what's important</li>
+          <li><strong>Motor Control:</strong> Coordinating movement and controlling fidgeting or restlessness</li>
+          <li><strong>Reward Processing:</strong> Responding to rewards and motivation, helping you feel satisfied when completing tasks</li>
+          <li><strong>Habit Formation:</strong> Creating and maintaining routines and automatic behaviors</li>
+          <li><strong>Task Initiation:</strong> Getting started on activities, even when they're not immediately interesting</li>
+        </ul>
+
+        <h3 style="color:var(--orange);margin-top:32px;margin-bottom:16px;">ADHD Impact</h3>
+        <p>The basal ganglia rely heavily on dopamine, a neurotransmitter that's often lower in ADHD brains. This affects:</p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li><strong>Focus Challenges:</strong> Difficulty sustaining attention, especially on tasks that aren't immediately rewarding</li>
+          <li><strong>Hyperfocus:</strong> The ability to intensely focus on high-interest activities (this is actually a strength!)</li>
+          <li><strong>Motivation Issues:</strong> Needing more immediate rewards or consequences to feel motivated</li>
+          <li><strong>Restlessness:</strong> Feeling the need to move, fidget, or change positions frequently</li>
+          <li><strong>Task Switching:</strong> Difficulty transitioning between activities</li>
+        </ul>
+
+        <h3 style="color:var(--orange);margin-top:32px;margin-bottom:16px;">What This Means for You</h3>
+        <p><strong>Understanding your motivation:</strong> Your brain needs different types of motivation than neurotypical brains. You might need more frequent rewards, more interesting tasks, or external accountability to stay engaged.</p>
+        <p style="margin-top:24px;"><strong>Practical strategies:</strong></p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li>Use the Pomodoro Technique (25 minutes work, 5 minutes break) to maintain focus</li>
+          <li>Incorporate movement breaks to satisfy restlessness</li>
+          <li>Make tasks more interesting by adding music, gamification, or working in a stimulating environment</li>
+          <li>Use body doubling or accountability partners</li>
+          <li>Break up boring tasks with more engaging activities</li>
+          <li>Leverage your hyperfocus by scheduling important work during times when you can dive deep</li>
+        </ul>
+        <div style="text-align:center;margin-top:40px;">
+          <a href="#brain-map" style="display:inline-block;padding:12px 24px;background:var(--orange);color:#fff;text-decoration:none;border-radius:var(--radius);font-weight:600;transition:all 0.3s ease;" onmouseover="this.style.background='var(--cerise)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--orange)';this.style.transform='translateY(0)'">↑ Back to Brain Map</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="neural-networks" style="scroll-margin-top:100px;position:relative;">
+      <div class="section-icon" style="position:absolute;top:24px;left:24px;width:64px;height:64px;border-radius:50%;background:var(--purple);display:grid;place-items:center;box-shadow:var(--shadow-md);z-index:1;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+      </div>
+      <div class="section-header">
+        <h2 class="section-title">Neural Networks</h2>
+        <p class="section-subtitle">The Communication Pathways of Your Brain</p>
+      </div>
+      
+      <div style="max-width:800px;margin:0 auto;">
+        <h3 style="color:var(--purple);margin-top:32px;margin-bottom:16px;">What They Do</h3>
+        <p>Neural networks are the communication highways between different brain regions. Think of them as the internet of your brain—they allow different areas to share information and work together:</p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li><strong>Default Mode Network:</strong> Active when you're daydreaming or not focused on a task</li>
+          <li><strong>Executive Control Network:</strong> Helps you focus, plan, and make decisions</li>
+          <li><strong>Salience Network:</strong> Determines what's important to pay attention to</li>
+          <li><strong>Task-Positive Network:</strong> Engages when you're actively working on something</li>
+        </ul>
+
+        <h3 style="color:var(--purple);margin-top:32px;margin-bottom:16px;">ADHD Impact</h3>
+        <p>In ADHD brains, these networks communicate differently:</p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li><strong>Network Coordination:</strong> The networks may not coordinate as smoothly, making it harder to switch between focused work and rest</li>
+          <li><strong>Default Mode Intrusion:</strong> The daydreaming network may stay active when you're trying to focus, leading to mind-wandering</li>
+          <li><strong>Reduced Connectivity:</strong> Some pathways may be weaker, affecting how quickly information travels between brain regions</li>
+          <li><strong>Different Strengths:</strong> Some networks may actually be more active, contributing to creativity and big-picture thinking</li>
+        </ul>
+
+        <h3 style="color:var(--purple);margin-top:32px;margin-bottom:16px;">What This Means for You</h3>
+        <p><strong>Your unique brain wiring:</strong> While ADHD brains have different connectivity patterns, this isn't necessarily a deficit. Many people with ADHD excel at:</p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li>Creative problem-solving and thinking outside the box</li>
+          <li>Making unexpected connections between ideas</li>
+          <li>Seeing the big picture and understanding complex systems</li>
+          <li>Innovation and entrepreneurship</li>
+        </ul>
+        <p style="margin-top:24px;"><strong>Practical strategies:</strong></p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li>Use mindfulness practices to help regulate network activity</li>
+          <li>Create structured routines to support smoother transitions</li>
+          <li>Allow time for mind-wandering and creative thinking</li>
+          <li>Use external tools (calendars, reminders, lists) to support executive functions</li>
+          <li>Embrace your creative strengths and find careers/activities that value them</li>
+        </ul>
+        <div style="text-align:center;margin-top:40px;">
+          <a href="#brain-map" style="display:inline-block;padding:12px 24px;background:var(--purple);color:#fff;text-decoration:none;border-radius:var(--radius);font-weight:600;transition:all 0.3s ease;" onmouseover="this.style.background='var(--cerise)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--purple)';this.style.transform='translateY(0)'">↑ Back to Brain Map</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="amygdala" style="scroll-margin-top:100px;position:relative;">
+      <div class="section-icon" style="position:absolute;top:24px;left:24px;width:64px;height:64px;border-radius:50%;background:var(--moonstone);display:grid;place-items:center;box-shadow:var(--shadow-md);z-index:1;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </div>
+      <div class="section-header">
+        <h2 class="section-title">Amygdala</h2>
+        <p class="section-subtitle">The Emotional Processing Center</p>
+      </div>
+      
+      <div style="max-width:800px;margin:0 auto;">
+        <h3 style="color:var(--moonstone);margin-top:32px;margin-bottom:16px;">What It Does</h3>
+        <p>The amygdala is your brain's emotional alarm system. It's responsible for:</p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li><strong>Emotional Processing:</strong> Recognizing and interpreting emotions in yourself and others</li>
+          <li><strong>Stress Response:</strong> Activating your fight, flight, or freeze response when you sense danger</li>
+          <li><strong>Emotional Memories:</strong> Storing memories with strong emotional associations</li>
+          <li><strong>Threat Detection:</strong> Scanning for potential threats or social rejection</li>
+          <li><strong>Empathy:</strong> Understanding and responding to others' emotions</li>
+        </ul>
+
+        <h3 style="color:var(--moonstone);margin-top:32px;margin-bottom:16px;">ADHD Impact</h3>
+        <p>In ADHD brains, the amygdala can be more reactive, leading to:</p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li><strong>Rejection Sensitive Dysphoria (RSD):</strong> Intense emotional pain in response to perceived rejection or criticism</li>
+          <li><strong>Emotional Intensity:</strong> Feeling emotions more strongly than neurotypical peers</li>
+          <li><strong>Mood Swings:</strong> Rapid shifts between emotional states</li>
+          <li><strong>Anxiety:</strong> Higher baseline anxiety due to constant threat scanning</li>
+          <li><strong>Emotional Regulation Challenges:</strong> Difficulty calming down once emotions are activated</li>
+          <li><strong>Empathy Strengths:</strong> Many people with ADHD are highly empathetic and attuned to others' emotions</li>
+        </ul>
+
+        <h3 style="color:var(--moonstone);margin-top:32px;margin-bottom:16px;">What This Means for You</h3>
+        <p><strong>Your emotional experience is valid:</strong> The intensity of your emotions isn't a character flaw—it's how your brain is wired. Understanding this can help you develop better coping strategies.</p>
+        <p style="margin-top:24px;"><strong>Practical strategies:</strong></p>
+        <ul style="margin:20px 0;padding-left:24px;line-height:2;">
+          <li>Practice emotional regulation techniques like deep breathing, grounding exercises, or progressive muscle relaxation</li>
+          <li>Create a "cooling off" period before responding to emotional situations</li>
+          <li>Build a support network of people who understand your emotional intensity</li>
+          <li>Use journaling to process emotions and identify triggers</li>
+          <li>Practice self-compassion—your emotions are valid and understandable</li>
+          <li>Consider therapy or counseling to develop emotional regulation skills</li>
+          <li>Recognize and celebrate your empathy as a strength</li>
+        </ul>
+        <p><strong>Remember:</strong> Emotional intensity can also be a superpower. Many people with ADHD are passionate, empathetic, and deeply caring—qualities that make them wonderful friends, partners, and advocates.</p>
+        <div style="text-align:center;margin-top:40px;">
+          <a href="#brain-map" style="display:inline-block;padding:12px 24px;background:var(--moonstone);color:#fff;text-decoration:none;border-radius:var(--radius);font-weight:600;transition:all 0.3s ease;" onmouseover="this.style.background='var(--cerise)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--moonstone)';this.style.transform='translateY(0)'">↑ Back to Brain Map</a>
+        </div>
+      </div>
+    </section>
+    
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" />
+          <h4>All Day HD</h4>
+        </div>
+        <p>Empowering teen girls with ADHD and their families through evidence-based strategies, supportive community, and practical tools for daily life.</p>
+        <p class="brand-line">All Day HD = All Day Hi‑Def — a strengths‑based lens on ADHD.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="girls.html">Girls Ages 8-12</a></li>
+          <li><a href="teens.html">Girls Ages 13-18</a></li>
+          <li><a href="parents.html">For Parents</a></li>
+          <li><a href="toolkit.html">Focus Toolkit</a></li>
+          <li><a href="wellness.html">Wellness</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 All Day HD — Girls in Focus. Educational content only — not medical advice.</p>
+        <div class="social-icons">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Timer Modal -->
+<div class="timer-modal" id="timer-modal">
+  <div class="timer-modal-content">
+    <div class="timer-modal-header">
+      <h3>Focus Timer</h3>
+      <button class="timer-modal-close" id="timer-modal-close">×</button>
+    </div>
+    <div class="timer-large-display">
+      <div class="timer-time" id="timer-modal-time">20:00</div>
+      <div class="timer-label" id="timer-modal-label">Click start to begin</div>
+    </div>
+    <div class="timer-modal-controls">
+      <button class="timer-modal-btn primary" id="timer-modal-start">Start</button>
+      <button class="timer-modal-btn secondary" id="timer-modal-reset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Timer Modal & Functionality
+(function() {
+  'use strict';
+  
+  const navDisplay = document.getElementById('nav-timer-display');
+  const modalDisplay = document.getElementById('timer-modal-time');
+  const modalLabel = document.getElementById('timer-modal-label');
+  const navBtn = document.getElementById('nav-timer-btn');
+  const modal = document.getElementById('timer-modal');
+  const modalClose = document.getElementById('timer-modal-close');
+  const modalStart = document.getElementById('timer-modal-start');
+  const modalReset = document.getElementById('timer-modal-reset');
+  
+  if (!navDisplay || !navBtn || !modal) return;
+  
+  let minutes = 20;
+  let seconds = 0;
+  let interval = null;
+  let running = false;
+  
+  // Load state from sessionStorage
+  function loadState() {
+    const saved = sessionStorage.getItem('navTimer');
+    if (saved) {
+      const state = JSON.parse(saved);
+      minutes = state.minutes || 20;
+      seconds = state.seconds || 0;
+      running = state.running || false;
+      updateDisplays();
+      if (running) startTimer();
+    }
+  }
+  
+  // Save state to sessionStorage
+  function saveState() {
+    sessionStorage.setItem('navTimer', JSON.stringify({
+      minutes: minutes,
+      seconds: seconds,
+      running: running
+    }));
+  }
+  
+  function updateDisplays() {
+    const timeStr = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    navDisplay.textContent = timeStr;
+    if (modalDisplay) modalDisplay.textContent = timeStr;
+    
+    if (running) {
+      modalLabel.textContent = 'Focus session active';
+      if (modalStart) modalStart.textContent = 'Pause';
+    } else {
+      modalLabel.textContent = 'Timer paused';
+      if (modalStart) modalStart.textContent = 'Start';
+    }
+    
+    saveState();
+  }
+  
+  function startTimer() {
+    if (interval) clearInterval(interval);
+    
+    interval = setInterval(function() {
+      if (seconds > 0) {
+        seconds--;
+      } else if (minutes > 0) {
+        minutes--;
+        seconds = 59;
+      } else {
+        clearInterval(interval);
+        interval = null;
+        running = false;
+        navDisplay.textContent = '20:00';
+        modalDisplay.textContent = '20:00';
+        modalLabel.textContent = 'Time\'s up! Take a break.';
+        alert('Time\'s up! Take your break.');
+        minutes = 20;
+        seconds = 0;
+        saveState();
+        closeModal();
+      }
+      updateDisplays();
+    }, 1000);
+    
+    running = true;
+    updateDisplays();
+  }
+  
+  function stopTimer() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+    running = false;
+    updateDisplays();
+  }
+  
+  function resetTimer() {
+    stopTimer();
+    minutes = 20;
+    seconds = 0;
+    updateDisplays();
+  }
+  
+  function openModal() {
+    modal.classList.add('active');
+    updateDisplays();
+  }
+  
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+  
+  // Event listeners
+  navDisplay.addEventListener('click', openModal);
+  navBtn.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  modalStart.addEventListener('click', function() {
+    if (running) {
+      stopTimer();
+    } else {
+      startTimer();
+    }
+  });
+  modalReset.addEventListener('click', resetTimer);
+  
+  // Close modal on background click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  
+  // Save state when page is about to unload
+  window.addEventListener('beforeunload', function() {
+    saveState();
+  });
+  
+  // Save state when page becomes hidden (tab switch, minimize, etc.)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      saveState();
+    } else if (running) {
+      // If timer was running and page becomes visible again, ensure it's still running
+      loadState();
+    }
+  });
+  
+  // Initialize
+  loadState();
+})();
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const img = document.getElementById('brain-image');
+  
+  if (!img) {
+    console.error('Brain image not found!');
+    return;
+  }
+  
+  // Coordinate mappings based on brain anatomy (profile view, brain facing right)
+  // Prefrontal Cortex: forefront area top right
+  // Basal Ganglia: moved right 1 inch and down 0.5 inch
+  // Neural Networks: moved down and right just a bit
+  // Amygdala: stem at the very bottom
+  const hotspotData = [
+    {id: 'hotspot-1', coords: [520, 120, 670, 220], shape: 'rect'}, // Prefrontal Cortex
+    {id: 'hotspot-2', coords: [500, 430, 680, 550], shape: 'rect'}, // Basal Ganglia - moved right 1 inch and down 0.5 inch
+    {id: 'hotspot-4', coords: [280, 230, 430, 310], shape: 'rect'}, // Neural Networks - moved down and right just a bit
+    {id: 'hotspot-3', coords: [300, 650, 450, 730], shape: 'rect'} // Amygdala - bottom stem
+  ];
+  
+  function updateHotspotPositions() {
+    if (!img || !img.complete || img.naturalWidth === 0) {
+      if (img) {
+      img.onload = updateHotspotPositions;
+      }
+      return;
+    }
+    
+    const imgRect = img.getBoundingClientRect();
+    const naturalWidth = img.naturalWidth;
+    const naturalHeight = img.naturalHeight;
+    const displayedWidth = imgRect.width;
+    const displayedHeight = imgRect.height;
+    
+    if (displayedWidth === 0 || displayedHeight === 0) {
+      return;
+    }
+    
+    // Calculate scale factors
+    const scaleX = displayedWidth / naturalWidth;
+    const scaleY = displayedHeight / naturalHeight;
+    
+    // Update each hotspot overlay
+    hotspotData.forEach(function(data) {
+      // Try multiple selector formats to find the hotspot
+      let hotspot = document.querySelector('.hotspot-overlay.' + data.id);
+      if (!hotspot) {
+        hotspot = document.querySelector('.' + data.id);
+      }
+      if (!hotspot) {
+        console.error('Hotspot not found:', data.id, 'Tried: .hotspot-overlay.' + data.id + ' and .' + data.id);
+        return;
+      }
+      
+      let left, top, width, height;
+      
+      if (data.shape === 'rect') {
+        // coords: [x1, y1, x2, y2]
+        left = data.coords[0] * scaleX;
+        top = data.coords[1] * scaleY;
+        width = (data.coords[2] - data.coords[0]) * scaleX;
+        height = (data.coords[3] - data.coords[1]) * scaleY;
+      } else if (data.shape === 'circle') {
+        // coords: [centerX, centerY, radius]
+        const centerX = data.coords[0] * scaleX;
+        const centerY = data.coords[1] * scaleY;
+        const radius = data.coords[2] * scaleX;
+        left = centerX - radius;
+        top = centerY - radius;
+        width = radius * 2;
+        height = radius * 2;
+      }
+      
+      hotspot.style.left = left + 'px';
+      hotspot.style.top = top + 'px';
+      hotspot.style.width = width + 'px';
+      hotspot.style.height = height + 'px';
+      hotspot.style.display = 'block';
+      hotspot.style.visibility = 'visible';
+      hotspot.style.opacity = '1';
+    });
+  }
+  
+  // Wait for image to load
+  if (img.complete && img.naturalWidth > 0) {
+    updateHotspotPositions();
+  } else {
+    img.onload = updateHotspotPositions;
+  }
+  
+  // Update on resize
+  window.addEventListener('resize', updateHotspotPositions);
+  
+  // Fallback for cached images - multiple attempts
+  setTimeout(updateHotspotPositions, 100);
+  setTimeout(updateHotspotPositions, 500);
+  setTimeout(updateHotspotPositions, 1000);
+  setTimeout(updateHotspotPositions, 2000);
+});
+
+// Image map click handlers - simplified and reliable
+(function() {
+  function scrollToSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    if (section) {
+      var headerOffset = 120;
+      var sectionTop = section.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: sectionTop,
+        behavior: 'smooth'
+      });
+    }
+  }
+  
+  // Wait for DOM to be ready
+  function init() {
+    var img = document.getElementById('brain-image');
+    if (!img) {
+      setTimeout(init, 100);
+      return;
+    }
+    
+    // Method 1: Intercept clicks on image and calculate which area was clicked
+    img.addEventListener('click', function(e) {
+      var rect = img.getBoundingClientRect();
+      var clickX = e.clientX - rect.left;
+      var clickY = e.clientY - rect.top;
+      
+      // Get image dimensions
+      var naturalWidth = img.naturalWidth || 922;
+      var naturalHeight = img.naturalHeight || 841;
+      var displayWidth = rect.width;
+      var displayHeight = rect.height;
+      
+      // Scale click coordinates to image coordinates
+      var scaleX = naturalWidth / displayWidth;
+      var scaleY = naturalHeight / displayHeight;
+      var imgX = clickX * scaleX;
+      var imgY = clickY * scaleY;
+      
+      // Check each area
+      var areas = document.querySelectorAll('map[name="brainmap"] area');
+      for (var i = 0; i < areas.length; i++) {
+        var area = areas[i];
+        var coords = area.getAttribute('coords').split(',');
+        var href = area.getAttribute('href');
+        
+        if (href && href.indexOf('#') === 0) {
+          var x1 = parseFloat(coords[0]);
+          var y1 = parseFloat(coords[1]);
+          var x2 = parseFloat(coords[2]);
+          var y2 = parseFloat(coords[3]);
+          
+          if (imgX >= x1 && imgX <= x2 && imgY >= y1 && imgY <= y2) {
+            e.preventDefault();
+            e.stopPropagation();
+            var targetId = href.substring(1);
+            scrollToSection(targetId);
+            return false;
+          }
+        }
+      }
+    }, true);
+    
+    // Method 2: Handle area element clicks directly (fallback)
+    var areas = document.querySelectorAll('map[name="brainmap"] area');
+    for (var i = 0; i < areas.length; i++) {
+      (function(area) {
+        var href = area.getAttribute('href');
+        if (href && href.indexOf('#') === 0) {
+          area.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            scrollToSection(href.substring(1));
+            return false;
+          }, true);
+        }
+      })(areas[i]);
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menu-toggle');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('menu-open');
+      if(nav.classList.contains('menu-open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+
+    if(link && dropdown) {
+      link.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          item.classList.toggle('active');
+        }
+      });
+    } else if(link) {
+      link.addEventListener('click', function() {
+        if(window.innerWidth <= 900) {
+          const nav = document.getElementById('main-nav');
+          nav.classList.remove('menu-open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+});
+
+
+
+</body>
+</html>

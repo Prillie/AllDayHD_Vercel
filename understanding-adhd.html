@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Understanding ADHD in Girls | All Day HD</title>
+<meta name="description" content="A deep dive into how ADHD shows up in girls and teen girls — masking, emotional intensity, inattentive traits, and the key differences from boys.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="understanding-adhd.css">
+
+<script>
+const announcements = [
+  "✨ Helping girls with ADHD build calm, focus, and confidence ✨",
+  "✨ Because girls with ADHD don't need fixing — they need understanding ✨",
+  "✨ Smart strategies for bright, unstoppable minds ✨",
+  "✨ Empowering girls to thrive with clarity, not chaos ✨",
+  "✨ One strategy at a time — because every mind shines differently ✨",
+  "💫 Empowering all girls with ADHD through practical strategies, supportive community, and science-backed tools 💫"
+];
+
+let currentIndex = 0;
+
+function rotateAnnouncement() {
+  const announcementElement = document.getElementById('announcement-text');
+  if (!announcementElement) {
+    console.log('Element not found, retrying...');
+    setTimeout(rotateAnnouncement, 1000);
+    return;
+  }
+  
+  announcementElement.style.opacity = '0';
+  
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % announcements.length;
+    announcementElement.textContent = announcements[currentIndex];
+    announcementElement.style.opacity = '0.95';
+    console.log('Rotated to:', announcements[currentIndex]);
+  }, 500);
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, starting rotation...');
+  setInterval(rotateAnnouncement, 5000);
+  
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('menu-open');
+      
+      // Prevent body scroll when menu is open
+      if(nav.classList.contains('menu-open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Handle dropdown toggles on mobile
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    
+    if(link && dropdown) {
+      // This is a dropdown item
+      link.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          // Toggle active class for this specific item
+          item.classList.toggle('active');
+        }
+      });
+    } else if(link) {
+      // This is a regular link (no dropdown)
+      link.addEventListener('click', function() {
+        if(window.innerWidth <= 900) {
+          const nav = document.getElementById('main-nav');
+          nav.classList.remove('menu-open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+});
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container wrap">
+    <p id="announcement-text" >✨ Building confidence, one strategy at a time ✨</p>
+  </div>
+</header>
+
+<nav aria-label="Primary navigation" id="main-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-brand">
+        <div class="nav-logo-orbit">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" class="nav-logo-center" />
+          <svg width="82" height="82" viewBox="0 0 82 82" class="nav-logo-ring"><defs><path id="textPathCircle" d="M 41,3 A 38,38 0 1,1 40.9,3" fill="none"/></defs><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="0" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="8" font-weight="800" letter-spacing="1.44"><textPath href="#textPathCircle" startOffset="50%" dy="0">GIRLS IN FOCUS</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="42%">·</textPath></text><text fill="#fff" font-size="10" font-weight="800"><textPath href="#textPathCircle" startOffset="92%">·</textPath></text></svg>
+        </div>
+        <h5>All Day<span class="superscript">HD</span></h5>
+      </div>
+      
+      <ul class="nav-center">
+        <li class="nav-item">
+          <a href="index.html#home" class="nav-link">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <span class="nav-link">For Girls <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="girls.html">Ages 8-12</a></li>
+            <li><a href="teens.html">Ages 13-18</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="parents.html" class="nav-link">For Parents</a>
+        </li>
+        
+        <li class="nav-item active">
+          <span class="nav-link">Explore <span class="dropdown-arrow">▾</span></span>
+          <ul class="dropdown">
+            <li><a href="toolkit.html">Focus Toolkit</a></li>
+            <li><a href="wellness.html">Wellness</a></li>
+            <li><a href="understanding-adhd.html">Understanding ADHD</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="video-resources.html">Videos</a></li>
+            <li><a href="image-map.html">Brain Map</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="contact-us.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="nav-timer">
+        <div class="timer-display" id="nav-timer-display">20:00</div>
+        <button class="timer-icon-btn" id="nav-timer-btn" aria-label="Open timer">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+            <path d="M8 4v4l3 2"/>
+          </svg>
+          <div class="timer-tooltip">Click to open focus timer</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Knowledge is Power</h1>
+      <p class="lead">How ADHD shows up in girls — masking, emotional intensity, quiet inattention — and why recognizing it early changes everything.</p>
+      <p class="brand-line-hero">Educational content only — not medical advice. Use this as a starting point for conversations with trusted professionals.</p>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <div class="resource-tabs" aria-label="Understanding ADHD sections">
+    <button class="resource-tab active" data-target="ua-overview">Overview</button>
+    <button class="resource-tab" data-target="ua-differences">Girls vs Boys</button>
+    <button class="resource-tab" data-target="ua-stats">Stats &amp; Comparison</button>
+    <button class="resource-tab" data-target="ua-myths">Diagnosis &amp; Testing</button>
+    <button class="resource-tab" data-target="ua-strengths">Myths vs Facts</button>
+    <button class="resource-tab" data-target="ua-stories">Strengths</button>
+    <button class="resource-tab" data-target="ua-faq">Success Stories</button>
+    <button class="resource-tab" data-target="ua-faq-section">ADHD FAQ</button>
+  </div>
+
+  <section class="section resource-panel is-active" id="ua-overview">
+    <div class="section-header">
+      <h2 class="section-title">Understanding ADHD in Girls</h2>
+      <p class="section-subtitle">Why girls are often missed and what makes their experience unique</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        </div>
+        <h3>Masking Is Common</h3>
+        <p>Many girls hide symptoms to fit in, leading to delayed diagnosis. They work twice as hard to appear "normal," causing exhaustion and anxiety.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2v2a8 8 0 1 1-8 8H2a10 10 0 1 0 10-10z"/></svg>
+        </div>
+        <h3>Inattentive Type Dominates</h3>
+        <p>Girls typically show "daydreamy" symptoms rather than hyperactivity. Internal restlessness and task initiation struggles go unnoticed.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <h3>Emotional Intensity</h3>
+        <p>Rejection sensitivity, people-pleasing, and emotional overwhelm are hallmarks. Girls need specific strategies for emotion regulation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section resource-panel" id="ua-differences">
+    <div class="section-header">
+      <h2 class="section-title">Key Differences: Girls vs. Boys</h2>
+      <p class="section-subtitle">Understanding presentation differences helps prevent missed diagnoses</p>
+    </div>
+
+    <div class="comparison-grid">
+      <article class="compare-card">
+        <div class="compare-header">
+          <div class="compare-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2v2a8 8 0 1 1-8 8H2a10 10 0 1 0 10-10zM11 7h2v6h-2z"/></svg>
+          </div>
+          <h3>Attention</h3>
+        </div>
+        <div class="compare-columns">
+          <div class="compare-col">
+            <div class="compare-label">Girls</div>
+            <p>Inattentive/daydreaming, quiet distraction, task initiation hurdles, appears "spacey"</p>
+          </div>
+          <div class="compare-col">
+            <div class="compare-label">Boys</div>
+            <p>Noticeable distractibility, frequent redirection needed, obvious focus issues</p>
+          </div>
+        </div>
+        <div class="compare-note"><strong>Key Insight:</strong> Girls' quiet inattention is often missed by teachers and parents.</div>
+      </article>
+
+      <article class="compare-card">
+        <div class="compare-header">
+          <div class="compare-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 13h4l3-8 4 14 3-6h4"/></svg>
+          </div>
+          <h3>Activity Level</h3>
+        </div>
+        <div class="compare-columns">
+          <div class="compare-col">
+            <div class="compare-label">Girls</div>
+            <p>Internal restlessness, fidgeting, mental hyperactivity, talks excessively</p>
+          </div>
+          <div class="compare-col">
+            <div class="compare-label">Boys</div>
+            <p>Overt hyperactivity, impulsive movement, can't sit still, disruptive</p>
+          </div>
+        </div>
+        <div class="compare-note"><strong>Key Insight:</strong> Internal vs. external expression affects referral rates dramatically.</div>
+      </article>
+
+      <article class="compare-card">
+        <div class="compare-header">
+          <div class="compare-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <h3>Emotional Expression</h3>
+        </div>
+        <div class="compare-columns">
+          <div class="compare-col">
+            <div class="compare-label">Girls</div>
+            <p>Masking, people-pleasing, intense sensitivity to rejection, internalized distress</p>
+          </div>
+          <div class="compare-col">
+            <div class="compare-label">Boys</div>
+            <p>Frustration shows outwardly, quicker meltdowns, oppositional behavior</p>
+          </div>
+        </div>
+        <div class="compare-note"><strong>Key Insight:</strong> Both need co-regulation and predictable routines, but often with different approaches.</div>
+      </article>
+
+      <article class="compare-card">
+        <div class="compare-header">
+          <div class="compare-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 0 1 2-2h13a3 3 0 0 1 3 3v13a1 1 0 0 1-1.447.894L16 18.118l-3.553 1.776A1 1 0 0 1 11 19V6H5a2 2 0 0 1-2-1z"/></svg>
+          </div>
+          <h3>Academic Performance</h3>
+        </div>
+        <div class="compare-columns">
+          <div class="compare-col">
+            <div class="compare-label">Girls</div>
+            <p>Good grades maintained through effort, inconsistent follow-through, overwhelm in late teens</p>
+          </div>
+          <div class="compare-col">
+            <div class="compare-label">Boys</div>
+            <p>Performance swings linked to behavior flags, struggles identified earlier</p>
+          </div>
+        </div>
+        <div class="compare-note"><strong>Key Insight:</strong> Executive function supports help both groups succeed long-term.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section resource-panel" id="ua-stats">
+    <div class="section-header">
+      <h2 class="section-title">ADHD Statistics &amp; Comparison</h2>
+      <p class="section-subtitle">Key facts about ADHD in girls and boys</p>
+    </div>
+
+    <div style="overflow-x:auto;margin:32px 0;">
+      <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-md);overflow:hidden;">
+        <thead>
+          <tr style="background:linear-gradient(135deg,var(--cerise),var(--orange));color:#fff;">
+            <th style="padding:20px;text-align:left;font-weight:700;font-size:1.1rem;">Category</th>
+            <th style="padding:20px;text-align:left;font-weight:700;font-size:1.1rem;">Girls</th>
+            <th style="padding:20px;text-align:left;font-weight:700;font-size:1.1rem;">Boys</th>
+            <th style="padding:20px;text-align:left;font-weight:700;font-size:1.1rem;">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(44,14,55,.1);">
+            <td style="padding:18px 20px;font-weight:600;color:var(--purple);">Diagnosis Rate</td>
+            <td style="padding:18px 20px;color:#5d4d57;">1 in 3 diagnosed</td>
+            <td style="padding:18px 20px;color:#5d4d57;">1 in 1 diagnosed</td>
+            <td style="padding:18px 20px;color:#5d4d57;font-size:.95rem;">Girls are 3x more likely to be undiagnosed</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(44,14,55,.1);background:rgba(236,5,142,.03);">
+            <td style="padding:18px 20px;font-weight:600;color:var(--purple);">Common Type</td>
+            <td style="padding:18px 20px;color:#5d4d57;">Inattentive (70%)</td>
+            <td style="padding:18px 20px;color:#5d4d57;">Hyperactive-Impulsive (60%)</td>
+            <td style="padding:18px 20px;color:#5d4d57;font-size:.95rem;">Different presentations lead to missed diagnoses</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(44,14,55,.1);">
+            <td style="padding:18px 20px;font-weight:600;color:var(--purple);">Masking Behavior</td>
+            <td style="padding:18px 20px;color:#5d4d57;">75% mask symptoms</td>
+            <td style="padding:18px 20px;color:#5d4d57;">40% mask symptoms</td>
+            <td style="padding:18px 20px;color:#5d4d57;font-size:.95rem;">Girls learn to hide symptoms to fit in</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(44,14,55,.1);background:rgba(236,5,142,.03);">
+            <td style="padding:18px 20px;font-weight:600;color:var(--purple);">Age of Diagnosis</td>
+            <td style="padding:18px 20px;color:#5d4d57;">Average: 12-15 years</td>
+            <td style="padding:18px 20px;color:#5d4d57;">Average: 7-9 years</td>
+            <td style="padding:18px 20px;color:#5d4d57;font-size:.95rem;">Girls diagnosed 5-6 years later on average</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(44,14,55,.1);">
+            <td style="padding:18px 20px;font-weight:600;color:var(--purple);">Emotional Intensity</td>
+            <td style="padding:18px 20px;color:#5d4d57;">High (85%)</td>
+            <td style="padding:18px 20px;color:#5d4d57;">Moderate (50%)</td>
+            <td style="padding:18px 20px;color:#5d4d57;font-size:.95rem;">Rejection sensitivity more common in girls</td>
+          </tr>
+          <tr style="background:rgba(236,5,142,.03);">
+            <td style="padding:18px 20px;font-weight:600;color:var(--purple);">Academic Performance</td>
+            <td style="padding:18px 20px;color:#5d4d57;">Often maintained through effort</td>
+            <td style="padding:18px 20px;color:#5d4d57;">More variable, noticed earlier</td>
+            <td style="padding:18px 20px;color:#5d4d57;font-size:.95rem;">Girls' good grades can mask ADHD</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center;margin-top:24px;color:#7d6d77;font-size:.9rem;">
+      Figures are approximate and drawn from gender-based ADHD research including Mowlem et al. (2019), Quinn &amp; Madhoo (2014), Gershon (2002), Hinshaw (2009), and Nadeau, Littman &amp; Quinn’s <em>Understanding Girls with ADHD</em>, with supplemental summaries from CHADD and the CDC.
+    </p>
+  </section>
+
+  <section class="section resource-panel" id="ua-diagnosis">
+    <div class="section-header">
+      <h2 class="section-title">What IS ADHD?</h2>
+      <p class="section-subtitle">The science behind how ADHD affects attention, motivation, and executive function</p>
+    </div>
+
+    <div class="science-grid">
+      <div class="science-card">
+        <h3>Executive Function Differences</h3>
+        <p>ADHD is a neurological condition affecting executive functions — the brain's "command center" for planning, organizing, initiating tasks, and regulating emotions.</p>
+        <div class="science-highlight">
+          <strong>What this means:</strong> It's not laziness, lack of intelligence, or bad parenting. It's actual differences in brain structure and function, particularly in the prefrontal cortex.
+        </div>
+      </div>
+
+      <div class="science-card">
+        <h3>Dopamine &amp; Neurotransmitters</h3>
+        <p>ADHD brains have lower baseline dopamine and norepinephrine. These chemicals regulate attention, motivation, and reward processing.</p>
+        <div class="science-highlight">
+          <strong>What this means:</strong> You need novelty, interest, or urgency to activate your brain. "Boring" tasks don't provide enough dopamine to engage your attention system.
+        </div>
+      </div>
+
+      <div class="science-card">
+        <h3>Three Types of ADHD</h3>
+        <p><strong>Inattentive:</strong> Difficulty focusing, easily distracted, forgetful (most common in girls).</p>
+        <p><strong>Hyperactive‑Impulsive:</strong> Restless, fidgety, impulsive.</p>
+        <p><strong>Combined:</strong> Both inattentive and hyperactive symptoms.</p>
+        <div class="science-highlight">
+          <strong>Girls typically show:</strong> Inattentive type with internal hyperactivity (mental restlessness rather than physical disruption).
+        </div>
+      </div>
+
+      <div class="science-card">
+        <h3>It's Neurodevelopmental</h3>
+        <p>ADHD is present from childhood and affects development. Executive functions in ADHD develop around 30% slower — a 15‑year‑old's brain can function like a 10‑year‑old's in these areas.</p>
+        <div class="science-highlight">
+          <strong>Good news:</strong> With support and strategies, skills improve over time. Your brain continues developing into your mid‑20s.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section resource-panel" id="ua-myths">
+    <div class="section-header">
+      <h2 class="section-title">Diagnosis &amp; Testing for Girls</h2>
+      <p class="section-subtitle">Why girls need stronger advocates — and more in‑depth evaluations</p>
+    </div>
+
+    <div class="science-grid">
+      <div class="science-card">
+        <h3>Why girls are missed</h3>
+        <p>Diagnostic criteria were built largely around boys who are visibly hyperactive and disruptive. Many girls look "fine on paper" while working 2–3x as hard as peers just to keep up.</p>
+        <ul>
+          <li>Quiet inattention and daydreaming are seen as personality, not disability.</li>
+          <li>Masking and perfectionism hide how hard she's working behind the scenes.</li>
+          <li>Good grades can convince adults that "it can't be ADHD."</li>
+        </ul>
+        <div class="science-highlight">
+          <strong>Bottom line:</strong> Undiagnosed girls often internalize shame and anxiety instead of getting support. That’s a systems problem, not a parenting problem.
+        </div>
+      </div>
+
+      <div class="science-card">
+        <h3>What a thorough evaluation should include</h3>
+        <p>A quick 5‑minute checklist is not enough — especially for girls. A high‑quality ADHD assessment should include:</p>
+        <ul>
+          <li>Clinical interview with parents and the girl herself (including questions about masking and emotional load).</li>
+          <li>Standardized rating scales from multiple settings: home, school, and self‑report for teens.</li>
+          <li>Review of report cards, teacher comments, and work samples across several years.</li>
+          <li>Neuropsychological or psycho‑educational testing when attention, learning, or executive function questions are present.</li>
+        </ul>
+        <div class="science-highlight">
+          <strong>For girls:</strong> Evaluators should ask about emotional regulation, perfectionism, and social burnout — not just "disruptive behavior."
+        </div>
+      </div>
+
+      <div class="science-card">
+        <h3>How parents and caregivers can advocate</h3>
+        <ul>
+          <li>Request a formal school evaluation in writing (email counts) or a full ADHD assessment from a clinician — not just a "screen".</li>
+          <li>Bring a written timeline of struggles: homework battles, after‑school crashes, masking at school, meltdowns at home.</li>
+          <li>Ask directly: <em>"How does your evaluation process account for ADHD in girls and internalizing presentations?"</em></li>
+          <li>If your concerns are dismissed as "anxiety" or "personality" without ruling out ADHD, seek a second opinion.</li>
+        </ul>
+        <div class="science-highlight">
+          <strong>Yes, it’s unfair:</strong> Girls often need more in‑depth testing and stronger advocacy to get the same recognition and support boys receive by default.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section resource-panel" id="ua-strengths">
+    <div class="section-header">
+      <h2 class="section-title">Common Myths vs. Facts</h2>
+      <p class="section-subtitle">Clearing up misconceptions — especially the ones that hurt girls</p>
+    </div>
+
+    <div class="myths-grid">
+      <div class="myth-card">
+        <div class="myth-section">
+          <span class="myth-label">❌ MYTH</span>
+          <p class="myth-text">"You can't have ADHD if you can hyperfocus."</p>
+        </div>
+        <div class="myth-section">
+          <span class="fact-label">✓ FACT</span>
+          <p class="myth-text">Hyperfocus is a hallmark of ADHD. The challenge isn't zero attention — it's inconsistent attention regulation. Girls may hyperfocus on reading, art, or friends while struggling to start homework.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-section">
+          <span class="myth-label">❌ MYTH</span>
+          <p class="myth-text">"Girls don't get ADHD as much as boys."</p>
+        </div>
+        <div class="myth-section">
+          <span class="fact-label">✓ FACT</span>
+          <p class="myth-text">ADHD affects girls just as much as boys — they’re simply diagnosed later and less often. Girls often present with inattentive traits, RSD (rejection sensitivity), and masking, which traditional checklists miss.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-section">
+          <span class="myth-label">❌ MYTH</span>
+          <p class="myth-text">"ADHD medication will change your personality or make you a zombie."</p>
+        </div>
+        <div class="myth-section">
+          <span class="fact-label">✓ FACT</span>
+          <p class="myth-text">Properly prescribed medication should make a girl feel more like herself — not less. If she feels "flat" or unlike herself, the dose or medication isn’t a good fit and should be adjusted with her prescriber.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-section">
+          <span class="myth-label">❌ MYTH</span>
+          <p class="myth-text">"You'll grow out of ADHD as you get older."</p>
+        </div>
+        <div class="myth-section">
+          <span class="fact-label">✓ FACT</span>
+          <p class="myth-text">ADHD is lifelong. Hyperactivity may quiet down, but executive‑function challenges and emotional intensity often become more visible as life expectations grow. With support, girls grow into powerful, self‑aware adults.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-section">
+          <span class="myth-label">❌ MYTH</span>
+          <p class="myth-text">"People with ADHD just need to try harder and be more disciplined."</p>
+        </div>
+        <div class="myth-section">
+          <span class="fact-label">✓ FACT</span>
+          <p class="myth-text">ADHD is not a willpower problem. It’s a brain‑wiring difference that affects motivation, time perception, and decision‑making. Systems, supports, and sometimes medication work; shame does not.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section resource-panel" id="ua-stories">
+    <div class="section-header">
+      <h2 class="section-title">From "Symptoms" to Strengths</h2>
+      <p class="section-subtitle">How ADHD traits can become superpowers with the right supports</p>
+    </div>
+
+    <div class="strengths-grid">
+      <div class="strength-card">
+        <h4><span class="strength-icon">🎨</span> Creativity &amp; Innovation</h4>
+        <p>Your brain makes unexpected connections others miss. You see solutions from angles no one else considered.</p>
+        <div class="reframe-box">
+          <p><strong>Leverage this:</strong> Design, art, writing, entrepreneurship, problem‑solving and brainstorming roles. Divergent thinking is an asset in creative and strategic fields.</p>
+        </div>
+      </div>
+
+      <div class="strength-card">
+        <h4><span class="strength-icon">⚡</span> Hyperfocus Power</h4>
+        <p>When something captivates you, you can work with intense concentration for hours, achieving flow states others rarely experience.</p>
+        <div class="reframe-box">
+          <p><strong>Leverage this:</strong> Choose school subjects and careers that align with genuine interests. Structure life so your hyperfocus points toward projects that matter to you.</p>
+        </div>
+      </div>
+
+      <div class="strength-card">
+        <h4><span class="strength-icon">💡</span> Pattern Recognition</h4>
+        <p>Your brain rapidly connects dots across different domains. You spot trends, inconsistencies, and solutions quickly.</p>
+        <div class="reframe-box">
+          <p><strong>Leverage this:</strong> Research, investigation, diagnostics, strategy, data analysis. Your constant scanning becomes a strength when given a clear target.</p>
+        </div>
+      </div>
+
+      <div class="strength-card">
+        <h4><span class="strength-icon">❤️</span> Emotional Depth &amp; Empathy</h4>
+        <p>You feel things deeply and read emotional undercurrents well. This makes you compassionate, intuitive, and connected.</p>
+        <div class="reframe-box">
+          <p><strong>Leverage this:</strong> Counseling, teaching, healthcare, advocacy, and creative fields. Your emotional intelligence is a superpower in people‑focused roles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section resource-panel" id="ua-faq">
+    <div class="section-header">
+      <h2 class="section-title">Success Stories</h2>
+      <p class="section-subtitle">Real women and girls who thrived with ADHD</p>
+    </div>
+
+    <div class="success-grid">
+      <div class="success-card">
+        <div class="success-avatar">🎤</div>
+        <h4>Simone Biles</h4>
+        <div class="role">Olympic Gymnast</div>
+        <p>The most decorated gymnast in history has ADHD. Her openness about medication and mental health shows that ADHD doesn’t limit excellence.</p>
+      </div>
+
+      <div class="success-card">
+        <div class="success-avatar">🎬</div>
+        <h4>Emma Watson</h4>
+        <div class="role">Actress &amp; Activist</div>
+        <p>The Harry Potter star has spoken about living with ADHD and using strategies to manage it while excelling in acting and advocacy.</p>
+      </div>
+
+      <div class="success-card">
+        <div class="success-avatar">🎨</div>
+        <h4>Agatha Christie</h4>
+        <div class="role">Novelist</div>
+        <p>One of the best‑selling authors of all time showed clear ADHD traits. Her creativity, unconventional thinking, and hyperfocus led to dozens of iconic mysteries.</p>
+      </div>
+
+      <div class="success-card">
+        <div class="success-avatar">🔬</div>
+        <h4>Dr. Hallowell</h4>
+        <div class="role">ADHD Expert</div>
+        <p>A leading ADHD psychiatrist who has ADHD himself. He turned his lived experience into a career helping others understand and thrive with ADHD.</p>
+      </div>
+
+      <div class="success-card">
+        <div class="success-avatar">🎵</div>
+        <h4>Solange Knowles</h4>
+        <div class="role">Singer &amp; Artist</div>
+        <p>Diagnosed with ADHD as a child, Solange has spoken about her diagnosis and how creativity and artistic vision became core strengths.</p>
+      </div>
+
+      <div class="success-card">
+        <div class="success-avatar">💼</div>
+        <h4>Entrepreneurs</h4>
+        <div class="role">Business Leaders</div>
+        <p>Research suggests people with ADHD are several times more likely to start their own businesses. Risk‑taking, innovation, and high energy fuel entrepreneurial success.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section resource-panel" id="ua-faq-section">
+    <div class="section-header">
+      <h2 class="section-title">ADHD FAQ</h2>
+      <p class="section-subtitle">Evidence‑based answers to common questions from girls and parents</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">How is ADHD diagnosed?</summary>
+        <div class="faq-answer">
+          <p>Diagnosis requires a comprehensive evaluation by a qualified professional (psychiatrist, psychologist, or specialized pediatrician). This includes:</p>
+          <ul>
+            <li>Clinical interview about symptoms and history (including masking and emotional load in girls).</li>
+            <li>Standardized rating scales from parents, teachers, and the girl herself (for teens).</li>
+            <li>Ruling out or in co‑occurring conditions (anxiety, depression, learning differences).</li>
+            <li>Assessment of impairment across multiple settings (home, school, social).</li>
+          </ul>
+          <p>There is no single “ADHD test.” It’s a pattern of symptoms, impact, and history.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Can ADHD be outgrown?</summary>
+        <div class="faq-answer">
+          <p>ADHD is lifelong, but how it shows up changes. Many people report outgrowing obvious hyperactivity while still struggling with organization, time, and overwhelm. With support, ADHD becomes a difference to manage — not a life sentence.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Is medication necessary?</summary>
+        <div class="faq-answer">
+          <p>Not always. The decision depends on symptom severity, daily functioning, and personal values. Research shows the best outcomes often come from combining medication with strategies and support. Some girls manage well with strategies alone; others need medication to make strategies usable.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What if medication doesn’t work or feels wrong?</summary>
+        <div class="faq-answer">
+          <p>Finding the right medication and dose can take trial and error. There are multiple classes (stimulants and non‑stimulants). If one doesn’t work or has uncomfortable side‑effects, work with the prescriber to adjust or try another. Feeling “zombie‑like” is a sign to change the plan, not to give up.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How do I advocate for my daughter at school?</summary>
+        <div class="faq-answer">
+          <p>Start by requesting an evaluation in writing (email is fine). Schools typically have timelines to respond and assess for 504 or IEP eligibility.</p>
+          <ul>
+            <li>Bring documentation of struggles, not just grades.</li>
+            <li>Ask for specific accommodations (breaks, extended time, written instructions, movement, body doubling).</li>
+            <li>Follow up in writing after meetings; keep a paper trail.</li>
+          </ul>
+          <p>You are an equal partner in the process — not a guest.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer and timer / COPPA blocks copied from index.html -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="alldayhd_logo.png" alt="All Day HD Logo" />
+          <h4>All Day HD</h4>
+        </div>
+        <p>Empowering teen girls with ADHD and their families through evidence-based strategies, supportive community, and practical tools for daily life.</p>
+        <p class="brand-line">All Day HD = All Day Hi‑Def — a strengths‑based lens on ADHD.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="girls.html">Girls Ages 8-12</a></li>
+          <li><a href="teens.html">Girls Ages 13-18</a></li>
+          <li><a href="parents.html">For Parents</a></li>
+          <li><a href="toolkit.html">Focus Toolkit</a></li>
+          <li><a href="wellness.html">Wellness</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 All Day HD — Girls in Focus. Educational content only — not medical advice.</p>
+        <div class="social-icons">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Timer Modal -->
+<div class="timer-modal" id="timer-modal">
+  <div class="timer-modal-content">
+    <div class="timer-modal-header">
+      <h3>Focus Timer</h3>
+      <button class="timer-modal-close" id="timer-modal-close">×</button>
+    </div>
+    <div class="timer-large-display">
+      <div class="timer-time" id="timer-modal-time">20:00</div>
+      <div class="timer-label" id="timer-modal-label">Click start to begin</div>
+    </div>
+    <div class="timer-modal-controls">
+      <button class="timer-modal-btn primary" id="timer-modal-start">Start</button>
+      <button class="timer-modal-btn secondary" id="timer-modal-reset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Timer Modal & Functionality (copied from index.html)
+(function() {
+  'use strict';
+  
+  const navDisplay = document.getElementById('nav-timer-display');
+  const modalDisplay = document.getElementById('timer-modal-time');
+  const modalLabel = document.getElementById('timer-modal-label');
+  const navBtn = document.getElementById('nav-timer-btn');
+  const modal = document.getElementById('timer-modal');
+  const modalClose = document.getElementById('timer-modal-close');
+  const modalStart = document.getElementById('timer-modal-start');
+  const modalReset = document.getElementById('timer-modal-reset');
+  
+  if (!navDisplay || !navBtn || !modal) return;
+  
+  let minutes = 20;
+  let seconds = 0;
+  let interval = null;
+  let running = false;
+  
+  // Load state from sessionStorage
+  function loadState() {
+    const saved = sessionStorage.getItem('navTimer');
+    if (saved) {
+      const state = JSON.parse(saved);
+      minutes = state.minutes || 20;
+      seconds = state.seconds || 0;
+      running = state.running || false;
+      updateDisplays();
+      if (running) startTimer();
+    }
+  }
+  
+  // Save state to sessionStorage
+  function saveState() {
+    sessionStorage.setItem('navTimer', JSON.stringify({
+      minutes: minutes,
+      seconds: seconds,
+      running: running
+    }));
+  }
+  
+  function updateDisplays() {
+    const timeStr = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    navDisplay.textContent = timeStr;
+    if (modalDisplay) modalDisplay.textContent = timeStr;
+    
+    if (running) {
+      modalLabel.textContent = 'Focus session active';
+      if (modalStart) modalStart.textContent = 'Pause';
+    } else {
+      modalLabel.textContent = 'Timer paused';
+      if (modalStart) modalStart.textContent = 'Start';
+    }
+    
+    saveState();
+  }
+  
+  function startTimer() {
+    if (interval) clearInterval(interval);
+    
+    interval = setInterval(function() {
+      if (seconds > 0) {
+        seconds--;
+      } else if (minutes > 0) {
+        minutes--;
+        seconds = 59;
+      } else {
+        clearInterval(interval);
+        interval = null;
+        running = false;
+        navDisplay.textContent = '20:00';
+        modalDisplay.textContent = '20:00';
+        modalLabel.textContent = 'Time\'s up! Take a break.';
+        alert('Time\'s up! Take your break.');
+        minutes = 20;
+        seconds = 0;
+        saveState();
+        closeModal();
+      }
+      updateDisplays();
+    }, 1000);
+    
+    running = true;
+    updateDisplays();
+  }
+  
+  function stopTimer() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+    running = false;
+    updateDisplays();
+  }
+  
+  function resetTimer() {
+    stopTimer();
+    minutes = 20;
+    seconds = 0;
+    updateDisplays();
+  }
+  
+  function openModal() {
+    modal.classList.add('active');
+    updateDisplays();
+  }
+  
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+  
+  // Event listeners
+  navDisplay.addEventListener('click', openModal);
+  navBtn.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  modalStart.addEventListener('click', function() {
+    if (running) {
+      stopTimer();
+    } else {
+      startTimer();
+    }
+  });
+  modalReset.addEventListener('click', resetTimer);
+  
+  // Close modal on background click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  
+  // Save state when page is about to unload
+  window.addEventListener('beforeunload', function() {
+    saveState();
+  });
+  
+  // Save state when page becomes hidden (tab switch, minimize, etc.)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      saveState();
+    } else if (running) {
+      loadState();
+    }
+  });
+  
+  // Initialize
+  loadState();
+})();
+
+// Tabs for Understanding ADHD sections (mirror resources page behavior)
+(function() {
+  const tabs = document.querySelectorAll('.resource-tab');
+  const panels = document.querySelectorAll('.resource-panel');
+  if (!tabs.length || !panels.length) return;
+
+  document.body.classList.add('resource-tabs-enabled');
+
+  function activatePanel(targetId) {
+    tabs.forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.target === targetId);
+    });
+    panels.forEach(panel => {
+      panel.classList.toggle('is-active', panel.id === targetId);
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const targetId = this.dataset.target;
+      activatePanel(targetId);
+    });
+  });
+
+  // Prefer hash target if present, otherwise use the default active tab
+  const hash = window.location.hash && window.location.hash.substring(1);
+  const hashPanel = hash && document.getElementById(hash);
+  if (hashPanel && hashPanel.classList.contains('resource-panel')) {
+    activatePanel(hashPanel.id);
+  } else {
+    const initial = document.querySelector('.resource-tab.active');
+    if (initial) {
+      activatePanel(initial.dataset.target);
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
+
+
