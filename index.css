@@ -1566,15 +1566,15 @@ footer::before{
 @media(min-width:901px){
   .footer-content{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    column-gap:12px;
+    grid-template-columns:minmax(220px,1.2fr) repeat(3,minmax(130px,max-content));
+    column-gap:16px;
     row-gap:0;
     max-width:100%;
     width:100%;
     margin-left:0;
     margin-right:0;
   }
-  .footer-brand{grid-column:1/2;width:auto;padding-right:120px}
+  .footer-brand{grid-column:1/2;width:auto;padding-right:80px}
   .footer-section:nth-child(2){grid-column:2/3;width:auto}
   .footer-section:nth-child(3){grid-column:3/4;width:auto}
   .footer-section:nth-child(4){grid-column:4/5;width:auto}

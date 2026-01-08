@@ -602,8 +602,8 @@ footer::before{
 @media(min-width:901px){
   .footer-content{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    column-gap:12px;
+    grid-template-columns:minmax(220px,1.2fr) repeat(3,minmax(130px,max-content));
+    column-gap:16px;
     row-gap:0;
     align-items:start;
     justify-items:start;
@@ -615,7 +615,7 @@ footer::before{
   .footer-brand{
     width:auto;
     grid-column:1 / 2;
-    padding-right:120px;
+    padding-right:80px;
   }
   .footer-section:nth-child(2){
     width:auto;
