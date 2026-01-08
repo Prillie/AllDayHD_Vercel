@@ -1564,8 +1564,19 @@ footer::before{
   .footer-content{grid-template-columns:repeat(2,1fr)}
 }
 @media(min-width:901px){
-  .footer-content{grid-template-columns:2fr auto auto auto;gap:4px;max-width:1150px;margin-left:auto;margin-right:auto}
-  .footer-brand,.footer-section{width:auto}
+  .footer-content{
+    display:grid;
+    grid-template-columns:2fr minmax(140px,max-content) minmax(120px,max-content) minmax(140px,max-content);
+    column-gap:24px;
+    row-gap:0;
+    max-width:1150px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .footer-brand{grid-column:1;width:auto}
+  .footer-section:nth-of-type(1){grid-column:2;width:auto}
+  .footer-section:nth-of-type(2){grid-column:3;width:auto}
+  .footer-section:nth-of-type(3){grid-column:4;width:auto}
 }
 .footer-brand{
   display:flex;
