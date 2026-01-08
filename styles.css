@@ -573,6 +573,9 @@ footer{
   position:relative;
   overflow:hidden;
 }
+footer .container{
+  padding:0 16px;
+}
 main{
   flex:1;
   margin-top:80px;
@@ -592,6 +595,9 @@ footer::before{
   width:100%;
 }
 @media(min-width:900px){
+  footer .container{
+    padding:0 12px;
+  }
   .footer-content{
     grid-template-columns:minmax(0,1.2fr) minmax(0,0.9fr) minmax(0,0.7fr) minmax(0,0.9fr);
     row-gap:0;
@@ -600,6 +606,9 @@ footer::before{
   }
 }
 @media(min-width:1100px){
+  footer .container{
+    padding:0 16px;
+  }
   .footer-content{
     grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,0.8fr) minmax(0,1fr);
     row-gap:0;
