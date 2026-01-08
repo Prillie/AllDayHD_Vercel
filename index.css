@@ -1567,17 +1567,17 @@ footer::before{
   .footer-content{
     display:grid;
     grid-template-columns:minmax(220px,1.2fr) repeat(3,minmax(130px,max-content));
-    column-gap:16px;
+    column-gap:40px;
     row-gap:0;
     max-width:100%;
     width:100%;
     margin-left:0;
     margin-right:0;
   }
-  .footer-brand{grid-column:1/2;width:auto;padding-right:80px}
-  .footer-section:nth-child(2){grid-column:2/3;width:auto}
-  .footer-section:nth-child(3){grid-column:3/4;width:auto}
-  .footer-section:nth-child(4){grid-column:4/5;width:auto}
+  .footer-brand{grid-column:1/2;width:auto;padding-right:50px}
+  .footer-section:nth-child(2){grid-column:2/3;width:auto;padding:0;margin:0}
+  .footer-section:nth-child(3){grid-column:3/4;width:auto;padding:0;margin:0}
+  .footer-section:nth-child(4){grid-column:4/5;width:auto;padding:0;margin:0}
 }
 .footer-brand{
   display:flex;
