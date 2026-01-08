@@ -590,18 +590,24 @@ footer::before{
   gap:40px;
   margin-bottom:40px;
   width:100%;
+  justify-items:start;
 }
 @media(min-width:561px){
   .footer-content{
     grid-template-columns:repeat(2,1fr);
-    gap:24px;
+    gap:20px;
+    justify-items:start;
   }
 }
 @media(min-width:901px){
   .footer-content{
     grid-template-columns:1.6fr 1fr 1fr 0.9fr;
-    gap:24px;
+    gap:16px;
     align-items:start;
+    justify-items:start;
+    max-width:1100px;
+    margin-left:auto;
+    margin-right:auto;
   }
 }
 .footer-brand{
@@ -612,6 +618,7 @@ footer::before{
   max-width:100%;
   padding:0;
   margin:0;
+  width:100%;
 }
 .footer-logo{
   display:flex;
@@ -652,6 +659,7 @@ footer::before{
   overflow:hidden;
   padding:0;
   margin:0;
+  width:100%;
 }
 .footer-section h4{
   color:#fff;
