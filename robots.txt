@@ -1,0 +1,11 @@
+# robots.txt for All Day HD
+# https://www.alldayhd.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow API endpoints (not for indexing)
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.alldayhd.com/sitemap.xml
