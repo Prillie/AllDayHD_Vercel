@@ -447,6 +447,15 @@ nav .nav-inner{
   cursor:pointer;
   transition:all .3s ease;
   font-size:1rem;
+  outline:none;
+}
+.filter-btn::-moz-focus-inner{
+  border:0;
+  padding:0;
+}
+.filter-btn:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(44,14,55,.15);
 }
 .filter-btn:hover{
   border-color:var(--cerise);
