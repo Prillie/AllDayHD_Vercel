@@ -603,7 +603,7 @@ footer::before{
   .footer-content{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    column-gap:48px;
+    column-gap:24px;
     row-gap:0;
     align-items:start;
     justify-items:start;
@@ -615,7 +615,7 @@ footer::before{
   .footer-brand{
     width:auto;
     grid-column:1 / 2;
-    padding-right:48px;
+    padding-right:80px;
   }
   .footer-section:nth-child(2){
     width:auto;
