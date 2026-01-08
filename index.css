@@ -1567,7 +1567,7 @@ footer::before{
   .footer-content{
     display:grid;
     grid-template-columns:2fr minmax(140px,max-content) minmax(120px,max-content) minmax(140px,max-content);
-    column-gap:24px;
+    column-gap:12px;
     row-gap:0;
     max-width:1150px;
     margin-left:auto;
