@@ -1561,7 +1561,11 @@ footer::before{
   margin-bottom:40px;
 }
 @media(min-width:768px){
-  .footer-content{grid-template-columns:2fr 1.5fr 1fr}
+  .footer-content{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:901px){
+  .footer-content{grid-template-columns:2fr auto auto auto;gap:4px;max-width:1150px;margin-left:auto;margin-right:auto}
+  .footer-brand,.footer-section{width:auto}
 }
 .footer-brand{
   display:flex;
