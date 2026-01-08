@@ -602,8 +602,8 @@ footer::before{
 @media(min-width:901px){
   .footer-content{
     display:grid;
-    grid-template-columns:minmax(220px,0.8fr) minmax(130px,max-content) minmax(120px,max-content) minmax(130px,max-content);
-    column-gap:8px;
+    grid-template-columns:minmax(220px,0.75fr) minmax(130px,max-content) minmax(120px,max-content) minmax(130px,max-content);
+    gap:0;
     row-gap:0;
     align-items:start;
     justify-items:start;
@@ -614,19 +614,24 @@ footer::before{
   .footer-brand{
     width:auto;
     grid-column:1;
-    padding-right:6px;
+    padding-right:12px;
   }
   .footer-section:nth-of-type(1){
     width:auto;
     grid-column:2;
+    padding-left:0;
+    padding-right:20px;
   }
   .footer-section:nth-of-type(2){
     width:auto;
     grid-column:3;
+    padding-left:0;
+    padding-right:20px;
   }
   .footer-section:nth-of-type(3){
     width:auto;
     grid-column:4;
+    padding-left:0;
   }
 }
 .footer-brand{
