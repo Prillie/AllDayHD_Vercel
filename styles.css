@@ -591,7 +591,10 @@ footer::before{
   margin-bottom:40px;
 }
 @media(min-width:768px){
-  .footer-content{grid-template-columns:2fr 1.5fr 1fr}
+  .footer-content{grid-template-columns:2fr 1fr 1fr 1fr;gap:24px}
+}
+@media(min-width:1024px){
+  .footer-content{gap:32px}
 }
 .footer-brand{
   display:flex;
@@ -628,8 +631,8 @@ footer::before{
 }
 .footer-section h4{
   color:#fff;
-  margin-bottom:20px;
-  font-size:1.15rem;
+  margin-bottom:16px;
+  font-size:1rem;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.5px;
@@ -644,7 +647,10 @@ footer::before{
   padding:0;
 }
 .footer-links li{
-  margin:10px 0;
+  margin:8px 0;
+}
+.footer-links li a{
+  font-size:0.95rem;
 }
 .footer-links a{
   color:#fff;
