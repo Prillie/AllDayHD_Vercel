@@ -592,15 +592,15 @@ footer::before{
 }
 @media(min-width:768px){
   .footer-content{
-    grid-template-columns:1.5fr 0.9fr 0.7fr 0.9fr;
-    gap:8px;
+    grid-template-columns:minmax(200px,1.4fr) minmax(100px,0.9fr) minmax(80px,0.7fr) minmax(100px,0.9fr);
+    gap:6px;
     align-items:start;
   }
 }
 @media(min-width:1024px){
   .footer-content{
-    grid-template-columns:1.6fr 1fr 0.8fr 1fr;
-    gap:12px;
+    grid-template-columns:minmax(250px,1.5fr) minmax(120px,1fr) minmax(90px,0.8fr) minmax(120px,1fr);
+    gap:10px;
   }
 }
 .footer-brand{
@@ -631,27 +631,31 @@ footer::before{
 }
 .footer-brand p{
   opacity:.85;
-  line-height:1.5;
+  line-height:1.4;
   max-width:none;
-  font-size:0.875rem;
+  font-size:0.8rem;
   margin:0;
+  word-wrap:break-word;
+  overflow-wrap:break-word;
 }
 .footer-brand .brand-line{
   opacity:.9;
   margin-top:-4px;
-  font-size:0.875rem;
+  font-size:0.8rem;
   margin-bottom:0;
 }
 .footer-section{
   min-width:0;
+  max-width:100%;
+  overflow:hidden;
 }
 .footer-section h4{
   color:#fff;
-  margin-bottom:10px;
-  font-size:0.875rem;
+  margin-bottom:8px;
+  font-size:0.8rem;
   font-weight:700;
   text-transform:uppercase;
-  letter-spacing:.5px;
+  letter-spacing:.4px;
   opacity:.95;
   line-height:1.2;
 }
@@ -663,12 +667,18 @@ footer::before{
   list-style:none;
   padding:0;
 }
+.footer-links{
+  min-width:0;
+}
 .footer-links li{
-  margin:5px 0;
+  margin:4px 0;
 }
 .footer-links li a{
-  font-size:0.85rem;
+  font-size:0.8rem;
   white-space:nowrap;
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .footer-links a{
   color:#fff;
